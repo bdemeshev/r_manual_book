@@ -3,7 +3,7 @@ title: "Учебник по языку R для начинающих"
 author: "Борис Демешев"
 date: "`r Sys.Date()`"
 lang: russian
-babel-lang: russian
+mainlang: russian
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
