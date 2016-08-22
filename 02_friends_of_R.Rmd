@@ -1,15 +1,47 @@
 # Друзья R {#friends_of_R}
 
+ывава
+ыва
+ыва
 
-## Рабочий процесс
-## Контроль версий
-## Латех
-## Маркдаун
-## Воспроизводимые исследования
-## Написание своего пакета
-## Вычисления в облаке
-## Презентации
-## Про эту книжку
+
+## Рабочий процесс {#workflow}
+
+...
+
+
+## Контроль версий {#version_control}
+
+...
+
+
+## Латех {#latex}
+
+
+...
+
+## Маркдаун {#markdown}
+
+...
+
+## Воспроизводимые исследования {#reproducible_research}
+
+...
+
+## Написание своего пакета {#own_package}
+
+...
+
+## Вычисления в облаке {#cloud_computing}
+
+...
+
+## Презентации {#presentations}
+
+...
+
+## Про эту книжку {#this_book}
+
 
 Разбить на большее количество глав!!!
 
@@ -54,4 +86,19 @@ brew update
 brew cask install calibre
 brew cask install kindlegen
 ```
+
+В предисловии
+```{yaml, eval=FALSE}
+bookdown::kindlegen:
+  epub: _book/r_manual.epub
+```
+
+или
+```{yaml, eval=FALSE}
+bookdown::calibre:
+  input: _book/r_manual.epub
+  output: _book/r_manual.mobi 
+```
+
+
 

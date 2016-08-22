@@ -11,7 +11,7 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: bdemeshev/r_manual_book
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+description: "Учебник по языку R и не только :)"
 ---
 
 # О книге {-}
