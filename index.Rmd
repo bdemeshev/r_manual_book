@@ -14,43 +14,7 @@ github-repo: bdemeshev/r_manual_book
 description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
 ---
 
-# О книге
+# О книге {-}
 
 Сейчас живут три кита анализа данных и научных вычислений --- Julia, Python и R. Эта книга про одного из китов!
 
-План:
-
-
-
-- первые шаги
-  - установка и настройка
-  - весёлый калькулятор
-  - чтение и запись данных
-  - манипуляции с данными
-  - графики
-
-- статистика и эконометрика
-  - карты
-
-- не только R
-  - рабочий процесс
-  - контроль версий
-  - латех
-  - маркдаун
-  - воспроизводимые исследования
-  - презентации
-  - про эту книжку
-
-
-
-
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
-
-To compile this example to PDF, you need to install XeLaTeX.
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```

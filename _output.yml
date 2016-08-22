@@ -2,15 +2,34 @@ bookdown::gitbook:
   css: style.css
   config:
     toc:
+      collapse: section
+      scroll_highlight: true
       before: |
         <li><a href="./">Учебник по языку R для начинающих</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Создано с использованием пакета bookdown</a></li>
     edit:
       link: https://github.com/bdemeshev/r_manual_book/edit/master/%s
+    toolbar:
+      position: fixed
+    download: null
+    search: true
+    fontsettings:
+      theme: white
+      family: sans
+      size: 2
+    sharing:
+      facebook: yes
+      twitter: no
+      google: no
+      weibo: no
+      instapper: no
+      vk: yes
+      all: ['facebook', 'google', 'twitter', 'weibo', 'instapaper', 'vk']
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
   latex_engine: xelatex
   citation_package: natbib
 bookdown::epub_book: default
+
