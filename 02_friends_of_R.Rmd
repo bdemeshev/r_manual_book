@@ -108,11 +108,23 @@ bookdown::calibre:
 
 7. заставляем травис работать
 
+Создаём новый токен на [github](https://github.com/settings/tokens): кликнуть по иконке, далее settings - token - generate new token.
+
 ```{bash, eval=FALSE}
 sudo gem install travis
 travis encrypt [token from githum]
 ```
 
+Добавляем получившуюся закодированную строку в `.travis.yml`. Забавно, что похоже используется рандомный ключ для шифрования и поэтому зашифрованная строка каждый раз выходит разной.
+
+
+Для быстрой компиляции добавляем в `.travis.yml` указание, что мы будем использовать готовые бинарные пакеты R:
+```{bash, eval=FALSE}
+r_binary_packages:
+  - ggplot2
+  - dplyr
+  - rio
+```
 
 
 
