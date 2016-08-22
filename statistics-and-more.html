@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html  lang="russian">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Учебник по языку R для начинающих</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.1.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Учебник по языку R для начинающих" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="bdemeshev/r_manual_book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Учебник по языку R для начинающих" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Борис Демешев">
+
+<meta name="date" content="2016-08-22">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="friends-of-R.html">
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Учебник по языку R для начинающих</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>О книге</a></li>
+<li class="chapter" data-level="1" data-path="first-steps.html"><a href="first-steps.html"><i class="fa fa-check"></i><b>1</b> Первые шаги</a><ul>
+<li class="chapter" data-level="1.1" data-path="first-steps.html"><a href="first-steps.html#installation"><i class="fa fa-check"></i><b>1.1</b> Установка софта</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="first-steps.html"><a href="first-steps.html#install_R"><i class="fa fa-check"></i><b>1.1.1</b> R</a></li>
+<li class="chapter" data-level="1.1.2" data-path="first-steps.html"><a href="first-steps.html#install_Rstudio"><i class="fa fa-check"></i><b>1.1.2</b> Rstudio</a></li>
+<li class="chapter" data-level="1.1.3" data-path="first-steps.html"><a href="first-steps.html#install_Latex"><i class="fa fa-check"></i><b>1.1.3</b> LaTeX</a></li>
+<li class="chapter" data-level="1.1.4" data-path="first-steps.html"><a href="first-steps.html#install_git"><i class="fa fa-check"></i><b>1.1.4</b> git-клиент</a></li>
+<li class="chapter" data-level="1.1.5" data-path="first-steps.html"><a href="first-steps.html#install_editor"><i class="fa fa-check"></i><b>1.1.5</b> Текстовый редактор</a></li>
+<li class="chapter" data-level="1.1.6" data-path="first-steps.html"><a href="first-steps.html#install_STAN"><i class="fa fa-check"></i><b>1.1.6</b> STAN</a></li>
+<li class="chapter" data-level="1.1.7" data-path="first-steps.html"><a href="first-steps.html#install_jupyter"><i class="fa fa-check"></i><b>1.1.7</b> jupyter</a></li>
+<li class="chapter" data-level="1.1.8" data-path="first-steps.html"><a href="first-steps.html#install_gretl"><i class="fa fa-check"></i><b>1.1.8</b> gretl</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="first-steps.html"><a href="first-steps.html#funny_calc"><i class="fa fa-check"></i><b>1.2</b> Весёлый калькулятор</a></li>
+<li class="chapter" data-level="1.3" data-path="first-steps.html"><a href="first-steps.html#first_script"><i class="fa fa-check"></i><b>1.3</b> Первый скрипт</a></li>
+<li class="chapter" data-level="1.4" data-path="first-steps.html"><a href="first-steps.html#packages"><i class="fa fa-check"></i><b>1.4</b> Установка и подключение пакетов</a></li>
+<li class="chapter" data-level="1.5" data-path="first-steps.html"><a href="first-steps.html#io"><i class="fa fa-check"></i><b>1.5</b> Чтение и запись данных</a></li>
+<li class="chapter" data-level="1.6" data-path="first-steps.html"><a href="first-steps.html#internet_sources"><i class="fa fa-check"></i><b>1.6</b> Интернет-источники данных</a></li>
+<li class="chapter" data-level="1.7" data-path="first-steps.html"><a href="first-steps.html#code_style"><i class="fa fa-check"></i><b>1.7</b> Стиль кода</a></li>
+<li class="chapter" data-level="1.8" data-path="first-steps.html"><a href="first-steps.html#two_traditions"><i class="fa fa-check"></i><b>1.8</b> Две записи функций</a></li>
+<li class="chapter" data-level="1.9" data-path="first-steps.html"><a href="first-steps.html#data_manipulations"><i class="fa fa-check"></i><b>1.9</b> Манипуляции с данными</a></li>
+<li class="chapter" data-level="1.10" data-path="first-steps.html"><a href="first-steps.html#graphs"><i class="fa fa-check"></i><b>1.10</b> Графики</a></li>
+<li class="chapter" data-level="1.11" data-path="first-steps.html"><a href="first-steps.html#error"><i class="fa fa-check"></i><b>1.11</b> У меня ошибка!</a></li>
+<li class="chapter" data-level="1.12" data-path="first-steps.html"><a href="first-steps.html#R_links"><i class="fa fa-check"></i><b>1.12</b> Ресурсы по R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="friends-of-R.html"><a href="friends-of-R.html"><i class="fa fa-check"></i><b>2</b> Друзья R</a><ul>
+<li class="chapter" data-level="2.1" data-path="friends-of-R.html"><a href="friends-of-R.html#workflow"><i class="fa fa-check"></i><b>2.1</b> Рабочий процесс</a></li>
+<li class="chapter" data-level="2.2" data-path="friends-of-R.html"><a href="friends-of-R.html#version_control"><i class="fa fa-check"></i><b>2.2</b> Контроль версий</a></li>
+<li class="chapter" data-level="2.3" data-path="friends-of-R.html"><a href="friends-of-R.html#latex"><i class="fa fa-check"></i><b>2.3</b> Латех</a></li>
+<li class="chapter" data-level="2.4" data-path="friends-of-R.html"><a href="friends-of-R.html#markdown"><i class="fa fa-check"></i><b>2.4</b> Маркдаун</a></li>
+<li class="chapter" data-level="2.5" data-path="friends-of-R.html"><a href="friends-of-R.html#reproducible_research"><i class="fa fa-check"></i><b>2.5</b> Воспроизводимые исследования</a></li>
+<li class="chapter" data-level="2.6" data-path="friends-of-R.html"><a href="friends-of-R.html#own_package"><i class="fa fa-check"></i><b>2.6</b> Написание своего пакета</a></li>
+<li class="chapter" data-level="2.7" data-path="friends-of-R.html"><a href="friends-of-R.html#cloud_computing"><i class="fa fa-check"></i><b>2.7</b> Вычисления в облаке</a></li>
+<li class="chapter" data-level="2.8" data-path="friends-of-R.html"><a href="friends-of-R.html#presentations"><i class="fa fa-check"></i><b>2.8</b> Презентации</a></li>
+<li class="chapter" data-level="2.9" data-path="friends-of-R.html"><a href="friends-of-R.html#this_book"><i class="fa fa-check"></i><b>2.9</b> Про эту книжку</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="statistics-and-more.html"><a href="statistics-and-more.html"><i class="fa fa-check"></i><b>3</b> Статистика и не только</a><ul>
+<li class="chapter" data-level="3.1" data-path="statistics-and-more.html"><a href="statistics-and-more.html#random_variables"><i class="fa fa-check"></i><b>3.1</b> Генерирование случайных величин</a></li>
+<li class="chapter" data-level="3.2" data-path="statistics-and-more.html"><a href="statistics-and-more.html#statistical_tests"><i class="fa fa-check"></i><b>3.2</b> Базовые статистические тесты</a></li>
+<li class="chapter" data-level="3.3" data-path="statistics-and-more.html"><a href="statistics-and-more.html#classic_regression"><i class="fa fa-check"></i><b>3.3</b> Множественная регрессия</a></li>
+<li class="chapter" data-level="3.4" data-path="statistics-and-more.html"><a href="statistics-and-more.html#quantile_regression"><i class="fa fa-check"></i><b>3.4</b> Квантильная регрессия</a></li>
+<li class="chapter" data-level="3.5" data-path="statistics-and-more.html"><a href="statistics-and-more.html#instrumental_variables"><i class="fa fa-check"></i><b>3.5</b> Инструментальные переменные</a></li>
+<li class="chapter" data-level="3.6" data-path="statistics-and-more.html"><a href="statistics-and-more.html#heteroskedasticity"><i class="fa fa-check"></i><b>3.6</b> Гетероскедастичность</a></li>
+<li class="chapter" data-level="3.7" data-path="statistics-and-more.html"><a href="statistics-and-more.html#factor_variables"><i class="fa fa-check"></i><b>3.7</b> Работа с качественными переменными</a></li>
+<li class="chapter" data-level="3.8" data-path="statistics-and-more.html"><a href="statistics-and-more.html#logit_probit"><i class="fa fa-check"></i><b>3.8</b> Логит и пробит с визуализацией</a></li>
+<li class="chapter" data-level="3.9" data-path="statistics-and-more.html"><a href="statistics-and-more.html#pca"><i class="fa fa-check"></i><b>3.9</b> Метод главных компонент</a></li>
+<li class="chapter" data-level="3.10" data-path="statistics-and-more.html"><a href="statistics-and-more.html#multicollinearity"><i class="fa fa-check"></i><b>3.10</b> Мультиколлинеарность</a></li>
+<li class="chapter" data-level="3.11" data-path="statistics-and-more.html"><a href="statistics-and-more.html#lasso"><i class="fa fa-check"></i><b>3.11</b> LASSO</a></li>
+<li class="chapter" data-level="3.12" data-path="statistics-and-more.html"><a href="statistics-and-more.html#maximum_likelihood"><i class="fa fa-check"></i><b>3.12</b> Метод максимального правдоподобия</a></li>
+<li class="chapter" data-level="3.13" data-path="statistics-and-more.html"><a href="statistics-and-more.html#svm"><i class="fa fa-check"></i><b>3.13</b> Метод опорных векторов</a></li>
+<li class="chapter" data-level="3.14" data-path="statistics-and-more.html"><a href="statistics-and-more.html#random_forest"><i class="fa fa-check"></i><b>3.14</b> Случайный лес</a></li>
+<li class="chapter" data-level="3.15" data-path="statistics-and-more.html"><a href="statistics-and-more.html#exponential_smoothing"><i class="fa fa-check"></i><b>3.15</b> Экспоненциальное сглаживание</a></li>
+<li class="chapter" data-level="3.16" data-path="statistics-and-more.html"><a href="statistics-and-more.html#arma"><i class="fa fa-check"></i><b>3.16</b> ARMA модели</a></li>
+<li class="chapter" data-level="3.17" data-path="statistics-and-more.html"><a href="statistics-and-more.html#garch"><i class="fa fa-check"></i><b>3.17</b> GARCH</a></li>
+<li class="chapter" data-level="3.18" data-path="statistics-and-more.html"><a href="statistics-and-more.html#var_bvar"><i class="fa fa-check"></i><b>3.18</b> VAR и BVAR</a></li>
+<li class="chapter" data-level="3.19" data-path="statistics-and-more.html"><a href="statistics-and-more.html#panel_data"><i class="fa fa-check"></i><b>3.19</b> Панельные данные</a></li>
+<li class="chapter" data-level="3.20" data-path="statistics-and-more.html"><a href="statistics-and-more.html#bayesian_first_steps"><i class="fa fa-check"></i><b>3.20</b> Байесовский подход: первые шаги</a></li>
+<li class="chapter" data-level="3.21" data-path="statistics-and-more.html"><a href="statistics-and-more.html#stan"><i class="fa fa-check"></i><b>3.21</b> Байесовский подход: STAN</a></li>
+<li class="chapter" data-level="3.22" data-path="statistics-and-more.html"><a href="statistics-and-more.html#maps"><i class="fa fa-check"></i><b>3.22</b> Карты</a></li>
+<li class="chapter" data-level="3.23" data-path="statistics-and-more.html"><a href="statistics-and-more.html#differential_equations"><i class="fa fa-check"></i><b>3.23</b> Дифференциальные уравнения</a></li>
+<li class="chapter" data-level="3.24" data-path="statistics-and-more.html"><a href="statistics-and-more.html#optimisation"><i class="fa fa-check"></i><b>3.24</b> Задачи оптимизации</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Создано с использованием пакета bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Учебник по языку R для начинающих</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="statistics_and_more" class="section level1">
+<h1><span class="header-section-number">Глава 3</span> Статистика и не только</h1>
+<p>ываываыв ываываыв</p>
+<div id="random_variables" class="section level2">
+<h2><span class="header-section-number">3.1</span> Генерирование случайных величин</h2>
+<p>Для решения задач по теории вероятностей или исследования свойств статистических алгоритмов может потребоваться сгененировать случайную выборку из заданного закона распределения.</p>
+<p>Генерируем 10 равномерных на отрезке <span class="math inline">\([4;10.5]\)</span> случайных величин:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="dv">4</span>, <span class="dt">max =</span> <span class="fl">10.5</span>)</code></pre></div>
+<p>Генерируем 10 нормальных <span class="math inline">\(N(2;9)\)</span> случайных величин с математическим ожиданием <span class="math inline">\(2\)</span> и дисперсией <span class="math inline">\(9=3^2\)</span>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">3</span>)</code></pre></div>
+<p>Например, с помощью симуляций легко оценить математическое ожидание <span class="math inline">\(E(1/X)\)</span>, где <span class="math inline">\(X \sim N(2;9)\)</span>. Для этого мы вспомним Закон Больших Чисел. Он говорит, что арифметическое среднее по большой выборке стремится по вероятности и почти наверное к математическому ожиданию. Поэтому мы просто сгенерируем большую выборку в миллион наблюдений:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n_obs &lt;-<span class="st"> </span><span class="dv">10</span>^<span class="dv">6</span>
+x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n_obs, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">3</span>)
+<span class="kw">mean</span>(<span class="dv">1</span>/x)</code></pre></div>
+<pre><code>## [1] 0.3620581</code></pre>
+<p>Также легко оценить многие вероятности. Например, оценим вероятность <span class="math inline">\(P(X_1 + X_2 + X_3^2 &gt; 5)\)</span>, где величины <span class="math inline">\(X_i\)</span> независимы и одинаково распределены <span class="math inline">\(X_i \sim U[0;2]\)</span>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n_obs &lt;-<span class="st"> </span><span class="dv">10</span>^<span class="dv">6</span>
+x_1 &lt;-<span class="st"> </span><span class="kw">runif</span>(n_obs, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">2</span>)
+x_2 &lt;-<span class="st"> </span><span class="kw">runif</span>(n_obs, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">2</span>)
+x_3 &lt;-<span class="st"> </span><span class="kw">runif</span>(n_obs, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">2</span>)
+success &lt;-<span class="st"> </span>x_1 +<span class="st"> </span>x_2 +<span class="st"> </span>x_3^<span class="dv">2</span> &gt;<span class="st"> </span><span class="dv">5</span>
+<span class="kw">sum</span>(success) /<span class="st"> </span>n_obs</code></pre></div>
+<pre><code>## [1] 0.147426</code></pre>
+<p>Здесь вектор <code>success</code> будет содержать значение TRUE там, где условие <code>x_1 + x_2 + x_3^2 &gt; 5</code> выполнено, и FALSE там, где условие не выполнено. При сложении командой <code>sum()</code> каждое TRUE будет посчитано как единица, а каждое FALSE как ноль. Поэтому <code>sum(success)</code> даст количество раз, когда условие <code>x_1 + x_2 + x_3^2 &gt; 5</code> выполнено.</p>
+<p>… тут ещё несколько распределений</p>
+<p>… помимо генерации случайных чисел нарисуем функции плотности и распределения</p>
+<p>Если выполнить команду <code>rnorm(10, mean = 2, sd = 3)</code> на двух разных компьютерах или два раза на одном и том же, то результат будет разный. Не зря же они случайные :) Однако генерирование случайных величин никак не противоречит идее абсолютно точной воспроизводимости исследований. Для того, чтобы получились одинаковые результаты, необходимо синхронизировать генераторы случайных чисел на этих двух компьютерах. Делается это путём задания <strong>зерна генератора</strong> (seed). Зерно также называют стартовым значением. В качестве зерна подойдёт любое целое число.</p>
+<p>И в результате запуска кода</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
+<span class="kw">rnorm</span>(<span class="dv">1</span>, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] 6.112875</code></pre>
+<p>все компьютеры выведут число <span class="math inline">\(6.112875\)</span>.</p>
+<p><strong>Если код содержит генерерирование случайных чисел, то для воспроизводимости результатов необходимо задавать зерно генератора</strong></p>
+</div>
+<div id="statistical_tests" class="section level2">
+<h2><span class="header-section-number">3.2</span> Базовые статистические тесты</h2>
+<p>…</p>
+</div>
+<div id="classic_regression" class="section level2">
+<h2><span class="header-section-number">3.3</span> Множественная регрессия</h2>
+<p>…</p>
+</div>
+<div id="quantile_regression" class="section level2">
+<h2><span class="header-section-number">3.4</span> Квантильная регрессия</h2>
+<p>Незаслуженно забытой оказывается квантильная регрессия. Коэнкер (ссылка) утверждает, что развитие эконометрики началось именно с квантильной регрессии. Для оценок квантильной регрессии не существует формул в явном виде, поэтому она проиграла классической регрессии среднего с формулой <span class="math inline">\(\hat\beta = (X&#39;X)^{-1}X&#39;y\)</span>. Сейчас компьютер позволяет начихать на отсутствие явных формул :)</p>
+<p>…</p>
+</div>
+<div id="instrumental_variables" class="section level2">
+<h2><span class="header-section-number">3.5</span> Инструментальные переменные</h2>
+<p>…</p>
+</div>
+<div id="heteroskedasticity" class="section level2">
+<h2><span class="header-section-number">3.6</span> Гетероскедастичность</h2>
+<p>…</p>
+</div>
+<div id="factor_variables" class="section level2">
+<h2><span class="header-section-number">3.7</span> Работа с качественными переменными</h2>
+<p>…</p>
+</div>
+<div id="logit_probit" class="section level2">
+<h2><span class="header-section-number">3.8</span> Логит и пробит с визуализацией</h2>
+<p>…</p>
+</div>
+<div id="pca" class="section level2">
+<h2><span class="header-section-number">3.9</span> Метод главных компонент</h2>
+<p>…</p>
+</div>
+<div id="multicollinearity" class="section level2">
+<h2><span class="header-section-number">3.10</span> Мультиколлинеарность</h2>
+<p>…</p>
+</div>
+<div id="lasso" class="section level2">
+<h2><span class="header-section-number">3.11</span> LASSO</h2>
+<p>…</p>
+</div>
+<div id="maximum_likelihood" class="section level2">
+<h2><span class="header-section-number">3.12</span> Метод максимального правдоподобия</h2>
+<p>…</p>
+</div>
+<div id="svm" class="section level2">
+<h2><span class="header-section-number">3.13</span> Метод опорных векторов</h2>
+<p>…</p>
+</div>
+<div id="random_forest" class="section level2">
+<h2><span class="header-section-number">3.14</span> Случайный лес</h2>
+<p>…</p>
+</div>
+<div id="exponential_smoothing" class="section level2">
+<h2><span class="header-section-number">3.15</span> Экспоненциальное сглаживание</h2>
+<p>…</p>
+</div>
+<div id="arma" class="section level2">
+<h2><span class="header-section-number">3.16</span> ARMA модели</h2>
+<p>…</p>
+</div>
+<div id="garch" class="section level2">
+<h2><span class="header-section-number">3.17</span> GARCH</h2>
+<p>…</p>
+</div>
+<div id="var_bvar" class="section level2">
+<h2><span class="header-section-number">3.18</span> VAR и BVAR</h2>
+<p>…</p>
+<p>Я не верю в пользу от структурных BVAR, поэтому их здесь нет :)</p>
+</div>
+<div id="panel_data" class="section level2">
+<h2><span class="header-section-number">3.19</span> Панельные данные</h2>
+<p>…</p>
+</div>
+<div id="bayesian_first_steps" class="section level2">
+<h2><span class="header-section-number">3.20</span> Байесовский подход: первые шаги</h2>
+<p>…</p>
+</div>
+<div id="stan" class="section level2">
+<h2><span class="header-section-number">3.21</span> Байесовский подход: STAN</h2>
+<p>…</p>
+</div>
+<div id="maps" class="section level2">
+<h2><span class="header-section-number">3.22</span> Карты</h2>
+<blockquote>
+<p>Где карта, Билли?</p>
+</blockquote>
+</div>
+<div id="differential_equations" class="section level2">
+<h2><span class="header-section-number">3.23</span> Дифференциальные уравнения</h2>
+<p>…</p>
+</div>
+<div id="optimisation" class="section level2">
+<h2><span class="header-section-number">3.24</span> Задачи оптимизации</h2>
+<p>…</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="friends-of-R.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": false,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": true,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper", "vk"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/bdemeshev/r_manual_book/edit/master/03_statistics_and_more.Rmd",
+"text": null
+},
+"download": ["r_manual.pdf", "r_manual.epub"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

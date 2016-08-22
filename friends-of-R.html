@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html  lang="russian">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Учебник по языку R для начинающих</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.1.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Учебник по языку R для начинающих" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="bdemeshev/r_manual_book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Учебник по языку R для начинающих" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Борис Демешев">
+
+<meta name="date" content="2016-08-22">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="first-steps.html">
+<link rel="next" href="statistics-and-more.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Учебник по языку R для начинающих</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>О книге</a></li>
+<li class="chapter" data-level="1" data-path="first-steps.html"><a href="first-steps.html"><i class="fa fa-check"></i><b>1</b> Первые шаги</a><ul>
+<li class="chapter" data-level="1.1" data-path="first-steps.html"><a href="first-steps.html#installation"><i class="fa fa-check"></i><b>1.1</b> Установка софта</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="first-steps.html"><a href="first-steps.html#install_R"><i class="fa fa-check"></i><b>1.1.1</b> R</a></li>
+<li class="chapter" data-level="1.1.2" data-path="first-steps.html"><a href="first-steps.html#install_Rstudio"><i class="fa fa-check"></i><b>1.1.2</b> Rstudio</a></li>
+<li class="chapter" data-level="1.1.3" data-path="first-steps.html"><a href="first-steps.html#install_Latex"><i class="fa fa-check"></i><b>1.1.3</b> LaTeX</a></li>
+<li class="chapter" data-level="1.1.4" data-path="first-steps.html"><a href="first-steps.html#install_git"><i class="fa fa-check"></i><b>1.1.4</b> git-клиент</a></li>
+<li class="chapter" data-level="1.1.5" data-path="first-steps.html"><a href="first-steps.html#install_editor"><i class="fa fa-check"></i><b>1.1.5</b> Текстовый редактор</a></li>
+<li class="chapter" data-level="1.1.6" data-path="first-steps.html"><a href="first-steps.html#install_STAN"><i class="fa fa-check"></i><b>1.1.6</b> STAN</a></li>
+<li class="chapter" data-level="1.1.7" data-path="first-steps.html"><a href="first-steps.html#install_jupyter"><i class="fa fa-check"></i><b>1.1.7</b> jupyter</a></li>
+<li class="chapter" data-level="1.1.8" data-path="first-steps.html"><a href="first-steps.html#install_gretl"><i class="fa fa-check"></i><b>1.1.8</b> gretl</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="first-steps.html"><a href="first-steps.html#funny_calc"><i class="fa fa-check"></i><b>1.2</b> Весёлый калькулятор</a></li>
+<li class="chapter" data-level="1.3" data-path="first-steps.html"><a href="first-steps.html#first_script"><i class="fa fa-check"></i><b>1.3</b> Первый скрипт</a></li>
+<li class="chapter" data-level="1.4" data-path="first-steps.html"><a href="first-steps.html#packages"><i class="fa fa-check"></i><b>1.4</b> Установка и подключение пакетов</a></li>
+<li class="chapter" data-level="1.5" data-path="first-steps.html"><a href="first-steps.html#io"><i class="fa fa-check"></i><b>1.5</b> Чтение и запись данных</a></li>
+<li class="chapter" data-level="1.6" data-path="first-steps.html"><a href="first-steps.html#internet_sources"><i class="fa fa-check"></i><b>1.6</b> Интернет-источники данных</a></li>
+<li class="chapter" data-level="1.7" data-path="first-steps.html"><a href="first-steps.html#code_style"><i class="fa fa-check"></i><b>1.7</b> Стиль кода</a></li>
+<li class="chapter" data-level="1.8" data-path="first-steps.html"><a href="first-steps.html#two_traditions"><i class="fa fa-check"></i><b>1.8</b> Две записи функций</a></li>
+<li class="chapter" data-level="1.9" data-path="first-steps.html"><a href="first-steps.html#data_manipulations"><i class="fa fa-check"></i><b>1.9</b> Манипуляции с данными</a></li>
+<li class="chapter" data-level="1.10" data-path="first-steps.html"><a href="first-steps.html#graphs"><i class="fa fa-check"></i><b>1.10</b> Графики</a></li>
+<li class="chapter" data-level="1.11" data-path="first-steps.html"><a href="first-steps.html#error"><i class="fa fa-check"></i><b>1.11</b> У меня ошибка!</a></li>
+<li class="chapter" data-level="1.12" data-path="first-steps.html"><a href="first-steps.html#R_links"><i class="fa fa-check"></i><b>1.12</b> Ресурсы по R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="friends-of-R.html"><a href="friends-of-R.html"><i class="fa fa-check"></i><b>2</b> Друзья R</a><ul>
+<li class="chapter" data-level="2.1" data-path="friends-of-R.html"><a href="friends-of-R.html#workflow"><i class="fa fa-check"></i><b>2.1</b> Рабочий процесс</a></li>
+<li class="chapter" data-level="2.2" data-path="friends-of-R.html"><a href="friends-of-R.html#version_control"><i class="fa fa-check"></i><b>2.2</b> Контроль версий</a></li>
+<li class="chapter" data-level="2.3" data-path="friends-of-R.html"><a href="friends-of-R.html#latex"><i class="fa fa-check"></i><b>2.3</b> Латех</a></li>
+<li class="chapter" data-level="2.4" data-path="friends-of-R.html"><a href="friends-of-R.html#markdown"><i class="fa fa-check"></i><b>2.4</b> Маркдаун</a></li>
+<li class="chapter" data-level="2.5" data-path="friends-of-R.html"><a href="friends-of-R.html#reproducible_research"><i class="fa fa-check"></i><b>2.5</b> Воспроизводимые исследования</a></li>
+<li class="chapter" data-level="2.6" data-path="friends-of-R.html"><a href="friends-of-R.html#own_package"><i class="fa fa-check"></i><b>2.6</b> Написание своего пакета</a></li>
+<li class="chapter" data-level="2.7" data-path="friends-of-R.html"><a href="friends-of-R.html#cloud_computing"><i class="fa fa-check"></i><b>2.7</b> Вычисления в облаке</a></li>
+<li class="chapter" data-level="2.8" data-path="friends-of-R.html"><a href="friends-of-R.html#presentations"><i class="fa fa-check"></i><b>2.8</b> Презентации</a></li>
+<li class="chapter" data-level="2.9" data-path="friends-of-R.html"><a href="friends-of-R.html#this_book"><i class="fa fa-check"></i><b>2.9</b> Про эту книжку</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="statistics-and-more.html"><a href="statistics-and-more.html"><i class="fa fa-check"></i><b>3</b> Статистика и не только</a><ul>
+<li class="chapter" data-level="3.1" data-path="statistics-and-more.html"><a href="statistics-and-more.html#random_variables"><i class="fa fa-check"></i><b>3.1</b> Генерирование случайных величин</a></li>
+<li class="chapter" data-level="3.2" data-path="statistics-and-more.html"><a href="statistics-and-more.html#statistical_tests"><i class="fa fa-check"></i><b>3.2</b> Базовые статистические тесты</a></li>
+<li class="chapter" data-level="3.3" data-path="statistics-and-more.html"><a href="statistics-and-more.html#classic_regression"><i class="fa fa-check"></i><b>3.3</b> Множественная регрессия</a></li>
+<li class="chapter" data-level="3.4" data-path="statistics-and-more.html"><a href="statistics-and-more.html#quantile_regression"><i class="fa fa-check"></i><b>3.4</b> Квантильная регрессия</a></li>
+<li class="chapter" data-level="3.5" data-path="statistics-and-more.html"><a href="statistics-and-more.html#instrumental_variables"><i class="fa fa-check"></i><b>3.5</b> Инструментальные переменные</a></li>
+<li class="chapter" data-level="3.6" data-path="statistics-and-more.html"><a href="statistics-and-more.html#heteroskedasticity"><i class="fa fa-check"></i><b>3.6</b> Гетероскедастичность</a></li>
+<li class="chapter" data-level="3.7" data-path="statistics-and-more.html"><a href="statistics-and-more.html#factor_variables"><i class="fa fa-check"></i><b>3.7</b> Работа с качественными переменными</a></li>
+<li class="chapter" data-level="3.8" data-path="statistics-and-more.html"><a href="statistics-and-more.html#logit_probit"><i class="fa fa-check"></i><b>3.8</b> Логит и пробит с визуализацией</a></li>
+<li class="chapter" data-level="3.9" data-path="statistics-and-more.html"><a href="statistics-and-more.html#pca"><i class="fa fa-check"></i><b>3.9</b> Метод главных компонент</a></li>
+<li class="chapter" data-level="3.10" data-path="statistics-and-more.html"><a href="statistics-and-more.html#multicollinearity"><i class="fa fa-check"></i><b>3.10</b> Мультиколлинеарность</a></li>
+<li class="chapter" data-level="3.11" data-path="statistics-and-more.html"><a href="statistics-and-more.html#lasso"><i class="fa fa-check"></i><b>3.11</b> LASSO</a></li>
+<li class="chapter" data-level="3.12" data-path="statistics-and-more.html"><a href="statistics-and-more.html#maximum_likelihood"><i class="fa fa-check"></i><b>3.12</b> Метод максимального правдоподобия</a></li>
+<li class="chapter" data-level="3.13" data-path="statistics-and-more.html"><a href="statistics-and-more.html#svm"><i class="fa fa-check"></i><b>3.13</b> Метод опорных векторов</a></li>
+<li class="chapter" data-level="3.14" data-path="statistics-and-more.html"><a href="statistics-and-more.html#random_forest"><i class="fa fa-check"></i><b>3.14</b> Случайный лес</a></li>
+<li class="chapter" data-level="3.15" data-path="statistics-and-more.html"><a href="statistics-and-more.html#exponential_smoothing"><i class="fa fa-check"></i><b>3.15</b> Экспоненциальное сглаживание</a></li>
+<li class="chapter" data-level="3.16" data-path="statistics-and-more.html"><a href="statistics-and-more.html#arma"><i class="fa fa-check"></i><b>3.16</b> ARMA модели</a></li>
+<li class="chapter" data-level="3.17" data-path="statistics-and-more.html"><a href="statistics-and-more.html#garch"><i class="fa fa-check"></i><b>3.17</b> GARCH</a></li>
+<li class="chapter" data-level="3.18" data-path="statistics-and-more.html"><a href="statistics-and-more.html#var_bvar"><i class="fa fa-check"></i><b>3.18</b> VAR и BVAR</a></li>
+<li class="chapter" data-level="3.19" data-path="statistics-and-more.html"><a href="statistics-and-more.html#panel_data"><i class="fa fa-check"></i><b>3.19</b> Панельные данные</a></li>
+<li class="chapter" data-level="3.20" data-path="statistics-and-more.html"><a href="statistics-and-more.html#bayesian_first_steps"><i class="fa fa-check"></i><b>3.20</b> Байесовский подход: первые шаги</a></li>
+<li class="chapter" data-level="3.21" data-path="statistics-and-more.html"><a href="statistics-and-more.html#stan"><i class="fa fa-check"></i><b>3.21</b> Байесовский подход: STAN</a></li>
+<li class="chapter" data-level="3.22" data-path="statistics-and-more.html"><a href="statistics-and-more.html#maps"><i class="fa fa-check"></i><b>3.22</b> Карты</a></li>
+<li class="chapter" data-level="3.23" data-path="statistics-and-more.html"><a href="statistics-and-more.html#differential_equations"><i class="fa fa-check"></i><b>3.23</b> Дифференциальные уравнения</a></li>
+<li class="chapter" data-level="3.24" data-path="statistics-and-more.html"><a href="statistics-and-more.html#optimisation"><i class="fa fa-check"></i><b>3.24</b> Задачи оптимизации</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Создано с использованием пакета bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Учебник по языку R для начинающих</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="friends_of_R" class="section level1">
+<h1><span class="header-section-number">Глава 2</span> Друзья R</h1>
+<p>ывава ыва ыва</p>
+<div id="workflow" class="section level2">
+<h2><span class="header-section-number">2.1</span> Рабочий процесс</h2>
+<p>…</p>
+</div>
+<div id="version_control" class="section level2">
+<h2><span class="header-section-number">2.2</span> Контроль версий</h2>
+<p>…</p>
+</div>
+<div id="latex" class="section level2">
+<h2><span class="header-section-number">2.3</span> Латех</h2>
+<p>…</p>
+</div>
+<div id="markdown" class="section level2">
+<h2><span class="header-section-number">2.4</span> Маркдаун</h2>
+<p>…</p>
+</div>
+<div id="reproducible_research" class="section level2">
+<h2><span class="header-section-number">2.5</span> Воспроизводимые исследования</h2>
+<p>…</p>
+</div>
+<div id="own_package" class="section level2">
+<h2><span class="header-section-number">2.6</span> Написание своего пакета</h2>
+<p>…</p>
+</div>
+<div id="cloud_computing" class="section level2">
+<h2><span class="header-section-number">2.7</span> Вычисления в облаке</h2>
+<p>…</p>
+</div>
+<div id="presentations" class="section level2">
+<h2><span class="header-section-number">2.8</span> Презентации</h2>
+<p>…</p>
+</div>
+<div id="this_book" class="section level2">
+<h2><span class="header-section-number">2.9</span> Про эту книжку</h2>
+<p>Разбить на большее количество глав!!!</p>
+<p>Что-то убрать? чтобы была ещё одна книжка? :)</p>
+<p>Общие принципы:</p>
+<ol style="list-style-type: decimal">
+<li><p>Неформальный стиль, на “ты”</p></li>
+<li><p>Больше картинок. Лицензия?</p></li>
+<li><p>Больше гипер-ссылок.</p></li>
+<li><p>Буква <code>ё</code> обязательна.</p></li>
+</ol>
+<p>Пакет <code>bookdown</code> с помощью которого написана эта книжка ещё немного сыроват. В процессе работы я обнаружил, что:</p>
+<ol style="list-style-type: decimal">
+<li><p>Порой помогает удаление промежуточных файлов и компиляция заново.</p></li>
+<li><p>После неанглоязычного названия главы обязательно должна идти метка <code>{#label}</code>.</p></li>
+<li><p>Каждый <code>.Rmd</code> файл содержит только одну главу. Глава обозначается заголовком первого уровня <code>#</code>.</p></li>
+<li><p>Сослаться на главу или подраздел можно с помощью <code>\@ref(label)</code>.</p></li>
+<li><p>Сослаться на источник литературы можно с помощью <code>[@reference]</code></p></li>
+<li><p>Для создания <code>MOBI</code> книг:</p></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">brew</span> update
+<span class="kw">brew</span> cask install calibre
+<span class="kw">brew</span> cask install kindlegen</code></pre></div>
+<p>В предисловии</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">bookdown:</span>:kindlegen:
+  <span class="fu">epub:</span> _book/r_manual.epub</code></pre></div>
+<p>или</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">bookdown:</span>:calibre:
+  <span class="fu">input:</span> _book/r_manual.epub
+  <span class="fu">output:</span> _book/r_manual.mobi </code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="first-steps.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="statistics-and-more.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": false,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": true,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper", "vk"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/bdemeshev/r_manual_book/edit/master/02_friends_of_R.Rmd",
+"text": null
+},
+"download": ["r_manual.pdf", "r_manual.epub"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
