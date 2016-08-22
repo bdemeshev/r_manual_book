@@ -93,12 +93,28 @@ bookdown::kindlegen:
   epub: _book/r_manual.epub
 ```
 
+ругается
+
+
 или
 ```{yaml, eval=FALSE}
 bookdown::calibre:
   input: _book/r_manual.epub
   output: _book/r_manual.mobi 
 ```
+
+ругается
+
+
+7. заставляем травис работать
+
+```{bash, eval=FALSE}
+sudo gem install travis
+travis encrypt [token from githum]
+```
+
+
+
 
 
 
