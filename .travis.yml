@@ -12,3 +12,5 @@ script:
 
 r_binary_packages:
   - ggplot2
+  - dplyr
+  - rio
