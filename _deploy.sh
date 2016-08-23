@@ -4,7 +4,7 @@ set -e
 
 
 GITHUB_PAT=test
-# may put anything instead of test???
+# may put anything instead of test??? just no spaces around = (!)
 
 
 echo GITHUB_PAT:
@@ -23,6 +23,10 @@ git config --global user.name "Boris Demeshev"
 git clone -b gh-pages https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git book-output
 cd book-output
 cp -r ../_book/* ./
-git add --all *
+
+git add --all
+# removed * at the end of the line
+
 git commit -a -m "Update the book (${TRAVIS_BUILD_NUMBER})" || true
+
 git push origin gh-pages
