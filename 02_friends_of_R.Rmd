@@ -108,7 +108,7 @@ bookdown::calibre:
 
 7. заставляем травис работать
 
-Создаём новый токен на [github](https://github.com/settings/tokens): кликнуть по иконке, далее settings - token - generate new token.
+Создаём новый токен на [github](https://github.com/settings/tokens): кликнуть по иконке пользователя, далее settings - token - generate new token.
 
 ```{bash, eval=FALSE}
 sudo gem install travis
@@ -126,7 +126,30 @@ r_binary_packages:
   - rio
 ```
 
+Черт его знает? всё равно компилирует?
 
+
+8. Красный шрифт
+
+взято с [http://stackoverflow.com/questions/29067541](http://stackoverflow.com/questions/29067541)
+
+```{r}
+library(knitr)
+colFmt = function(x, color) {
+  outputFormat = opts_knit$get("rmarkdown.pandoc.to")
+  if (outputFormat == 'latex') {
+    paste0("\\textcolor{", color, "}{", x, "}")
+  } else if (outputFormat == 'html') {
+    paste0("<font color='", color, "'>", x, "</font>")
+  } else {
+    x
+  }
+}
+```
+
+
+
+Then you can use it inline like this: `r colFmt("MY RED TEXT", "red")`
 
 
 
