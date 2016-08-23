@@ -22,8 +22,9 @@ echo ${TRAVIS_REPO_SLUG}
 git config --global user.email "boris.demeshev@gmail.com"
 git config --global user.name "Boris Demeshev"
 
-git clone -b gh-pages https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git book-output
-cd book-output
+git clone -b gh-pages \
+  https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git \
+  book-outputcd book-output
 cp -r ../_book/* ./
 
 git add --all
