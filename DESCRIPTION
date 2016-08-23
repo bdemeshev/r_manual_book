@@ -1,5 +1,14 @@
-Package: placeholder
-Title: Does not matter.
-Version: 0.0.1
-Imports: bookdown
+Package: Rmanual
+Type: Package
+Title: R manual for beginners (in russian)
+Version: 0.1.1
+Date: 2016-07-31
+Authors@R: person(given="Boris", family="Demeshev",
+    email="boris.demeshev@gmail.com", role = c("aut", "cre"))
+Maintainer: Boris Demeshev <boris.demeshev@gmail.com>
+Description: This is a dummy travis package used to build the book R manual for beginners.
+Depends: bookdown
+LazyData: TRUE
+LinkingTo: Rcpp
 Remotes: bdemeshev/r_manual_book
+
