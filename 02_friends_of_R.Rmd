@@ -71,13 +71,16 @@ test
 
 5. Сослаться на источник литературы можно с помощью `[@reference]`
 
+6. Автодобавление пакетов
 
-```{r include=FALSE}
+```{r, include=FALSE, eval=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```
+
+глючит на `"M"uller`
 
 6. Для создания `MOBI` книг:
 
