@@ -3,7 +3,7 @@
 set -e
 
 
-GITHUB_PAT = test
+GITHUB_PAT=test
 # may put anything instead of test???
 
 
