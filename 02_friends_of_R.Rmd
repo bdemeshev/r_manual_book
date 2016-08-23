@@ -88,7 +88,7 @@ brew cask install kindlegen
 ```
 
 В предисловии
-```{yaml, eval=FALSE}
+```{bash, eval=FALSE}
 bookdown::kindlegen:
   epub: _book/r_manual.epub
 ```
@@ -97,13 +97,15 @@ bookdown::kindlegen:
 
 
 или
-```{yaml, eval=FALSE}
+```{bash, eval=FALSE}
 bookdown::calibre:
   input: _book/r_manual.epub
   output: _book/r_manual.mobi 
 ```
 
 ругается
+
+Если надо изобразить yaml в чанке кода, пока пишу, что он bash
 
 
 7. заставляем травис работать
