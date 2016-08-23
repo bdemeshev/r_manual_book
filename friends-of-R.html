@@ -7,25 +7,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Учебник по языку R для начинающих</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="description" content="Учебник по языку R и не только :)">
   <meta name="generator" content="bookdown 0.1.4 and GitBook 2.6.7">
 
   <meta property="og:title" content="Учебник по языку R для начинающих" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta property="og:description" content="Учебник по языку R и не только :)" />
   <meta name="github-repo" content="bdemeshev/r_manual_book" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Учебник по языку R для начинающих" />
   
-  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="Учебник по языку R и не только :)" />
   
 
 <meta name="author" content="Борис Демешев">
 
-<meta name="date" content="2016-08-22">
+<meta name="date" content="2016-08-23">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -192,7 +192,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="friends_of_R" class="section level1">
 <h1><span class="header-section-number">Глава 2</span> Друзья R</h1>
-<p>ывава ыва ыва</p>
+<p>ывава ыва ыва test</p>
 <div id="workflow" class="section level2">
 <h2><span class="header-section-number">2.1</span> Рабочий процесс</h2>
 <p>…</p>
@@ -249,12 +249,44 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">brew</span> cask install calibre
 <span class="kw">brew</span> cask install kindlegen</code></pre></div>
 <p>В предисловии</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">bookdown:</span>:kindlegen:
-  <span class="fu">epub:</span> _book/r_manual.epub</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bookdown</span>::kindlegen:
+  <span class="kw">epub</span>: _book/r_manual.epub</code></pre></div>
+<p>ругается</p>
 <p>или</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">bookdown:</span>:calibre:
-  <span class="fu">input:</span> _book/r_manual.epub
-  <span class="fu">output:</span> _book/r_manual.mobi </code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bookdown</span>::calibre:
+  <span class="kw">input</span>: _book/r_manual.epub
+  <span class="kw">output</span>: _book/r_manual.mobi </code></pre></div>
+<p>ругается</p>
+<p>Если надо изобразить yaml в чанке кода, пока пишу, что он bash</p>
+<ol start="7" style="list-style-type: decimal">
+<li>заставляем травис работать</li>
+</ol>
+<p>Создаём новый токен на <a href="https://github.com/settings/tokens">github</a>: кликнуть по иконке пользователя, далее settings - token - generate new token.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> gem install travis
+<span class="kw">travis</span> encrypt [token from githum]</code></pre></div>
+<p>Добавляем получившуюся закодированную строку в <code>.travis.yml</code>. Забавно, что похоже используется рандомный ключ для шифрования и поэтому зашифрованная строка каждый раз выходит разной.</p>
+<p>Для быстрой компиляции добавляем в <code>.travis.yml</code> указание, что мы будем использовать готовые бинарные пакеты R:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">r_binary_packages</span>:
+  <span class="kw">-</span> ggplot2
+  <span class="kw">-</span> dplyr
+  <span class="kw">-</span> rio</code></pre></div>
+<p>Черт его знает? всё равно компилирует?</p>
+<ol start="8" style="list-style-type: decimal">
+<li>Красный шрифт</li>
+</ol>
+<p>взято с <a href="http://stackoverflow.com/questions/29067541" class="uri">http://stackoverflow.com/questions/29067541</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(knitr)
+colFmt =<span class="st"> </span>function(x, color) {
+  outputFormat =<span class="st"> </span>opts_knit$<span class="kw">get</span>(<span class="st">&quot;rmarkdown.pandoc.to&quot;</span>)
+  if (outputFormat ==<span class="st"> &#39;latex&#39;</span>) {
+    <span class="kw">paste0</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">textcolor{&quot;</span>, color, <span class="st">&quot;}{&quot;</span>, x, <span class="st">&quot;}&quot;</span>)
+  } else if (outputFormat ==<span class="st"> &#39;html&#39;</span>) {
+    <span class="kw">paste0</span>(<span class="st">&quot;&lt;font color=&#39;&quot;</span>, color, <span class="st">&quot;&#39;&gt;&quot;</span>, x, <span class="st">&quot;&lt;/font&gt;&quot;</span>)
+  } else {
+    x
+  }
+}</code></pre></div>
+<p>Then you can use it inline like this: <font color='red'>MY RED TEXT</font></p>
 
 </div>
 </div>
@@ -291,7 +323,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/bdemeshev/r_manual_book/edit/master/02_friends_of_R.Rmd",
+"link": "https://github.com/bdemeshev/r_manual_book/issues",
 "text": null
 },
 "download": ["r_manual.pdf", "r_manual.epub"],
