@@ -16,6 +16,5 @@ r_binary_packages:
   - haven
   - openxlsx
   - readxl
-  - feather
   - dplyr
   - rio

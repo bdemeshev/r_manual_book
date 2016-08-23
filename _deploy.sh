@@ -20,5 +20,5 @@ git clone -b gh-pages https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git b
 cd book-output
 cp -r ../_book/* ./
 git add --all *
-git commit -m "Update the book" || true
+git commit -a -m "Update the book (${TRAVIS_BUILD_NUMBER})" || true
 git push origin gh-pages
