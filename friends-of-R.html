@@ -8,7 +8,7 @@
   <title>Учебник по языку R для начинающих</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Учебник по языку R и не только :)">
-  <meta name="generator" content="bookdown 0.1.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="Учебник по языку R для начинающих" />
   <meta property="og:type" content="book" />
@@ -263,8 +263,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ol>
 <p>Создаём новый токен на <a href="https://github.com/settings/tokens">github</a>: кликнуть по иконке пользователя, далее settings - token - generate new token.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> gem install travis
-<span class="kw">travis</span> encrypt [token from githum]</code></pre></div>
+<span class="kw">travis</span> encrypt GITHUB_TOKEN=[token from githum]</code></pre></div>
+<p>Именно переменная <code>GITHUB_TOKEN</code> должна использоваться для того, чтобы обращаться к гитхабу, т.е.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"></code></pre></div>
 <p>Добавляем получившуюся закодированную строку в <code>.travis.yml</code>. Забавно, что похоже используется рандомный ключ для шифрования и поэтому зашифрованная строка каждый раз выходит разной.</p>
+<p>Можно не шифровать её, а добавить в travis-ci.org/user/repo/settings</p>
 <p>Для быстрой компиляции добавляем в <code>.travis.yml</code> указание, что мы будем использовать готовые бинарные пакеты R:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">r_binary_packages</span>:
   <span class="kw">-</span> ggplot2
@@ -326,7 +329,7 @@ gitbook.start({
 "link": "https://github.com/bdemeshev/r_manual_book/issues",
 "text": null
 },
-"download": ["r_manual.pdf", "r_manual.epub"],
+"download": null,
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
