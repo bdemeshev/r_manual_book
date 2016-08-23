@@ -114,10 +114,20 @@ bookdown::calibre:
 
 ```{bash, eval=FALSE}
 sudo gem install travis
-travis encrypt [token from githum]
+travis encrypt GITHUB_TOKEN=[token from githum]
+```
+
+Именно переменная `GITHUB_TOKEN` должна использоваться для того, чтобы обращаться к гитхабу, т.е.
+```{bash, eval=FALSE}
+
 ```
 
 Добавляем получившуюся закодированную строку в `.travis.yml`. Забавно, что похоже используется рандомный ключ для шифрования и поэтому зашифрованная строка каждый раз выходит разной.
+
+Можно не шифровать её, а добавить в travis-ci.org/user/repo/settings 
+
+
+
 
 
 Для быстрой компиляции добавляем в `.travis.yml` указание, что мы будем использовать готовые бинарные пакеты R:
