@@ -2,6 +2,14 @@
 
 set -e
 
+echo GITHUB_PAT:
+echo ${GITHUB_PAT}
+echo TRAVIS_BRANCH:
+echo ${TRAVIS_BRANCH}
+echo TRAVIS_REPO_SLUG:
+echo ${TRAVIS_REPO_SLUG}
+
+
 [ -z "${GITHUB_PAT}" ] && exit 0
 [ "${TRAVIS_BRANCH}" != "master" ] && exit 0
 
