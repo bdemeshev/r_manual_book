@@ -9,6 +9,7 @@ before_script:
 script:
 - ./_build.sh
 - ./_deploy.sh
+sudo: required
 
 r_binary_packages:
   - ggplot2
