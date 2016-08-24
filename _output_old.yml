@@ -32,5 +32,11 @@ bookdown::pdf_book:
     in_header: preamble.tex
   latex_engine: xelatex
   citation_package: biblatex
+pdf_document:
+  keep_tex: yes
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: biblatex
 bookdown::epub_book: default
 
