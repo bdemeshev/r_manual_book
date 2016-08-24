@@ -2,13 +2,18 @@
 title: "Учебник по языку R для начинающих"
 author: "Борис Демешев"
 date: "`r Sys.Date()`"
-lang: russian
-mainlang: russian
+lang: ru-RU
+otherlangs: en-GB
+fontsize: 11pt
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
 bibliography: [book.bib, packages.bib]
-biblio-style: apalike
+biblio-style: alphabetic
+biblatexoptions: backend=biber
+mainfont: "Linux Libertine O"
+sansfont: "Linux Libertine O"
+monofont: "Linux Libertine O"
 link-citations: yes
 github-repo: bdemeshev/r_manual_book
 description: "Учебник по языку R и не только :)"

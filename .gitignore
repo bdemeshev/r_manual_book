@@ -7,3 +7,5 @@ _bookdown_files
 rsconnect
 packrat/lib*/
 packrat/src/
+
+r_manual.run.xml

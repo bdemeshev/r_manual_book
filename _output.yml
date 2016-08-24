@@ -27,9 +27,10 @@ bookdown::gitbook:
       vk: yes
       all: ['facebook', 'google', 'twitter', 'weibo', 'instapaper', 'vk']
 bookdown::pdf_book:
+  keep_tex: true
   includes:
     in_header: preamble.tex
   latex_engine: xelatex
-  citation_package: natbib
+  citation_package: biblatex
 bookdown::epub_book: default
 
