@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  lang="russian">
+<html  lang="ru-RU">
 
 <head>
 
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Борис Демешев">
 
-<meta name="date" content="2016-08-23">
+<meta name="date" content="2016-08-24">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -192,6 +192,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="first_steps" class="section level1">
 <h1><span class="header-section-number">Глава 1</span> Первые шаги</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;knitr&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;tikzDevice&quot;</span>)</code></pre></div>
 <p>ываыв а ываыв</p>
 <div id="installation" class="section level2">
 <h2><span class="header-section-number">1.1</span> Установка софта</h2>
@@ -277,22 +279,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Джентельменский набор пакетов R зависит от сферы деятельности, но практически всем сталкивающимся с анализом данных пригодятся:</p>
 <p>…</p>
 <p>Очень часто пакеты R ошибочно называют библиотеками. Библиотека — это папка на жёстком диске компьютера, где хранятся пакеты.</p>
-<p>Если пакет установлен, то можно воспользоваться его командами. Если из пакета нужна всего одна команда то быстрее указать и нужный пакет, и нужную команду. Например, вызовем команду <code>qplot</code> из пакета <code>ggplot2</code> и построим гистограмму для случайной выборки из 100 нормальных стандартных случайных величин:</p>
+<p>Если пакет установлен, то можно воспользоваться его командами. Если из пакета нужна всего одна команда и один раз, то быстрее указать и нужный пакет, и нужную команду. Например, вызовем команду <code>qplot</code> из пакета <code>ggplot2</code> и построим гистограмму для случайной выборки из 100 нормальных стандартных случайных величин:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="co"># генерируем случайную выборку из 100 нормальных N(0;1) случайных величин</span>
-ggplot2::<span class="kw">qplot</span>(x)</code></pre></div>
+ggplot2::<span class="kw">qplot</span>(x) </code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="r_manual_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="r_manual_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Если же ты хочешь использовать команды некоторого пакета много раз, то проще <strong>подключить</strong> пакет командой <code>library()</code>. При этом не надо будет каждый раз набирать название пакета и двойное двоеточие. Можно просто использовать команды из этого пакеты:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>) <span class="co"># подключаем пакет `ggplot2`</span>
 
 x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="co"># генерируем случайную выборку из 100 нормальных N(0;1) случайных величин</span>
 y &lt;-<span class="st"> </span>x^<span class="dv">2</span> +<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>) 
 
-<span class="kw">qplot</span>(x) <span class="co"># строим гистограмму величины x</span></code></pre></div>
+<span class="co"># строим гистограмму величины x:</span>
+<span class="kw">qplot</span>(x) +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Величина X&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Количество значений&quot;</span>)</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="r_manual_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qplot</span>(x, y) <span class="co"># строим диагрраму рассеяния величин x и y</span></code></pre></div>
-<p><img src="r_manual_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<p><img src="r_manual_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># строим диагрраму рассеяния величин x и y:</span>
+<span class="kw">qplot</span>(x, y) +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Величина X&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Величина Y&quot;</span>)</code></pre></div>
+<p><img src="r_manual_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
 <p>При подключении пакета, как и при его установке, не стоит пугаться сообщений красным шрифтом. Только явное слово <code>Error</code> говорит об ошибке. Кроме того, часто можно столкнуться с <strong>предупреждением</strong> (warning) о том, что пакет был создан для более новой версии R.</p>
 <p><code>Warning message: package 'xxx' was built under R version 3.3.1</code></p>
 <p>Это означает лишь то, что …</p>
