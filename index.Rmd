@@ -3,12 +3,6 @@ title: "Учебник по языку R для начинающих"
 author: "Борис Демешев"
 date: '`r Sys.Date()`'
 output:
-  pdf_document:
-    citation_package: biblatex
-    includes:
-      in_header: preamble.tex
-    keep_tex: yes
-    latex_engine: xelatex
   bookdown::gitbook:
     config:
       download: null
@@ -50,6 +44,8 @@ output:
     keep_tex: yes
     latex_engine: xelatex
   bookdown::epub_book: default
+  bookdown::kindlegen:
+    epub: _book/r_manual.epub
 description: Учебник по языку R и не только :)
 documentclass: book
 fontsize: 11pt
