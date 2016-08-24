@@ -9,3 +9,7 @@ packrat/lib*/
 packrat/src/
 
 r_manual.run.xml
+
+r_manual.knit.md
+
+r_manual.utf8.md

@@ -1,13 +1,6 @@
 # Первые шаги {#first_steps}
 
 
-```{r}
-library("knitr")
-library("tikzDevice")
-```
-
-
-
 ываыв
 а
 ываыв

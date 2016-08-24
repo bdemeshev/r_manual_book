@@ -1,4 +1,9 @@
-all: pdf_noclean html epub
+all: preclean pdf_noclean html epub mobi
+
+preclean:
+	rm -rf `biber --cache`
+	-rm r_manual.run.xml
+	-rm r_manual.Rmd
 
 html:
 	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook")'
@@ -6,6 +11,9 @@ html:
 
 epub:
 	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::epub_book")'
+
+mobi: _book/r_manual.epub
+	Rscript -e 'bookdown::kindlegen("_book/r_manual.epub")'
 
 pdf:
 	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book")'

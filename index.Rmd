@@ -23,3 +23,25 @@ description: "Учебник по языку R и не только :)"
 
 Сейчас живут три кита анализа данных и научных вычислений --- Julia, Python и R. Эта книга про одного из китов!
 
+
+```{r "knitr options"}
+library("knitr")
+library("tikzDevice")
+
+# tikz plots options
+options(tikzDefaultEngine = "xetex")
+# options(tikzMetricsDictionary = getwd()) # cash font metrics for speed
+
+add_xelatex <- c("\\setmainfont{Linux Libertine O}",
+"\\setmonofont{Linux Libertine O}",
+"\\setsansfont{Linux Libertine O}",
+"\\newfontfamily{\\cyrillicfonttt}{Linux Libertine O}",
+"\\newfontfamily{\\cyrillicfont}{Linux Libertine O}",
+"\\newfontfamily{\\cyrillicfontsf}{Linux Libertine O}")
+
+options(tikzXelatexPackages = c(getOption("tikzXelatexPackages"),
+    add_xelatex))                            
+
+opts_chunk$set(dev = "tikz", 
+               dev.args = list(pointsize = 11))
+```
