@@ -1,4 +1,4 @@
-all: pdf epub html
+all: pdf_noclean html epub
 
 html:
 	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook")'
