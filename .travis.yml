@@ -19,4 +19,6 @@ r_binary_packages:
   - readxl
   - dplyr
   - tikzDevice
+
+r_packages:
   - rio
