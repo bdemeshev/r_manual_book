@@ -37,6 +37,9 @@ output:
       toolbar:
         position: fixed
     css: style.css
+  bookdown::html_chapters:
+    includes:
+      in_header: style.css
   bookdown::pdf_book:
     citation_package: biblatex
     includes:
@@ -72,34 +75,57 @@ biblio-style: alphabetic
 library("knitr")
 library("tikzDevice")
 
-# tikz plots options
-options(tikzDefaultEngine = "xetex")
-options(tikzMetricsDictionary = "./tikz_metrics") # cash font metrics for speed
+activateTikz <- function() {
+  
+  # tikz plots options
+  options(tikzDefaultEngine = "xetex")
+  
+  # cash font metrics for speed:
+  options(tikzMetricsDictionary = "./tikz_metrics") 
+  
+  add_xelatex <- c("\\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}",
+                   "\\setmainfont{Linux Libertine O}",
+                   "\\setmonofont{Linux Libertine O}",
+                   "\\setsansfont{Linux Libertine O}",
+                   "\\newfontfamily{\\cyrillicfonttt}{Linux Libertine O}",
+                   "\\newfontfamily{\\cyrillicfont}{Linux Libertine O}",
+                   "\\newfontfamily{\\cyrillicfontsf}{Linux Libertine O}")
+  
+  options(tikzXelatexPackages = c(getOption("tikzXelatexPackages"),
+                                  add_xelatex))
+  
+  # does remove warnings:
+  # it is important to remove fontenc package wich is loaded by default
+  options(tikzUnicodeMetricPackages = c("\\usetikzlibrary{calc}",    
+                                        "\\usepackage{fontspec, xunicode}", add_xelatex)) 
+  
+  
+  opts_chunk$set(dev = "tikz", dev.args = list(pointsize = 11))
+}
 
-add_xelatex <- c("\\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}",
-"\\setmainfont{Linux Libertine O}",
-"\\setmonofont{Linux Libertine O}",
-"\\setsansfont{Linux Libertine O}",
-"\\newfontfamily{\\cyrillicfonttt}{Linux Libertine O}",
-"\\newfontfamily{\\cyrillicfont}{Linux Libertine O}",
-"\\newfontfamily{\\cyrillicfontsf}{Linux Libertine O}")
 
-options(tikzXelatexPackages = c(getOption("tikzXelatexPackages"),
-    add_xelatex))
+colFmt <- function(x, color) {
+  outputFormat <- opts_knit$get("rmarkdown.pandoc.to")
+  if (outputFormat == "latex") {
+    result <- paste0("\\textcolor{", color, "}{", x, "}")
+  } else if (outputFormat %in% c("html", "epub")) {
+    result <- paste0("<font color='", color, "'>", x, "</font>")
+  } else {
+    result <- x
+  }
+  return(result)
+}
 
-# does remove warnings:
-# it is important to remove fontenc package wich is loaded by default
-options(tikzUnicodeMetricPackages = c("\\usetikzlibrary{calc}",    
-"\\usepackage{fontspec, xunicode}",
-    add_xelatex)) 
+outputFormat <- opts_knit$get("rmarkdown.pandoc.to")
 
 
-opts_chunk$set(dev = "tikz", 
-               dev.args = list(pointsize = 11))
+if (outputFormat == "latex") {
+  activateTikz()
+}
 
 ```
 
-
+Данная версия книги скомпилирована для `r outputFormat`.
 
 
 

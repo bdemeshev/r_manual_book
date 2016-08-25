@@ -146,25 +146,29 @@ r_binary_packages:
 
 8. Красный шрифт
 
-взято с [http://stackoverflow.com/questions/29067541](http://stackoverflow.com/questions/29067541)
+по мотивам [http://stackoverflow.com/questions/29067541](http://stackoverflow.com/questions/29067541)
 
-```{r}
-library(knitr)
-colFmt = function(x, color) {
-  outputFormat = opts_knit$get("rmarkdown.pandoc.to")
-  if (outputFormat == 'latex') {
-    paste0("\\textcolor{", color, "}{", x, "}")
-  } else if (outputFormat == 'html') {
-    paste0("<font color='", color, "'>", x, "</font>")
+```{r, eval=FALSE}
+colFmt <- function(x, color) {
+  outputFormat <- opts_knit$get("rmarkdown.pandoc.to")
+  if (outputFormat == "latex") {
+    result <- paste0("\\textcolor{", color, "}{", x, "}")
+  } else if (outputFormat %in% c("html", "epub")) {
+    result <- paste0("<font color='", color, "'>", x, "</font>")
   } else {
-    x
+    result <- x
   }
+  return(result)
 }
 ```
 
 
 
 Then you can use it inline like this: `r colFmt("MY RED TEXT", "red")`
+
+9. Файл `_output.yaml` это просто `output:` кусок из `yaml`-части файла `index.Rmd`. Поэтому можно внести `_output.yaml` обратно в `index.Rmd`, чтобы все настройки были в одном месте. 
+
+Формально `_output.yaml` действует на все `.Rmd` документы в папке, но что там будет кроме учебника в целом. Разве что отдельные главы компилировать :)
 
 
 

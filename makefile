@@ -1,13 +1,16 @@
 all: preclean pdf_noclean html epub mobi
 
 preclean:
+	export LC_ALL=en_US.UTF-8
+	export LC_CTYPE=en_US.UTF-8
 	rm -rf `biber --cache`
 	-rm r_manual.run.xml
 	-rm r_manual.Rmd
 
 html:
 	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook")'
-	# cp -fvr images _book/
+	cp -fvr images _book/
+	cp -fvr css/style.css _book/
 
 epub:
 	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::epub_book")'
