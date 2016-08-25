@@ -204,7 +204,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n_obs &lt;-<span class="st"> </span><span class="dv">10</span>^<span class="dv">6</span>
 x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n_obs, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">3</span>)
 <span class="kw">mean</span>(<span class="dv">1</span>/x)</code></pre></div>
-<pre><code>## [1] 0.2019559</code></pre>
+<pre><code>## [1] 0.01251321</code></pre>
 <p>Также легко оценить многие вероятности. Например, оценим вероятность <span class="math inline">\(P(X_1 + X_2 + X_3^2 &gt; 5)\)</span>, где величины <span class="math inline">\(X_i\)</span> независимы и одинаково распределены <span class="math inline">\(X_i \sim U[0;2]\)</span>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n_obs &lt;-<span class="st"> </span><span class="dv">10</span>^<span class="dv">6</span>
 x_1 &lt;-<span class="st"> </span><span class="kw">runif</span>(n_obs, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">2</span>)
@@ -212,7 +212,7 @@ x_2 &lt;-<span class="st"> </span><span class="kw">runif</span>(n_obs, <span cla
 x_3 &lt;-<span class="st"> </span><span class="kw">runif</span>(n_obs, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">2</span>)
 success &lt;-<span class="st"> </span>x_1 +<span class="st"> </span>x_2 +<span class="st"> </span>x_3^<span class="dv">2</span> &gt;<span class="st"> </span><span class="dv">5</span>
 <span class="kw">sum</span>(success) /<span class="st"> </span>n_obs</code></pre></div>
-<pre><code>## [1] 0.146913</code></pre>
+<pre><code>## [1] 0.147711</code></pre>
 <p>Здесь вектор <code>success</code> будет содержать значение TRUE там, где условие <code>x_1 + x_2 + x_3^2 &gt; 5</code> выполнено, и FALSE там, где условие не выполнено. При сложении командой <code>sum()</code> каждое TRUE будет посчитано как единица, а каждое FALSE как ноль. Поэтому <code>sum(success)</code> даст количество раз, когда условие <code>x_1 + x_2 + x_3^2 &gt; 5</code> выполнено.</p>
 <p>… тут ещё несколько распределений</p>
 <p>… помимо генерации случайных чисел нарисуем функции плотности и распределения</p>
@@ -222,7 +222,11 @@ success &lt;-<span class="st"> </span>x_1 +<span class="st"> </span>x_2 +<span c
 <span class="kw">rnorm</span>(<span class="dv">1</span>, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">3</span>)</code></pre></div>
 <pre><code>## [1] 6.112875</code></pre>
 <p>все компьютеры выведут число <span class="math inline">\(6.112875\)</span>.</p>
-<p><strong>Если код содержит генерерирование случайных чисел, то для воспроизводимости результатов необходимо задавать зерно генератора</strong></p>
+<div class="warning">
+<p>
+Если код содержит генерерирование случайных чисел, то необходимо задавать зерно генератора
+</p>
+</div>
 </div>
 <div id="statistical_tests" class="section level2">
 <h2><span class="header-section-number">3.2</span> Базовые статистические тесты</h2>
@@ -231,6 +235,8 @@ success &lt;-<span class="st"> </span>x_1 +<span class="st"> </span>x_2 +<span c
 <div id="classic_regression" class="section level2">
 <h2><span class="header-section-number">3.3</span> Множественная регрессия</h2>
 <p>…</p>
+<p>Эконометристы любят копаться в остатках :)</p>
+<p><a href="https://www.r-bloggers.com/visualising-residuals/" class="uri">https://www.r-bloggers.com/visualising-residuals/</a></p>
 </div>
 <div id="quantile_regression" class="section level2">
 <h2><span class="header-section-number">3.4</span> Квантильная регрессия</h2>
@@ -239,7 +245,14 @@ success &lt;-<span class="st"> </span>x_1 +<span class="st"> </span>x_2 +<span c
 </div>
 <div id="instrumental_variables" class="section level2">
 <h2><span class="header-section-number">3.5</span> Инструментальные переменные</h2>
-<p>…</p>
+<p>Каждый исследователь мечтает обнаружить не просто статистическую связь, а причинно-следственную. К сожалению, это не так просто. Фиксируя количество людей с зонтиками на улице и количество осадков но не зная физическую природу дождя, невозможно определить, вызывают ли люди с зонтиками дождь или наоборот. Для выяснения причинно следственных связей необходим случайный эксперимент. Например, можно выбрать несколько случайных дней в году и выгнать толпу знакомых с зонтами на улицу, а затем посмотреть, было ли больше осадков в эти дни.</p>
+<p>Инструментальные переменные часто используются исследователями при поиске причинно следственных связей, но это ни в коем случае не означает, что введение инструментальных переменных само по себе гарантирует нахождение причинно-следственной связи!</p>
+<div class="warning">
+<p>
+Для обнаружения причинно-следственной связи необходимо либо использовать данные случайного эксперимента, либо прекрасно разбираться в закономерностях происходящего.
+</p>
+</div>
+<p>Этот раздел не о том, как обнаружить причинно-следственную связь, а о том, как реализовать метод инструментальных переменных в R и как его проинтепретировать.</p>
 </div>
 <div id="heteroskedasticity" class="section level2">
 <h2><span class="header-section-number">3.6</span> Гетероскедастичность</h2>
@@ -368,7 +381,7 @@ gitbook.start({
 "link": "https://github.com/bdemeshev/r_manual_book/issues",
 "text": null
 },
-"download": null,
+"download": [["r_manual.pdf", "PDF"], ["r_manual.epub", "EPUB"], ["r_manual.mobi", "MOBI"]],
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
