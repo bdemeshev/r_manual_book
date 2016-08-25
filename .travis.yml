@@ -21,4 +21,5 @@ r_binary_packages:
   - tikzDevice
 
 r_packages:
+  - devtools
   - rio
