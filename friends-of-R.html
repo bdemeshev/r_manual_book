@@ -25,7 +25,7 @@
 
 <meta name="author" content="Борис Демешев">
 
-<meta name="date" content="2016-08-24">
+<meta name="date" content="2016-08-25">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -171,7 +171,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.24" data-path="statistics-and-more.html"><a href="statistics-and-more.html#optimisation"><i class="fa fa-check"></i><b>3.24</b> Задачи оптимизации</a></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Создано с использованием пакета bookdown</a></li>
+<li><a href="https://github.com/rstudio/bookdown"   target="blank">Создано с использованием пакета bookdown</a></li>
 
 </ul>
 
@@ -281,19 +281,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ol start="8" style="list-style-type: decimal">
 <li>Красный шрифт</li>
 </ol>
-<p>взято с <a href="http://stackoverflow.com/questions/29067541" class="uri">http://stackoverflow.com/questions/29067541</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(knitr)
-colFmt =<span class="st"> </span>function(x, color) {
-  outputFormat =<span class="st"> </span>opts_knit$<span class="kw">get</span>(<span class="st">&quot;rmarkdown.pandoc.to&quot;</span>)
-  if (outputFormat ==<span class="st"> &#39;latex&#39;</span>) {
-    <span class="kw">paste0</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">textcolor{&quot;</span>, color, <span class="st">&quot;}{&quot;</span>, x, <span class="st">&quot;}&quot;</span>)
-  } else if (outputFormat ==<span class="st"> &#39;html&#39;</span>) {
-    <span class="kw">paste0</span>(<span class="st">&quot;&lt;font color=&#39;&quot;</span>, color, <span class="st">&quot;&#39;&gt;&quot;</span>, x, <span class="st">&quot;&lt;/font&gt;&quot;</span>)
+<p>по мотивам <a href="http://stackoverflow.com/questions/29067541" class="uri">http://stackoverflow.com/questions/29067541</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">colFmt &lt;-<span class="st"> </span>function(x, color) {
+  outputFormat &lt;-<span class="st"> </span>opts_knit$<span class="kw">get</span>(<span class="st">&quot;rmarkdown.pandoc.to&quot;</span>)
+  if (outputFormat ==<span class="st"> &quot;latex&quot;</span>) {
+    result &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">textcolor{&quot;</span>, color, <span class="st">&quot;}{&quot;</span>, x, <span class="st">&quot;}&quot;</span>)
+  } else if (outputFormat %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;html&quot;</span>, <span class="st">&quot;epub&quot;</span>)) {
+    result &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;&lt;font color=&#39;&quot;</span>, color, <span class="st">&quot;&#39;&gt;&quot;</span>, x, <span class="st">&quot;&lt;/font&gt;&quot;</span>)
   } else {
-    x
+    result &lt;-<span class="st"> </span>x
   }
+  <span class="kw">return</span>(result)
 }</code></pre></div>
 <p>Then you can use it inline like this: <font color='red'>MY RED TEXT</font></p>
+<ol start="9" style="list-style-type: decimal">
+<li>Файл <code>_output.yaml</code> это просто <code>output:</code> кусок из <code>yaml</code>-части файла <code>index.Rmd</code>. Поэтому можно внести <code>_output.yaml</code> обратно в <code>index.Rmd</code>, чтобы все настройки были в одном месте.</li>
+</ol>
+<p>Формально <code>_output.yaml</code> действует на все <code>.Rmd</code> документы в папке, но что там будет кроме учебника в целом. Разве что отдельные главы компилировать :)</p>
 
 </div>
 </div>
@@ -338,10 +342,10 @@ gitbook.start({
 "collapse": "section",
 "scroll_highlight": true
 },
+"search": true,
 "toolbar": {
 "position": "fixed"
-},
-"search": true
+}
 });
 });
 </script>

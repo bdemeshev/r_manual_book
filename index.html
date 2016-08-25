@@ -25,7 +25,7 @@
 
 <meta name="author" content="Борис Демешев">
 
-<meta name="date" content="2016-08-24">
+<meta name="date" content="2016-08-25">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -171,7 +171,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.24" data-path="statistics-and-more.html"><a href="statistics-and-more.html#optimisation"><i class="fa fa-check"></i><b>3.24</b> Задачи оптимизации</a></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Создано с использованием пакета bookdown</a></li>
+<li><a href="https://github.com/rstudio/bookdown"   target="blank">Создано с использованием пакета bookdown</a></li>
 
 </ul>
 
@@ -193,11 +193,62 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">Учебник по языку R для начинающих</h1>
 <h4 class="author"><em>Борис Демешев</em></h4>
-<h4 class="date"><em>2016-08-24</em></h4>
+<h4 class="date"><em>2016-08-25</em></h4>
 </div>
 <div id="-" class="section level1 unnumbered">
 <h1>О книге</h1>
 <p>Сейчас живут три кита анализа данных и научных вычислений — Julia, Python и R. Эта книга про одного из китов!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;knitr&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;tikzDevice&quot;</span>)
+
+activateTikz &lt;-<span class="st"> </span>function() {
+  
+  <span class="co"># tikz plots options</span>
+  <span class="kw">options</span>(<span class="dt">tikzDefaultEngine =</span> <span class="st">&quot;xetex&quot;</span>)
+  
+  <span class="co"># cash font metrics for speed:</span>
+  <span class="kw">options</span>(<span class="dt">tikzMetricsDictionary =</span> <span class="st">&quot;./tikz_metrics&quot;</span>) 
+  
+  add_xelatex &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}&quot;</span>,
+                   <span class="st">&quot;</span><span class="ch">\\</span><span class="st">setmainfont{Linux Libertine O}&quot;</span>,
+                   <span class="st">&quot;</span><span class="ch">\\</span><span class="st">setmonofont{Linux Libertine O}&quot;</span>,
+                   <span class="st">&quot;</span><span class="ch">\\</span><span class="st">setsansfont{Linux Libertine O}&quot;</span>,
+                   <span class="st">&quot;</span><span class="ch">\\</span><span class="st">newfontfamily{</span><span class="ch">\\</span><span class="st">cyrillicfonttt}{Linux Libertine O}&quot;</span>,
+                   <span class="st">&quot;</span><span class="ch">\\</span><span class="st">newfontfamily{</span><span class="ch">\\</span><span class="st">cyrillicfont}{Linux Libertine O}&quot;</span>,
+                   <span class="st">&quot;</span><span class="ch">\\</span><span class="st">newfontfamily{</span><span class="ch">\\</span><span class="st">cyrillicfontsf}{Linux Libertine O}&quot;</span>)
+  
+  <span class="kw">options</span>(<span class="dt">tikzXelatexPackages =</span> <span class="kw">c</span>(<span class="kw">getOption</span>(<span class="st">&quot;tikzXelatexPackages&quot;</span>),
+                                  add_xelatex))
+  
+  <span class="co"># does remove warnings:</span>
+  <span class="co"># it is important to remove fontenc package wich is loaded by default</span>
+  <span class="kw">options</span>(<span class="dt">tikzUnicodeMetricPackages =</span> <span class="kw">c</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">usetikzlibrary{calc}&quot;</span>,    
+                                        <span class="st">&quot;</span><span class="ch">\\</span><span class="st">usepackage{fontspec, xunicode}&quot;</span>, add_xelatex)) 
+  
+  
+  opts_chunk$<span class="kw">set</span>(<span class="dt">dev =</span> <span class="st">&quot;tikz&quot;</span>, <span class="dt">dev.args =</span> <span class="kw">list</span>(<span class="dt">pointsize =</span> <span class="dv">11</span>))
+}
+
+
+colFmt &lt;-<span class="st"> </span>function(x, color) {
+  outputFormat &lt;-<span class="st"> </span>opts_knit$<span class="kw">get</span>(<span class="st">&quot;rmarkdown.pandoc.to&quot;</span>)
+  if (outputFormat ==<span class="st"> &quot;latex&quot;</span>) {
+    result &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">textcolor{&quot;</span>, color, <span class="st">&quot;}{&quot;</span>, x, <span class="st">&quot;}&quot;</span>)
+  } else if (outputFormat %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;html&quot;</span>, <span class="st">&quot;epub&quot;</span>)) {
+    result &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;&lt;font color=&#39;&quot;</span>, color, <span class="st">&quot;&#39;&gt;&quot;</span>, x, <span class="st">&quot;&lt;/font&gt;&quot;</span>)
+  } else {
+    result &lt;-<span class="st"> </span>x
+  }
+  <span class="kw">return</span>(result)
+}
+
+outputFormat &lt;-<span class="st"> </span>opts_knit$<span class="kw">get</span>(<span class="st">&quot;rmarkdown.pandoc.to&quot;</span>)
+
+
+if (outputFormat ==<span class="st"> &quot;latex&quot;</span>) {
+  <span class="kw">activateTikz</span>()
+}</code></pre></div>
+<p>Данная версия книги скомпилирована для html.</p>
 
 </div>
             </section>
@@ -241,10 +292,10 @@ gitbook.start({
 "collapse": "section",
 "scroll_highlight": true
 },
+"search": true,
 "toolbar": {
 "position": "fixed"
-},
-"search": true
+}
 });
 });
 </script>

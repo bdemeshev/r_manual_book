@@ -25,7 +25,7 @@
 
 <meta name="author" content="Борис Демешев">
 
-<meta name="date" content="2016-08-24">
+<meta name="date" content="2016-08-25">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -171,7 +171,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.24" data-path="statistics-and-more.html"><a href="statistics-and-more.html#optimisation"><i class="fa fa-check"></i><b>3.24</b> Задачи оптимизации</a></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Создано с использованием пакета bookdown</a></li>
+<li><a href="https://github.com/rstudio/bookdown"   target="blank">Создано с использованием пакета bookdown</a></li>
 
 </ul>
 
@@ -192,8 +192,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="first_steps" class="section level1">
 <h1><span class="header-section-number">Глава 1</span> Первые шаги</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;knitr&quot;</span>)
-<span class="kw">library</span>(<span class="st">&quot;tikzDevice&quot;</span>)</code></pre></div>
 <p>ываыв а ываыв</p>
 <div id="installation" class="section level2">
 <h2><span class="header-section-number">1.1</span> Установка софта</h2>
@@ -246,10 +244,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>….</p>
 <p>Если текст программы содержит русские или другие неанглийские буквы, например, в комментариях, то при сохранении файла Rstudio предложит выбрать кодировку.</p>
 <p>картинка</p>
-<p>Кодировка определяет какой конкретно числовой код будет сопоставлен в записанном файле каждой букве. Например, букве <code>ё</code> в кодировке … сопоставлен код …</p>
-<p>Для русского языка есть несколько распространённых кодировок: UTF-8 и CP1251. Linux и Macos используют по умолчанию кодировку UTF-8, а вот Windows сохраняет простые текстовые файлы в CP1251. Здесь сноска: на самом деле всё немного хитрее и помимо CP1251 Windows использует …</p>
+<p>Кодировка определяет какой конкретно числовой код будет сопоставлен в записанном файле каждой букве. Например, букве <code>ё</code> в кодировке UTF-8 сопоставлен десятичный<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> код 1105.</p>
+<p>Для русского языка есть несколько распространённых кодировок: UTF-8 и CP1251. Linux и Macos используют по умолчанию кодировку UTF-8, а вот Windows<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> сохраняет простые текстовые файлы в кодировке CP1251.</p>
 <p>Если русскоязычный файл записать в одной кодировке, а пытаться открыть с помощью другой, то мы увидим на экране “кракозябры”. Поэтому хорошо, когда все используют одну кодировку. Кодировка UTF-8 более универсальна, чем CP1251. Например, с помощью кодировки UTF-8 в одном тексте можно использовать и русские буквы и французские акценты и китайские иероглифы.</p>
-<p>Мы всегда будем использовать кодировку UTF-8.</p>
+<div class="warning">
+<p>
+Мы всегда будем использовать кодировку UTF-8.
+</p>
+</div>
 </div>
 <div id="packages" class="section level2">
 <h2><span class="header-section-number">1.4</span> Установка и подключение пакетов</h2>
@@ -273,7 +275,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>С репозитория CRAN пакет ставится командой R:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;имя пакета&quot;</span>)</code></pre></div>
 <p>В Rstudio установить пакет с репозитория CRAN можно через меню: Tools - Install packages. Далее нужно набрать название пакета, можно указать сразу несколько названий через пробел, и нажать <code>Install</code>.</p>
-<p>Здесь главное — не бояться сообщений красным цветом! Любые <strong>сообщения</strong> (messages) R выводит красным цветом и по неопытности их можно принять за ошибку, что скорее всего не так. Ошибка всегда сопровождается словом <code>Error</code>.</p>
+<div class="warning">
+<p>
+Главное при установке пакета — не бояться сообщений красным цветом!
+</p>
+</div>
+<p>Любые <strong>сообщения</strong> (messages) R выводит красным цветом и по неопытности их можно принять за ошибку, что скорее всего не так. Ошибка всегда сопровождается словом <font color='red'>Error</font>. Если слова <font color='red'>Error</font> нет, то всё идёт по плану!</p>
+<p>Почему R использует красный цвет? Потому, что установка пакета — это потенциально опасное действие, как и установка любой программы. Пакеты на официальном репозитории CRAN проходят определённую проверку, но если ты используешь R для многомиллионных сделок каждый день, то неплохо бы точно знать, что ты ставишь :)</p>
 <p>Установить пакет с github.com немногим сложнее. Здесь надо знать не только название пакета, но и название репозитория, где он хранится. Часто название репозитория — это фамилия автора пакета. Официальной классификации всех пакетов R на github нет, поэтому чтобы понять, какой нужен, остаётся только гуглить.</p>
 <p>Кроме того, для установки пакетов с github.com потребуется установить с официального репозитория</p>
 <p>Джентельменский набор пакетов R зависит от сферы деятельности, но практически всем сталкивающимся с анализом данных пригодятся:</p>
@@ -283,7 +291,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="co"># генерируем случайную выборку из 100 нормальных N(0;1) случайных величин</span>
 ggplot2::<span class="kw">qplot</span>(x) </code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="r_manual_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="r_manual_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>Если же ты хочешь использовать команды некоторого пакета много раз, то проще <strong>подключить</strong> пакет командой <code>library()</code>. При этом не надо будет каждый раз набирать название пакета и двойное двоеточие. Можно просто использовать команды из этого пакеты:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>) <span class="co"># подключаем пакет `ggplot2`</span>
 
@@ -293,14 +301,18 @@ y &lt;-<span class="st"> </span>x^<span class="dv">2</span> +<span class="st"> <
 <span class="co"># строим гистограмму величины x:</span>
 <span class="kw">qplot</span>(x) +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Величина X&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Количество значений&quot;</span>)</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="r_manual_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="r_manual_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># строим диагрраму рассеяния величин x и y:</span>
 <span class="kw">qplot</span>(x, y) +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Величина X&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Величина Y&quot;</span>)</code></pre></div>
-<p><img src="r_manual_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<p><img src="r_manual_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
 <p>При подключении пакета, как и при его установке, не стоит пугаться сообщений красным шрифтом. Только явное слово <code>Error</code> говорит об ошибке. Кроме того, часто можно столкнуться с <strong>предупреждением</strong> (warning) о том, что пакет был создан для более новой версии R.</p>
-<p><code>Warning message: package 'xxx' was built under R version 3.3.1</code></p>
-<p>Это означает лишь то, что …</p>
-<p>Правила хорошего тона советуют подключать все нужные пакеты в начале скрипта.</p>
+<p><font color='red'>Warning message: package ‘xxx’ was built under R version 3.3.1</font></p>
+<p>Это не страшно. Это означает лишь, что у разработчика пакета <code>xxx</code> установлена более свежая версия R, чем у тебя. Обновлять R на своём компьютере при каждом его мелком обновлении, пожалуй, неразумно, но раз в полгода стоит.</p>
+<div class="warning">
+<p>
+Правила хорошего тона советуют подключать все нужные пакеты в начале скрипта.
+</p>
+</div>
 </div>
 <div id="io" class="section level2">
 <h2><span class="header-section-number">1.5</span> Чтение и запись данных</h2>
@@ -424,6 +436,13 @@ x -<span class="st"> </span>y</code></pre></div>
 
 </div>
 </div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Если шестнадцатиричный, то 0451. Ради интереса можно посмотреть сопоставление букв и их кодов в UTF-8, например, на <a href="http://unicode-table.com/ru/">unicode-table.com</a><a href="first-steps.html#fnref1">↩</a></p></li>
+<li id="fn2"><p>На самом деле всё немного хитрее и сама Windows технически использует UTF-16, а вот многие приложения под ней — CP1251.<a href="first-steps.html#fnref2">↩</a></p></li>
+</ol>
+</div>
             </section>
 
           </div>
@@ -465,10 +484,10 @@ gitbook.start({
 "collapse": "section",
 "scroll_highlight": true
 },
+"search": true,
 "toolbar": {
 "position": "fixed"
-},
-"search": true
+}
 });
 });
 </script>
