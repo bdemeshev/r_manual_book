@@ -4,8 +4,7 @@ set -e
 
 
 
-echo GITHUB_TOKEN:
-echo ${GITHUB_TOKEN}
+echo "do not print GITHUB_TOKEN because it is secret!"
 echo TRAVIS_BRANCH:
 echo ${TRAVIS_BRANCH}
 echo TRAVIS_REPO_SLUG:
