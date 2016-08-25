@@ -5,7 +5,7 @@ date: '`r Sys.Date()`'
 output:
   bookdown::gitbook:
     config:
-      download: null
+      download: [["r_manual.pdf", "PDF"], ["r_manual.epub", "EPUB"], ["r_manual.mobi", "MOBI"]]
       edit:
         link: https://github.com/bdemeshev/r_manual_book/issues
       fontsettings:

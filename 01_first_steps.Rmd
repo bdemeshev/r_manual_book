@@ -360,11 +360,96 @@ library("dplyr")
 
 ## Ресурсы по R {#R_links}
 
+Начнём с русскоязычных крупных книжек:
 
-Ты хочешь скачать научную статью или книжку бесплатно?
+* Шипунов А.Б., Балдин Е.М. и др. [Наглядная статистика. Используем R!](http://ashipunov.info/shipunov/school/books/rbook.pdf)
+* Мастицкий С.Э., Шитиков В.К., [Статистический анализ и визуализация с помощью R](http://www.ievbras.ru/ecostat/Kiril/R/Mastitsky%20and%20Shitikov%202014.pdf) 
+* Василенко Є.С, [Обробка геологiчної iнформацiї з використанням програмного середовища R](https://www.dropbox.com/sh/gaxtktwbxyuu1ss/AAAb2XW0kquoxfLryf2aYeQZa?dl=0)
+* Кабаков Р.И. R в действии. [Анализ и визуализация данных на языке R](http://dmkpress.com/catalog/computer/statistics/978-5-94074-912-7/)
+
+На русском также могут быть полезны:
+
+* Стилевое руководство гугла: [english](https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml), [русский](https://9ccb6b88-a-cba0391b-s-sites.googlegroups.com/a/kiber-guu.ru/r-practice/links/R_style_from_Google.pdf?attachauth=ANoY7crkge5FhA5LZtMwj6Ilur-WbnkKLijkDkoB01VZZAlsFoRjEo7YwgqvW-Gid6ffwBmz3TMT51kMnw8JljZeQlDPRXMKZctirezqTziipn5TOaB9D1IaQ7qzTSusjkIyYV2jMchrhAsXOHTo_G0VRztBxYeecm4HYS19M1VTxn-UluL_9tYpsOEpDvhV1ghlRvk57pCxDO3C4wSV63SQIy0p7cjo6r-HB6Dj0CG7iNKM_RTjaAw%3D&attredirects=0)
+* [Блог r-analytics](http://r-analytics.blogspot.ru). На нём есть несколько других подборок русскоязычных ресурсов по R: [раз](http://r-analytics.blogspot.ru/p/blog-page_20.html) и [два](http://r-analytics.blogspot.ru/p/blog-page_80.html).
+* [Группа вконтакте rstatistics](https://vk.com/rstatistics)
+* [Группа вконтакте spbrug](https://vk.com/spbrug)
+* [Группа вконтакте introstats](https://vk.com/introstats)
+* Венэбльз, Смит [Введение в R](http://www.ievbras.ru/ecostat/Kiril/R/Biblio/R_rus/Venables%20%c2%e2%e5%e4%e5%ed%e8%e5%20%e2%20R.pdf)
+* Зарядов И.С. [Введение в R: часть 1](http://www.ievbras.ru/ecostat/Kiril/R/Biblio/R_rus/%c7%e0%f0%ff%e4%ee%e2%20%f7%e0%f1%f2%fc_1.pdf)
+* Зарядов И.С. [Введение в R: часть 2](http://www.ievbras.ru/ecostat/Kiril/R/Biblio/R_rus/%c7%e0%f0%ff%e4%ee%e2%20%f7%e0%f1%f2%fc_2.pdf)
+* Борис Демешев [Цикл маленьких заметок по R](http://bdemeshev.github.io/r_cycle/)
+
+Вопросы и ответы:
+
+* [stackoverflow](http://stackoverflow.com/) Если возникли проблемы с программированием в R (и не только в R), а документация уже прочитана...
+* [stats.stackexchange](http://stats.stackexchange.com/) Можно спросить по статистическим методам и их реализации в R. 
+* [tex.stackexchange](http://tex.stackexchange.com/) Вопросы и ответы про LaTeX
+
+
+
+Он-лайн курсы и видеолекции с использованием R:
+
+* [Try R](http://tryr.codeschool.com/) Путь к сокровищам R для самых начинающих пиRатов!
+
+* [datacamp.com](https://www.datacamp.com/) Несколько платных и бесплатных интерактивных курсов по R
+
+* Видео-лекции курса Computing for Data Analysis: [неделя 1](http://www.youtube.com/playlist?list=PLjTlxb-wKvXNSDfcKPFH2gzHGyjpeCZmJ), [неделя 2](http://www.youtube.com/playlist?list=PLjTlxb-wKvXNnjUTX4C8IeIhPBjPkng6B), [неделя 3](http://www.youtube.com/playlist?list=PLjTlxb-wKvXOzI2h0F2_rYZHIXz8GWBop), [неделя 4](http://www.youtube.com/playlist?list=PLjTlxb-wKvXOdzysAE6qrEBN_aSBC0LZS). Сам курс доступен на [coursera.org](http://www.coursera.org)
+
+
+Открытые крупные источники на английском:
+
+* Trevor Hastie, Robert Tibshirani, [An Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/). По книжке есть [курс на платформе class.standford.edu](https://class.stanford.edu/courses/HumanitiesandScience/StatLearning/Winter2015/about)
+
+* Rob Hyndman, [Forecasting: principles and practice](https://www.otexts.org/book/fpp) Книжка по временным рядам от автора пакета forecast
+
+* Garrett Grolemund, Hadley Wickham, [R for Data Science](http://r4ds.had.co.nz/)
+
+* Colin Gillespie, Robin Lovelace, [Efficient R programming](https://bookdown.org/csgillespie/efficientR), он-лайн книга для более продвинутых пользователей R. Написана на R и markdown :)
+
+* Rob Kabacoff, [Quick R](http://www.statmethods.net/)
+
+* Farnsworth, [Econometrics in R](http://cran.r-project.org/doc/contrib/Farnsworth-EconometricsInR.pdf)
+
+* [Cookbook for R](http://wiki.stdout.org/rcookbook/)
+
+* [R-inferno](http://www.burns-stat.com/pages/Tutor/R_inferno.pdf) Адский учебник по R с картинками Ботичелли, "Even if it doesn't help you with your problem, it might amuse you"
+
+
+* Roger Peng, [R programming for data science](https://leanpub.com/rprogramming/) и на [bookdown](https://bookdown.org/rdpeng/rprogdatascience/)
+
+* [Introduction to R](http://cran.r-project.org/doc/manuals/R-intro.pdf), Введение с официального сайта
+
+* документация [по графикам ggplot2](http://docs.ggplot2.org/current/index.html)
+
+* документация к [R от stats.stackexchange](http://stackoverflow.com/documentation/r/topics)
+
+* **Шикарные** [**шпаргалки от Rstudio**](https://www.rstudio.com/resources/cheatsheets/)
+
+* [100 курсов и книг по R](https://pairach.com/2012/02/26/r-tutorials-from-universities-around-the-world/) от разных университетов
+
+* Агрегатор блогов [r-bloggers](http://r-bloggers.com/)
+
+* Поисковик [rseek.org](http://rseek.org/)
+
+
+Великолепные виньетки к разным пакетам:
+
+* [vars](http://cran.r-project.org/web/packages/vars/vignettes/vars.pdf), векторные авторегрессии, есть вольный пересказ [по-русски](http://rpubs.com/rakhab/9941) 
+* [dplyr](http://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html) манипуляции с данными
+* [sandwich](http://cran.r-project.org/web/packages/sandwich/vignettes/sandwich.pdf) борьба с гетероскедастичностью и заклинания HC0, HC1, HC2, ...
+* [plm](http://cran.r-project.org/web/packages/plm/vignettes/plm.pdf) панельные модели в R 
+* [ggmap](http://journal.r-project.org/archive/2013-1/kahle-wickham.pdf) рисуем карты
+* [vcd](http://cran.r-project.org/web/packages/vcd/vignettes/strucplot.pdf) полезные графики для качественных переменных
+* [Beanplot](http://www.jstatsoft.org/v28/c01/paper): A Boxplot Alternative for Visual Comparison of Distributions.
+
+
+
+Ты ещё не заработал свой первый миллион и хочешь скачать научную статью или книжку бесплатно?
 
 * Научные книги можно найти на [gen.lib.rus.ec](http://gen.lib.rus.ec/).
 
 * Научные статьи можно скачать на [sci-hub.cc](http://sci-hub.cc/). Есть даже бот `@scihubot` для [Telegram](https://telegram.org/), которые вышлет в ответ на запрос полный текст статьи. 
 
+
+Если какая-нибудь ссылка не работает или хочешь предложить свою, [смело открывай issue на github](https://github.com/bdemeshev/r_manual_book/issues)!
 
