@@ -25,7 +25,7 @@
 
 <meta name="author" content="Борис Демешев">
 
-<meta name="date" content="2016-08-28">
+<meta name="date" content="2016-08-30">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -121,7 +121,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.1.7" data-path="first-steps.html"><a href="first-steps.html#install_jupyter"><i class="fa fa-check"></i><b>1.1.7</b> jupyter</a></li>
 <li class="chapter" data-level="1.1.8" data-path="first-steps.html"><a href="first-steps.html#install_gretl"><i class="fa fa-check"></i><b>1.1.8</b> gretl</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="first-steps.html"><a href="first-steps.html#funny_calc"><i class="fa fa-check"></i><b>1.2</b> Весёлый калькулятор</a></li>
+<li class="chapter" data-level="1.2" data-path="first-steps.html"><a href="first-steps.html#funny_calc"><i class="fa fa-check"></i><b>1.2</b> Весёлый калькулятор</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="first-steps.html"><a href="first-steps.html#value_selection"><i class="fa fa-check"></i><b>1.2.1</b> Отбор значений</a></li>
+<li class="chapter" data-level="1.2.2" data-path="first-steps.html"><a href="first-steps.html#number_comparison"><i class="fa fa-check"></i><b>1.2.2</b> Сравнение чисел — штука тонкая</a></li>
+</ul></li>
 <li class="chapter" data-level="1.3" data-path="first-steps.html"><a href="first-steps.html#first_script"><i class="fa fa-check"></i><b>1.3</b> Первый скрипт</a></li>
 <li class="chapter" data-level="1.4" data-path="first-steps.html"><a href="first-steps.html#packages"><i class="fa fa-check"></i><b>1.4</b> Установка и подключение пакетов</a></li>
 <li class="chapter" data-level="1.5" data-path="first-steps.html"><a href="first-steps.html#io"><i class="fa fa-check"></i><b>1.5</b> Чтение и запись данных</a></li>
@@ -129,7 +132,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.7" data-path="first-steps.html"><a href="first-steps.html#code_style"><i class="fa fa-check"></i><b>1.7</b> Стиль кода</a></li>
 <li class="chapter" data-level="1.8" data-path="first-steps.html"><a href="first-steps.html#two_traditions"><i class="fa fa-check"></i><b>1.8</b> Две записи функций</a></li>
 <li class="chapter" data-level="1.9" data-path="first-steps.html"><a href="first-steps.html#data_manipulations"><i class="fa fa-check"></i><b>1.9</b> Манипуляции с данными</a></li>
-<li class="chapter" data-level="1.10" data-path="first-steps.html"><a href="first-steps.html#graphs"><i class="fa fa-check"></i><b>1.10</b> Графики</a></li>
+<li class="chapter" data-level="1.10" data-path="first-steps.html"><a href="first-steps.html#graphs"><i class="fa fa-check"></i><b>1.10</b> Графики</a><ul>
+<li class="chapter" data-level="1.10.1" data-path="first-steps.html"><a href="first-steps.html#two_simple_graphs"><i class="fa fa-check"></i><b>1.10.1</b> Два простеньких графика</a></li>
+</ul></li>
 <li class="chapter" data-level="1.11" data-path="first-steps.html"><a href="first-steps.html#error"><i class="fa fa-check"></i><b>1.11</b> У меня ошибка!</a></li>
 <li class="chapter" data-level="1.12" data-path="first-steps.html"><a href="first-steps.html#R_links"><i class="fa fa-check"></i><b>1.12</b> Ресурсы по R</a></li>
 </ul></li>
@@ -197,14 +202,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">3.1</span> Генерирование случайных величин</h2>
 <p>Для решения задач по теории вероятностей или исследования свойств статистических алгоритмов может потребоваться сгененировать случайную выборку из заданного закона распределения.</p>
 <p>Генерируем 10 равномерных на отрезке <span class="math inline">\([4;10.5]\)</span> случайных величин:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="dv">4</span>, <span class="dt">max =</span> <span class="fl">10.5</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="dv">4</span>, <span class="dt">max =</span> <span class="fl">10.5</span>)</code></pre></div>
+<pre><code>##  [1]  6.587962 10.151660  6.936869 10.046754  7.276973  4.122887  5.645991
+##  [8]  4.248469  9.457907  8.835355</code></pre>
 <p>Генерируем 10 нормальных <span class="math inline">\(N(2;9)\)</span> случайных величин с математическим ожиданием <span class="math inline">\(2\)</span> и дисперсией <span class="math inline">\(9=3^2\)</span>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">3</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">3</span>)</code></pre></div>
+<pre><code>##  [1]  4.3502202  2.9828070  3.9621799  2.9978455 -4.5707466  0.9168622
+##  [7]  6.8246804  3.1700460 -2.2788595 -0.5334796</code></pre>
 <p>Например, с помощью симуляций легко оценить математическое ожидание <span class="math inline">\(E(1/X)\)</span>, где <span class="math inline">\(X \sim N(2;9)\)</span>. Для этого мы вспомним Закон Больших Чисел. Он говорит, что арифметическое среднее по большой выборке стремится по вероятности и почти наверное к математическому ожиданию. Поэтому мы просто сгенерируем большую выборку в миллион наблюдений:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n_obs &lt;-<span class="st"> </span><span class="dv">10</span>^<span class="dv">6</span>
 x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n_obs, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">3</span>)
 <span class="kw">mean</span>(<span class="dv">1</span>/x)</code></pre></div>
-<pre><code>## [1] 0.4900131</code></pre>
+<pre><code>## [1] 0.1398236</code></pre>
 <p>Также легко оценить многие вероятности. Например, оценим вероятность <span class="math inline">\(P(X_1 + X_2 + X_3^2 &gt; 5)\)</span>, где величины <span class="math inline">\(X_i\)</span> независимы и одинаково распределены <span class="math inline">\(X_i \sim U[0;2]\)</span>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n_obs &lt;-<span class="st"> </span><span class="dv">10</span>^<span class="dv">6</span>
 x_1 &lt;-<span class="st"> </span><span class="kw">runif</span>(n_obs, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">2</span>)
@@ -212,11 +221,53 @@ x_2 &lt;-<span class="st"> </span><span class="kw">runif</span>(n_obs, <span cla
 x_3 &lt;-<span class="st"> </span><span class="kw">runif</span>(n_obs, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">2</span>)
 success &lt;-<span class="st"> </span>x_1 +<span class="st"> </span>x_2 +<span class="st"> </span>x_3^<span class="dv">2</span> &gt;<span class="st"> </span><span class="dv">5</span>
 <span class="kw">sum</span>(success) /<span class="st"> </span>n_obs</code></pre></div>
-<pre><code>## [1] 0.147426</code></pre>
+<pre><code>## [1] 0.147191</code></pre>
 <p>Здесь вектор <code>success</code> будет содержать значение TRUE там, где условие <code>x_1 + x_2 + x_3^2 &gt; 5</code> выполнено, и FALSE там, где условие не выполнено. При сложении командой <code>sum()</code> каждое TRUE будет посчитано как единица, а каждое FALSE как ноль. Поэтому <code>sum(success)</code> даст количество раз, когда условие <code>x_1 + x_2 + x_3^2 &gt; 5</code> выполнено.</p>
-<p>… тут ещё несколько распределений</p>
-<p>… помимо генерации случайных чисел нарисуем функции плотности и распределения</p>
-<p>Если выполнить команду <code>rnorm(10, mean = 2, sd = 3)</code> на двух разных компьютерах или два раза на одном и том же, то результат будет разный. Не зря же они случайные :) Однако генерирование случайных величин никак не противоречит идее абсолютно точной воспроизводимости исследований. Для того, чтобы получились одинаковые результаты, необходимо синхронизировать генераторы случайных чисел на этих двух компьютерах. Делается это путём задания <strong>зерна генератора</strong> (seed). Зерно также называют стартовым значением. В качестве зерна подойдёт любое целое число.</p>
+<p>С любым распределением <code>[xxx]</code> в R связано четыре функции: <code>r[xxx]</code>, <code>d[xxx]</code>, <code>p[xxx]</code> и <code>q[xxx]</code>. Для примера возьмём нормальное распределение <span class="math inline">\(N(2;9)\)</span>:</p>
+<ul>
+<li>Функция для создания случайной выборки из нормального <span class="math inline">\(N(2; 9)\)</span> распределения — <code>rnorm</code>:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">3</span>) <span class="co"># случайная выборка из 100 нормальных N(2; 9) величин</span>
+<span class="kw">head</span>(x, <span class="dv">10</span>) <span class="co"># первые 10 элементов вектора</span></code></pre></div>
+<pre><code>##  [1]  0.9834764 -1.5077047 -1.4858843  0.9580893 -0.9667682  4.4984994
+##  [7]  0.4369833 -1.9777931 -6.3115086  0.7384105</code></pre>
+<ul>
+<li>Функция плотности — <code>dnorm</code>:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> -<span class="dv">6</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">length.out =</span> <span class="dv">100</span>)
+y &lt;-<span class="st"> </span><span class="kw">dnorm</span>(x, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">3</span>)
+<span class="kw">qplot</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y, <span class="dt">geom =</span> <span class="st">&quot;line&quot;</span>) +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Значения случайной величины $X$&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Функция плотности&quot;</span>)</code></pre></div>
+<p><img src="r_manual_files/figure-html/normal_pdf_plot-1.png" width="672" /></p>
+<p>Для дискретных распределений с буквы <code>d</code> начинается название функции, возвращающей вероятность получить заданное значение. Найдём для случайной величины <span class="math inline">\(W\)</span>, имеющей Пуассоновское распределение с параметром <span class="math inline">\(\lambda = 2\)</span> вероятность <span class="math inline">\(P(W = 3)\)</span>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dpois</span>(<span class="dv">3</span>, <span class="dt">lambda =</span> <span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 0.180447</code></pre>
+<ul>
+<li>Функция распределения, <span class="math inline">\(F(t)=P(X\leq t)\)</span> — <code>pnorm</code>:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> -<span class="dv">6</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">length.out =</span> <span class="dv">100</span>)
+y &lt;-<span class="st"> </span><span class="kw">pnorm</span>(x, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">3</span>)
+<span class="kw">qplot</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y, <span class="dt">geom =</span> <span class="st">&quot;line&quot;</span>) +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Значения случайной величины $X$&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Функция распределения&quot;</span>)</code></pre></div>
+<p><img src="r_manual_files/figure-html/normal_cdf_plot-1.png" width="672" /></p>
+<ul>
+<li>Квантильная функция или обратная функция распределения, <span class="math inline">\(q(x) = F^{-1}(x)\)</span> — <code>qnorm</code>:</li>
+</ul>
+<p>Найдём перцентили 5%, 15% и 90% для нормального <span class="math inline">\(N(2; 9)\)</span> распределения:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.05</span>, <span class="fl">0.15</span>, <span class="fl">0.9</span>)
+<span class="kw">qnorm</span>(x, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] -2.934561 -1.109300  5.844655</code></pre>
+<p>Иногда бывает полезно получить случайную выборку из заданного вектора без повторений:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">100</span>, <span class="dt">size =</span> <span class="dv">20</span>)</code></pre></div>
+<pre><code>##  [1]  40   4 100  47   6  22  51  42  82  31  97   7  86  45  61  30   2
+## [18]  48  71  78</code></pre>
+<p>Или с повторениями:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;Орёл&quot;</span>, <span class="st">&quot;Решка&quot;</span>), <span class="dt">size =</span> <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>##  [1] &quot;Орёл&quot;  &quot;Решка&quot; &quot;Решка&quot; &quot;Орёл&quot;  &quot;Решка&quot; &quot;Решка&quot; &quot;Орёл&quot;  &quot;Орёл&quot; 
+##  [9] &quot;Решка&quot; &quot;Решка&quot;</code></pre>
+<p>Можно добавить неравные вероятности:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;Орёл&quot;</span>, <span class="st">&quot;Решка&quot;</span>), <span class="dt">size =</span> <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="fl">0.3</span>, <span class="fl">0.7</span>))</code></pre></div>
+<pre><code>##  [1] &quot;Решка&quot; &quot;Решка&quot; &quot;Решка&quot; &quot;Решка&quot; &quot;Орёл&quot;  &quot;Орёл&quot;  &quot;Орёл&quot;  &quot;Решка&quot;
+##  [9] &quot;Решка&quot; &quot;Решка&quot;</code></pre>
+<p>Если выполнить команду <code>rnorm(10, mean = 2, sd = 3)</code> на двух разных компьютерах или два раза на одном и том же, то результат будет разный. Не зря же они случайные :) Однако генерирование случайных величин никак не противоречит идее абсолютно точной воспроизводимости исследований. Для того, чтобы получились одинаковые результаты, необходимо синхронизировать генераторы случайных чисел на этих двух компьютерах. Делается это путём задания <strong>зерна</strong> генератора случайных чисел (seed). Зерно также называют <strong>стартовым значением</strong>. В качестве зерна подойдёт любое целое число.</p>
 <p>И в результате запуска кода</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
 <span class="kw">rnorm</span>(<span class="dv">1</span>, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">3</span>)</code></pre></div>
@@ -224,7 +275,7 @@ success &lt;-<span class="st"> </span>x_1 +<span class="st"> </span>x_2 +<span c
 <p>все компьютеры выведут число <span class="math inline">\(6.112875\)</span>.</p>
 <div class="warning">
 <p>
-Если код содержит генерерирование случайных чисел, то необходимо задавать зерно генератора
+Если код содержит генерерирование случайных чисел, то необходимо задавать зерно генератора случайных чисел!
 </p>
 </div>
 </div>
