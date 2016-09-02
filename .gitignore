@@ -7,13 +7,9 @@ _bookdown_files
 rsconnect
 packrat/lib*/
 packrat/src/
-
 r_manual.run.xml
-
 r_manual.knit.md
-
 r_manual.utf8.md
-
 r_manual-tikzDictionary
-
 tikz_metrics
+.DS_Store

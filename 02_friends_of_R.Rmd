@@ -73,7 +73,7 @@ test
 
 6. Автодобавление пакетов
 
-```{r, include=FALSE, eval=FALSE}
+```{r, "bib_from_packages", include=FALSE, eval=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
@@ -84,14 +84,14 @@ knitr::write_bib(c(
 
 6. Для создания `MOBI` книг:
 
-```{bash, eval=FALSE}
+```{bash, "mobi_install", eval=FALSE}
 brew update
 brew cask install calibre
 brew cask install kindlegen
 ```
 
 В предисловии
-```{bash, eval=FALSE}
+```{bash, "kindlegen_setup", eval=FALSE}
 bookdown::kindlegen:
   epub: _book/r_manual.epub
 ```
@@ -100,7 +100,7 @@ bookdown::kindlegen:
 
 
 или
-```{bash, eval=FALSE}
+```{bash, "calibre_setup", eval=FALSE}
 bookdown::calibre:
   input: _book/r_manual.epub
   output: _book/r_manual.mobi 
@@ -115,7 +115,7 @@ bookdown::calibre:
 
 Создаём новый токен на [github](https://github.com/settings/tokens): кликнуть по иконке пользователя, далее settings - token - generate new token.
 
-```{bash, eval=FALSE}
+```{bash, "github_token", eval=FALSE}
 sudo gem install travis
 travis encrypt GITHUB_TOKEN=[token from githum]
 ```

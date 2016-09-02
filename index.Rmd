@@ -55,13 +55,13 @@ fontsize: 11pt
 github-repo: bdemeshev/r_manual_book
 lang: ru-RU
 link-citations: yes
-mainfont: Linux Libertine O
-monofont: Linux Libertine O
+mainfont: "Linux Libertine O"
+monofont: "Linux Libertine O"
 otherlangs: en-GB
 bibliography:
 - book.bib
 - packages.bib
-sansfont: Linux Libertine O
+sansfont: "Linux Libertine O"
 site: bookdown::bookdown_site
 biblio-style: alphabetic
 ---
@@ -87,9 +87,9 @@ activateTikz <- function() {
                    "\\setmainfont{Linux Libertine O}",
                    "\\setmonofont{Linux Libertine O}",
                    "\\setsansfont{Linux Libertine O}",
-                   "\\newfontfamily{\\cyrillicfonttt}{Linux Libertine O}",
-                   "\\newfontfamily{\\cyrillicfont}{Linux Libertine O}",
-                   "\\newfontfamily{\\cyrillicfontsf}{Linux Libertine O}")
+        "\\newfontfamily{\\cyrillicfonttt}{Linux Libertine O}",
+        "\\newfontfamily{\\cyrillicfont}{Linux Libertine O}",
+        "\\newfontfamily{\\cyrillicfontsf}{Linux Libertine O}")
   
   options(tikzXelatexPackages = c(getOption("tikzXelatexPackages"),
                                   add_xelatex))
