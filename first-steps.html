@@ -25,7 +25,7 @@
 
 <meta name="author" content="Борис Демешев">
 
-<meta name="date" content="2016-08-30">
+<meta name="date" content="2016-09-02">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -119,7 +119,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.1.5" data-path="first-steps.html"><a href="first-steps.html#install_editor"><i class="fa fa-check"></i><b>1.1.5</b> Текстовый редактор</a></li>
 <li class="chapter" data-level="1.1.6" data-path="first-steps.html"><a href="first-steps.html#install_STAN"><i class="fa fa-check"></i><b>1.1.6</b> STAN</a></li>
 <li class="chapter" data-level="1.1.7" data-path="first-steps.html"><a href="first-steps.html#install_jupyter"><i class="fa fa-check"></i><b>1.1.7</b> jupyter</a></li>
-<li class="chapter" data-level="1.1.8" data-path="first-steps.html"><a href="first-steps.html#install_gretl"><i class="fa fa-check"></i><b>1.1.8</b> gretl</a></li>
+<li class="chapter" data-level="1.1.8" data-path="first-steps.html"><a href="first-steps.html#install_lyx"><i class="fa fa-check"></i><b>1.1.8</b> LyX</a></li>
+<li class="chapter" data-level="1.1.9" data-path="first-steps.html"><a href="first-steps.html#install_font"><i class="fa fa-check"></i><b>1.1.9</b> Шрифты</a></li>
+<li class="chapter" data-level="1.1.10" data-path="first-steps.html"><a href="first-steps.html#pandoc"><i class="fa fa-check"></i><b>1.1.10</b> Pandoc</a></li>
+<li class="chapter" data-level="1.1.11" data-path="first-steps.html"><a href="first-steps.html#install_gretl"><i class="fa fa-check"></i><b>1.1.11</b> gretl</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="first-steps.html"><a href="first-steps.html#funny_calc"><i class="fa fa-check"></i><b>1.2</b> Весёлый калькулятор</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="first-steps.html"><a href="first-steps.html#value_selection"><i class="fa fa-check"></i><b>1.2.1</b> Отбор значений</a></li>
@@ -220,7 +223,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Переименование старого пользователя не помогает.</p>
 <div id="install_R" class="section level3">
 <h3><span class="header-section-number">1.1.1</span> R</h3>
-<p>…</p>
+<p>Windows:</p>
+<p>Macos:</p>
+<p>Linux:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> echo <span class="st">&quot;deb http://cran.rstudio.com/bin/linux/ubuntu xenial/&quot;</span> <span class="kw">|</span> <span class="kw">sudo</span> tee -a /etc/apt/sources.list
+<span class="kw">gpg</span> --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+<span class="kw">gpg</span> -a --export E084DAB9 <span class="kw">|</span> <span class="kw">sudo</span> apt-key add -
+<span class="kw">sudo</span> apt-get update
+<span class="kw">sudo</span> apt-get install r-base r-base-dev</code></pre></div>
 </div>
 <div id="install_Rstudio" class="section level3">
 <h3><span class="header-section-number">1.1.2</span> Rstudio</h3>
@@ -228,7 +238,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="install_Latex" class="section level3">
 <h3><span class="header-section-number">1.1.3</span> LaTeX</h3>
-<p>…</p>
+<p>Латех — это система для создания красивых структурированных текстов. Пользоваться Вордом для написания курсовых или научных статей — это дурной вкус. Латех дарит возможность писать красивые математические формулы. В силу простоты текстового формата для хранения документов Латех идеально подходит для взаимодействия с другими программами. Связав R и Латех с помощью грамотного программирования, можно в один клик обновлять сложные отчёты при получении новых данных или избегать ошибок, связанных с копированием результатов вычислений в презентацию. И, конечно, Латех прекрасно подходит для любой системы контроля версий — можно легко держать несколько версий документов и наглядно сравнить их.</p>
+<p>Под Linux основной дистрибутив латеха — это TeXLive.</p>
+<p>Под Macos основной дистрибутив латеха — это Mactex.</p>
+<p>Под Windows существует два конкурирующих по популярности дистрибутива — TexLive и Miktex. Я лично рекомендую TexLive, но</p>
 </div>
 <div id="install_git" class="section level3">
 <h3><span class="header-section-number">1.1.4</span> git-клиент</h3>
@@ -247,8 +260,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">1.1.7</span> jupyter</h3>
 <p>…</p>
 </div>
+<div id="install_lyx" class="section level3">
+<h3><span class="header-section-number">1.1.8</span> LyX</h3>
+</div>
+<div id="install_font" class="section level3">
+<h3><span class="header-section-number">1.1.9</span> Шрифты</h3>
+<p>Просмотрщик шрифтов Ubuntu (16.04)</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> add-apt-repository ppa:font-manager/staging
+<span class="kw">sudo</span> apt-get update
+<span class="kw">sudo</span> apt-get install font-manager</code></pre></div>
+<p>Шрифт Linux Libertine,</p>
+<p>Шрифты могут быть записаны в разных форматах. Выбирайте OTF.</p>
+</div>
+<div id="pandoc" class="section level3">
+<h3><span class="header-section-number">1.1.10</span> Pandoc</h3>
+<p>Pandoc — это конвертер текстовых форматов. Он умеет превращать файлы в формате маркдаун во всё, что движется: <code>tex</code>, <code>pdf</code>, <code>docx</code>, <code>epub</code>, <code>html</code>…</p>
+<p>Ubuntu (16.04):</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> apt-get install pandoc pandoc-citeproc</code></pre></div>
+</div>
 <div id="install_gretl" class="section level3">
-<h3><span class="header-section-number">1.1.8</span> gretl</h3>
+<h3><span class="header-section-number">1.1.11</span> gretl</h3>
 <p>Тебе страшно? Тебя пугает даже список того, что нужно установить? Ты боишься R, а регрессию надо построить через 5 минут? Тогда разумное спасение — это gretl. Для gretl не обязательно учиться программировать: статистические тесты, графики и эконометрические модели доступны через меню. Кроме того, gretl даёт возможность пользователю взаимодействовать с R, что спасает в тех случаях, когда возможностей gretl не хватает.</p>
 <p>Естественно, gretl кросс-платформенный открытый и бесплатный, <a href="http://gretl.sourceforge.net/">gretl</a>.</p>
 </div>
@@ -318,19 +349,17 @@ vect</code></pre></div>
 s &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">40</span>, <span class="dt">min =</span> -<span class="dv">3</span>, <span class="dt">max =</span> <span class="dv">1</span>) 
 b &lt;-<span class="st"> </span>s[s &gt;<span class="st"> </span><span class="dv">0</span>] <span class="co"># отбираем те s, что больше нуля</span>
 b </code></pre></div>
-<pre><code>##  [1] 0.459786478 0.686668877 0.288485177 0.384009612 0.491629985
-##  [6] 0.886100014 0.746998297 0.866155636 0.201326480 0.490827924
-## [11] 0.817326585 0.049422844 0.003403544 0.767710447</code></pre>
+<pre><code>## [1] 0.1800838 0.4127222 0.5587911 0.1375717 0.6082114 0.8970315</code></pre>
 <p>Можно выбрать конкретные <span class="math inline">\(s\)</span>, например с 6-го по 20-ое: <code>{r} s[6:20]</code></p>
 <p>Хочу 5-ый, 7-ой и 13-ый элементы вектора!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s[<span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">13</span>)] </code></pre></div>
-<pre><code>## [1] -1.946638 -2.735363  0.491630</code></pre>
+<pre><code>## [1] -0.1673050 -1.5859651 -0.3177856</code></pre>
 <p>Можно узнать, сколько значений <code>s</code> больше нуля:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(s &gt;<span class="st"> </span><span class="dv">0</span>) </code></pre></div>
-<pre><code>## [1] 14</code></pre>
+<pre><code>## [1] 6</code></pre>
 <p>Еще полезная штучка — количество элементов в векторе:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(b) </code></pre></div>
-<pre><code>## [1] 14</code></pre>
+<pre><code>## [1] 6</code></pre>
 <p>Операции, похожие на те, что проделали с векторами, можно делать и с другими типами данных, например, с матрицами (<em>matrix</em>), таблицами (<em>table</em>) и др. Покажем на примере наборов данных (<em>data frame</em>).</p>
 <p>Будем использовать набор данных <code>diamonds</code> из пакета <code>ggplot2</code>. Множество других встроены во многие пакеты, а также в сам R, и список с кратким описанием последних можно вызвать командой <code>library(help = &quot;datasets&quot;)</code>.</p>
 <p>Наборы данных состоят из строк (<em>rows</em>) и столбцов (<em>columns</em>); в каждой строке хорошо построенного набора — характеристики одного объекта, а по столбцам — значения одной характеристики у разных объектов. Так, например, в <code>diamonds</code> объектами являются бриллианты, а их характеристиками — цена, вес, цвет и т. д. Это можно увидеть с помощью всё той же команды <code>str()</code>:</p>
@@ -475,6 +504,10 @@ y &lt;-<span class="st"> </span>x^<span class="dv">2</span> +<span class="st"> <
 <p>Чтобы узнать в каком пакете живет заданная функция, например <code>lm</code>, можно прямо спросить у R:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(<span class="st">&quot;lm&quot;</span>)</code></pre></div>
 <p>На самом верху справа документации будет написано <code>lm {stats}</code>. Это означает, что функция <code>lm</code> живёт в пакете <code>stats</code>. Пакет <code>stats</code> входит в ядро R, поэтому подключать его явно командой <code>library(&quot;stats&quot;)</code> не требуется.</p>
+<p>Для установки различных пакетов, работающих с Интернетом под Linux может потребоваться установка дополнительных библиотек:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> apt-get install libssl-dev
+<span class="kw">sudo</span> apt-get install libcurl4-openssl-dev
+<span class="kw">sudo</span> apt-get install libxml2-dev </code></pre></div>
 </div>
 <div id="io" class="section level2">
 <h2><span class="header-section-number">1.5</span> Чтение и запись данных</h2>
@@ -622,22 +655,21 @@ x -<span class="st"> </span>y </code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)
 <span class="kw">qplot</span>(<span class="kw">factor</span>(s), <span class="dt">xlab =</span> <span class="st">&quot;Значение&quot;</span>,
 <span class="dt">ylab =</span> <span class="st">&quot;Количество&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Гистограмма&quot;</span>) </code></pre></div>
-<p><img src="r_manual_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="r_manual_files/figure-html/simple_histo-1.png" width="672" /></p>
 <p>Ту же гистограммку можно построить с помощью функции <code>ggplot()</code> из того же пакета, предварительно преобразовав s в необходимый для <code>ggplot()</code> формат data frame:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(s) 
 <span class="kw">ggplot</span>(s_df) +<span class="st"> </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="kw">factor</span>(s))) +
 <span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Значение&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Количество&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Гистограмма&quot;</span>) </code></pre></div>
-<p><img src="r_manual_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p><img src="r_manual_files/figure-html/simple_histo_ggplot2-1.png" width="672" /></p>
 <p>И еще простенький график:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">500</span>) 
-<span class="co"># 500 нормальных величин со средним 0 и дисперсией 1 </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">500</span>) <span class="co"># 500 нормальных величин со средним 0 и дисперсией 1 </span>
 y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">500</span>) <span class="co"># 500 нормальных величин со средним 0 и дисперсией 1 </span>
 <span class="kw">qplot</span>(x, y, <span class="dt">main =</span> <span class="st">&quot;Точечки&quot;</span>) </code></pre></div>
-<p><img src="r_manual_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p><img src="r_manual_files/figure-html/scatter_qplot-1.png" width="672" /></p>
 <p>Или:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xy_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y) 
 <span class="kw">ggplot</span>(xy_df) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(x, y)) +<span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Точечки&quot;</span>) </code></pre></div>
-<p><img src="r_manual_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="r_manual_files/figure-html/scatter_ggplot2-1.png" width="672" /></p>
 <p>В зависимости от формата данных часто бывает удобно использовать и <code>qplot()</code>, и <code>ggplot()</code>.</p>
 </div>
 </div>
