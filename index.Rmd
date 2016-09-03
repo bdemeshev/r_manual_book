@@ -121,6 +121,7 @@ outputFormat <- opts_knit$get("rmarkdown.pandoc.to")
 
 if (outputFormat == "latex") {
   activateTikz()
+  # другую тему для ggplot2 выставить?
 }
 
 ```
@@ -129,8 +130,10 @@ if (outputFormat == "latex") {
 
 
 ```{r, warning=FALSE, message=FALSE}
-library("dplyr")
-library("ggplot2")
+library("ggplot2") # графики
+library("sandwich") # оценка Var для гетероскедастичности
+library("lmtest") # тест Бройша-Пагана
+library("dplyr") # манипуляции с данными
 ```
 
 
