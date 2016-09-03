@@ -120,10 +120,12 @@ sudo gem install travis
 travis encrypt GITHUB_TOKEN=[token from githum]
 ```
 
-Именно переменная `GITHUB_TOKEN` должна использоваться для того, чтобы обращаться к гитхабу, т.е.
-```{bash, eval=FALSE}
-
+Именно переменная `GITHUB_TOKEN` должна использоваться для того, чтобы обращаться к гитхабу, т.е. клонируется ветка gh-pages командой
+```{bash, "token_use", eval=FALSE}
+git clone -b gh-pages https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git book-output
 ```
+Переменная `TRAVIS_REPO_SLUG` будет сама определена сервисом Travis и будет равна названию репозитория.
+
 
 Добавляем получившуюся закодированную строку в `.travis.yml`. Забавно, что похоже используется рандомный ключ для шифрования и поэтому зашифрованная строка каждый раз выходит разной.
 
@@ -134,21 +136,27 @@ travis encrypt GITHUB_TOKEN=[token from githum]
 
 
 Для быстрой компиляции добавляем в `.travis.yml` указание, что мы будем использовать готовые бинарные пакеты R:
-```{bash, eval=FALSE}
+```{bash, "binary_packages", eval=FALSE}
 r_binary_packages:
   - ggplot2
   - dplyr
   - rio
 ```
+Для того, чтобы эти опции не были проигнорированы `.travis.yml` должен содержать строку `sudo: required`.
 
-Черт его знает? всё равно компилирует?
+Если бинарный пакет слишком старый или вообще отсутствует, можно проинсталлировать его обычным образом, для этого добавляем строки
 
+```{bash, "non_binary_packages", eval=FALSE}
+r_packages:
+  - devtools
+  - rio
+```
 
 8. Красный шрифт
 
 по мотивам [http://stackoverflow.com/questions/29067541](http://stackoverflow.com/questions/29067541)
 
-```{r, eval=FALSE}
+```{r, "red_function", eval=FALSE}
 colFmt <- function(x, color) {
   outputFormat <- opts_knit$get("rmarkdown.pandoc.to")
   if (outputFormat == "latex") {
