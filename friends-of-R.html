@@ -25,7 +25,7 @@
 
 <meta name="author" content="Борис Демешев">
 
-<meta name="date" content="2016-09-02">
+<meta name="date" content="2016-09-03">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -276,8 +276,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Создаём новый токен на <a href="https://github.com/settings/tokens">github</a>: кликнуть по иконке пользователя, далее settings - token - generate new token.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> gem install travis
 <span class="kw">travis</span> encrypt GITHUB_TOKEN=[token from githum]</code></pre></div>
-<p>Именно переменная <code>GITHUB_TOKEN</code> должна использоваться для того, чтобы обращаться к гитхабу, т.е.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"></code></pre></div>
+<p>Именно переменная <code>GITHUB_TOKEN</code> должна использоваться для того, чтобы обращаться к гитхабу, т.е. клонируется ветка gh-pages командой</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> clone -b gh-pages https://<span class="ot">${GITHUB_TOKEN}</span>@github.com/<span class="ot">${TRAVIS_REPO_SLUG}</span>.git book-output</code></pre></div>
+<p>Переменная <code>TRAVIS_REPO_SLUG</code> будет сама определена сервисом Travis и будет равна названию репозитория.</p>
 <p>Добавляем получившуюся закодированную строку в <code>.travis.yml</code>. Забавно, что похоже используется рандомный ключ для шифрования и поэтому зашифрованная строка каждый раз выходит разной.</p>
 <p>Можно не шифровать её, а добавить в travis-ci.org/user/repo/settings</p>
 <p>Для быстрой компиляции добавляем в <code>.travis.yml</code> указание, что мы будем использовать готовые бинарные пакеты R:</p>
@@ -285,7 +286,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="kw">-</span> ggplot2
   <span class="kw">-</span> dplyr
   <span class="kw">-</span> rio</code></pre></div>
-<p>Черт его знает? всё равно компилирует?</p>
+<p>Для того, чтобы эти опции не были проигнорированы <code>.travis.yml</code> должен содержать строку <code>sudo: required</code>.</p>
+<p>Если бинарный пакет слишком старый или вообще отсутствует, можно проинсталлировать его обычным образом, для этого добавляем строки</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">r_packages</span>:
+  <span class="kw">-</span> devtools
+  <span class="kw">-</span> rio</code></pre></div>
 <ol start="8" style="list-style-type: decimal">
 <li>Красный шрифт</li>
 </ol>
