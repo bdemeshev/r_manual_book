@@ -25,7 +25,7 @@
 
 <meta name="author" content="Борис Демешев">
 
-<meta name="date" content="2016-09-03">
+<meta name="date" content="2016-09-04">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -158,7 +158,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.3" data-path="statistics-and-more.html"><a href="statistics-and-more.html#classic_regression"><i class="fa fa-check"></i><b>3.3</b> Множественная регрессия</a></li>
 <li class="chapter" data-level="3.4" data-path="statistics-and-more.html"><a href="statistics-and-more.html#quantile_regression"><i class="fa fa-check"></i><b>3.4</b> Квантильная регрессия</a></li>
 <li class="chapter" data-level="3.5" data-path="statistics-and-more.html"><a href="statistics-and-more.html#instrumental_variables"><i class="fa fa-check"></i><b>3.5</b> Инструментальные переменные</a></li>
-<li class="chapter" data-level="3.6" data-path="statistics-and-more.html"><a href="statistics-and-more.html#heteroskedasticity"><i class="fa fa-check"></i><b>3.6</b> Гетероскедастичность</a></li>
+<li class="chapter" data-level="3.6" data-path="statistics-and-more.html"><a href="statistics-and-more.html#heteroskedasticity"><i class="fa fa-check"></i><b>3.6</b> Гетероскедастичность</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="statistics-and-more.html"><a href="statistics-and-more.html#hetero_testing"><i class="fa fa-check"></i><b>3.6.1</b> Тесты на гетероскедастичность</a></li>
+<li class="chapter" data-level="3.6.2" data-path="statistics-and-more.html"><a href="statistics-and-more.html#hetero_bp_test"><i class="fa fa-check"></i><b>3.6.2</b> Тест Бройша-Пагана, Breusch-Pagan:</a></li>
+<li class="chapter" data-level="3.6.3" data-path="statistics-and-more.html"><a href="statistics-and-more.html#white_test"><i class="fa fa-check"></i><b>3.6.3</b> Тест Уайта. White test</a></li>
+<li class="chapter" data-level="3.6.4" data-path="statistics-and-more.html"><a href="statistics-and-more.html#gq_test"><i class="fa fa-check"></i><b>3.6.4</b> Тест Goldfeld-Quandt</a></li>
+<li class="chapter" data-level="3.6.5" data-path="statistics-and-more.html"><a href="statistics-and-more.html#hetero_fail"><i class="fa fa-check"></i><b>3.6.5</b> Тестирование и борьба с гетероскедастичностью</a></li>
+<li class="chapter" data-level="3.6.6" data-path="statistics-and-more.html"><a href="statistics-and-more.html#hetero_forecasting"><i class="fa fa-check"></i><b>3.6.6</b> Прогнозирование при гетероскедастичности</a></li>
+<li class="chapter" data-level="3.6.7" data-path="statistics-and-more.html"><a href="statistics-and-more.html#hetero_links"><i class="fa fa-check"></i><b>3.6.7</b> Дополнительно:</a></li>
+</ul></li>
 <li class="chapter" data-level="3.7" data-path="statistics-and-more.html"><a href="statistics-and-more.html#factor_variables"><i class="fa fa-check"></i><b>3.7</b> Работа с качественными переменными</a></li>
 <li class="chapter" data-level="3.8" data-path="statistics-and-more.html"><a href="statistics-and-more.html#logit_probit"><i class="fa fa-check"></i><b>3.8</b> Логит и пробит с визуализацией</a></li>
 <li class="chapter" data-level="3.9" data-path="statistics-and-more.html"><a href="statistics-and-more.html#pca"><i class="fa fa-check"></i><b>3.9</b> Метод главных компонент</a></li>
@@ -206,17 +214,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Для решения задач по теории вероятностей или исследования свойств статистических алгоритмов может потребоваться сгененировать случайную выборку из заданного закона распределения.</p>
 <p>Генерируем 10 равномерных на отрезке <span class="math inline">\([4;10.5]\)</span> случайных величин:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="dv">4</span>, <span class="dt">max =</span> <span class="fl">10.5</span>)</code></pre></div>
-<pre><code>##  [1]  6.751261  9.449217  4.441931  8.013823  5.351436  6.443673  8.916293
-##  [8]  4.038342  5.478209 10.477062</code></pre>
+<pre><code>##  [1]  7.662965  7.205006 10.353568  9.826565  8.327436  8.168720  6.391621
+##  [8]  8.881772  9.639014  4.712184</code></pre>
 <p>Генерируем 10 нормальных <span class="math inline">\(N(2;9)\)</span> случайных величин с математическим ожиданием <span class="math inline">\(2\)</span> и дисперсией <span class="math inline">\(9=3^2\)</span>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">3</span>)</code></pre></div>
-<pre><code>##  [1] 1.6384060 1.0195444 3.1556771 1.0034904 5.7469059 2.4917102 4.4091760
-##  [8] 1.6197086 0.3403347 2.3380592</code></pre>
+<pre><code>##  [1]  0.7708824  3.2328856 -0.3481528  4.5030113 -1.3227000  0.8059197
+##  [7]  2.2154422  4.1664963 -2.5351029  4.7437600</code></pre>
 <p>Например, с помощью симуляций легко оценить математическое ожидание <span class="math inline">\(E(1/X)\)</span>, где <span class="math inline">\(X \sim N(2;9)\)</span>. Для этого мы вспомним Закон Больших Чисел. Он говорит, что арифметическое среднее по большой выборке стремится по вероятности и почти наверное к математическому ожиданию. Поэтому мы просто сгенерируем большую выборку в миллион наблюдений:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n_obs &lt;-<span class="st"> </span><span class="dv">10</span>^<span class="dv">6</span>
 x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n_obs, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">3</span>)
 <span class="kw">mean</span>(<span class="dv">1</span>/x)</code></pre></div>
-<pre><code>## [1] -0.3361361</code></pre>
+<pre><code>## [1] -0.04242591</code></pre>
 <p>Также легко оценить многие вероятности. Например, оценим вероятность <span class="math inline">\(P(X_1 + X_2 + X_3^2 &gt; 5)\)</span>, где величины <span class="math inline">\(X_i\)</span> независимы и одинаково распределены <span class="math inline">\(X_i \sim U[0;2]\)</span>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n_obs &lt;-<span class="st"> </span><span class="dv">10</span>^<span class="dv">6</span>
 x_1 &lt;-<span class="st"> </span><span class="kw">runif</span>(n_obs, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">2</span>)
@@ -224,7 +232,7 @@ x_2 &lt;-<span class="st"> </span><span class="kw">runif</span>(n_obs, <span cla
 x_3 &lt;-<span class="st"> </span><span class="kw">runif</span>(n_obs, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">2</span>)
 success &lt;-<span class="st"> </span>x_1 +<span class="st"> </span>x_2 +<span class="st"> </span>x_3^<span class="dv">2</span> &gt;<span class="st"> </span><span class="dv">5</span>
 <span class="kw">sum</span>(success) /<span class="st"> </span>n_obs</code></pre></div>
-<pre><code>## [1] 0.147396</code></pre>
+<pre><code>## [1] 0.147295</code></pre>
 <p>Здесь вектор <code>success</code> будет содержать значение TRUE там, где условие <code>x_1 + x_2 + x_3^2 &gt; 5</code> выполнено, и FALSE там, где условие не выполнено. При сложении командой <code>sum()</code> каждое TRUE будет посчитано как единица, а каждое FALSE как ноль. Поэтому <code>sum(success)</code> даст количество раз, когда условие <code>x_1 + x_2 + x_3^2 &gt; 5</code> выполнено.</p>
 <p>С любым распределением <code>[xxx]</code> в R связано четыре функции: <code>r[xxx]</code>, <code>d[xxx]</code>, <code>p[xxx]</code> и <code>q[xxx]</code>. Для примера возьмём нормальное распределение <span class="math inline">\(N(2;9)\)</span>:</p>
 <ul>
@@ -232,8 +240,8 @@ success &lt;-<span class="st"> </span>x_1 +<span class="st"> </span>x_2 +<span c
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">3</span>) <span class="co"># случайная выборка из 100 нормальных N(2; 9) величин</span>
 <span class="kw">head</span>(x, <span class="dv">10</span>) <span class="co"># первые 10 элементов вектора</span></code></pre></div>
-<pre><code>##  [1] -0.3170109  6.2058881 -2.4197002  1.8522873  6.4152288  0.5038698
-##  [7]  0.2121127  3.6467676  3.4467914  4.3233213</code></pre>
+<pre><code>##  [1]  2.4045711  0.6850012  1.2948664  2.3527705 -1.6286921  0.4883023
+##  [7]  2.2065772  3.7729637  2.5293307  3.9860366</code></pre>
 <ul>
 <li>Функция плотности — <code>dnorm</code>:</li>
 </ul>
@@ -260,15 +268,15 @@ y &lt;-<span class="st"> </span><span class="kw">pnorm</span>(x, <span class="dt
 <pre><code>## [1] -2.934561 -1.109300  5.844655</code></pre>
 <p>Иногда бывает полезно получить случайную выборку из заданного вектора без повторений:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">100</span>, <span class="dt">size =</span> <span class="dv">20</span>)</code></pre></div>
-<pre><code>##  [1] 70 94 86 30 47 43 16 77 58 28  6 39 82 79 32 27 45 11 24 80</code></pre>
+<pre><code>##  [1] 64 60 88 65 73 28 37 41 36 92 72 84 93  6 19 25 48 94 89 39</code></pre>
 <p>Или с повторениями:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;Орёл&quot;</span>, <span class="st">&quot;Решка&quot;</span>), <span class="dt">size =</span> <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>##  [1] &quot;Решка&quot; &quot;Орёл&quot;  &quot;Решка&quot; &quot;Орёл&quot;  &quot;Решка&quot; &quot;Орёл&quot;  &quot;Решка&quot; &quot;Орёл&quot; 
+<pre><code>##  [1] &quot;Решка&quot; &quot;Орёл&quot;  &quot;Решка&quot; &quot;Орёл&quot;  &quot;Орёл&quot;  &quot;Решка&quot; &quot;Орёл&quot;  &quot;Решка&quot;
 ##  [9] &quot;Орёл&quot;  &quot;Решка&quot;</code></pre>
 <p>Можно добавить неравные вероятности:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;Орёл&quot;</span>, <span class="st">&quot;Решка&quot;</span>), <span class="dt">size =</span> <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="fl">0.3</span>, <span class="fl">0.7</span>))</code></pre></div>
-<pre><code>##  [1] &quot;Решка&quot; &quot;Решка&quot; &quot;Орёл&quot;  &quot;Решка&quot; &quot;Решка&quot; &quot;Решка&quot; &quot;Решка&quot; &quot;Решка&quot;
-##  [9] &quot;Решка&quot; &quot;Орёл&quot;</code></pre>
+<pre><code>##  [1] &quot;Решка&quot; &quot;Решка&quot; &quot;Орёл&quot;  &quot;Решка&quot; &quot;Решка&quot; &quot;Решка&quot; &quot;Орёл&quot;  &quot;Решка&quot;
+##  [9] &quot;Решка&quot; &quot;Решка&quot;</code></pre>
 <p>Если выполнить команду <code>rnorm(10, mean = 2, sd = 3)</code> на двух разных компьютерах или два раза на одном и том же, то результат будет разный. Не зря же они случайные :) Однако генерирование случайных величин никак не противоречит идее абсолютно точной воспроизводимости исследований. Для того, чтобы получились одинаковые результаты, необходимо синхронизировать генераторы случайных чисел на этих двух компьютерах. Делается это путём задания <strong>зерна</strong> генератора случайных чисел (seed). Зерно также называют <strong>стартовым значением</strong>. В качестве зерна подойдёт любое целое число.</p>
 <p>И в результате запуска кода</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
@@ -293,13 +301,13 @@ y &lt;-<span class="st"> </span><span class="kw">pnorm</span>(x, <span class="dt
 </div>
 <div id="quantile_regression" class="section level2">
 <h2><span class="header-section-number">3.4</span> Квантильная регрессия</h2>
-<p>Незаслуженно забытой оказывается квантильная регрессия. Коэнкер (ссылка) утверждает, что развитие эконометрики началось именно с квантильной регрессии. Для оценок квантильной регрессии не существует формул в явном виде, поэтому она проиграла классической регрессии среднего с формулой <span class="math inline">\(\hat\beta = (X&#39;X)^{-1}X&#39;y\)</span>. Сейчас компьютер позволяет начихать на отсутствие явных формул :)</p>
+<p>Незаслуженно забытой оказывается квантильная регрессия. Коэнкер (ссылка…) утверждает, что развитие эконометрики началось именно с квантильной регрессии. Для оценок квантильной регрессии не существует формул в явном виде, поэтому она проиграла классической регрессии среднего с готовой формулой <span class="math inline">\(\hat\beta = (X&#39;X)^{-1}X&#39;y\)</span>. Сейчас компьютер позволяет начихать на отсутствие явных формул :)</p>
 <p>…</p>
 </div>
 <div id="instrumental_variables" class="section level2">
 <h2><span class="header-section-number">3.5</span> Инструментальные переменные</h2>
-<p>Каждый исследователь мечтает обнаружить не просто статистическую связь, а причинно-следственную. К сожалению, это не так просто. Фиксируя количество людей с зонтиками на улице и количество осадков но не зная физическую природу дождя, невозможно определить, вызывают ли люди с зонтиками дождь или наоборот. Для выяснения причинно следственных связей необходим случайный эксперимент. Например, можно выбрать несколько случайных дней в году и выгнать толпу знакомых с зонтами на улицу, а затем посмотреть, было ли больше осадков в эти дни.</p>
-<p>Инструментальные переменные часто используются исследователями при поиске причинно следственных связей, но это ни в коем случае не означает, что введение инструментальных переменных само по себе гарантирует нахождение причинно-следственной связи!</p>
+<p>Каждый исследователь мечтает обнаружить не просто статистическую связь, а причинно-следственную. К сожалению, это не так просто. Записывая количество людей с зонтиками на улице и количество осадков но не зная физическую природу дождя, невозможно определить, вызывают ли люди с зонтиками дождь или наоборот. Для выяснения причинно-следственных связей необходим случайный эксперимент. Например, можно выбрать несколько случайных дней в году и выгнать толпу знакомых с зонтами на улицу, а затем посмотреть, было ли больше осадков в эти дни.</p>
+<p>Использование инструментальных переменных не гарантирует нахождение причинно-следственной связи! Однако они могут быть полезны.</p>
 <div class="warning">
 <p>
 Для обнаружения причинно-следственной связи необходимо либо использовать данные случайного эксперимента, либо прекрасно разбираться в закономерностях происходящего.
@@ -309,7 +317,316 @@ y &lt;-<span class="st"> </span><span class="kw">pnorm</span>(x, <span class="dt
 </div>
 <div id="heteroskedasticity" class="section level2">
 <h2><span class="header-section-number">3.6</span> Гетероскедастичность</h2>
-<p>…</p>
+<p>Подключаем нужные пакеты:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>) <span class="co"># графики</span>
+<span class="kw">library</span>(<span class="st">&quot;sandwich&quot;</span>) <span class="co"># оценка Var для гетероскедастичности</span>
+<span class="kw">library</span>(<span class="st">&quot;lmtest&quot;</span>) <span class="co"># тест Бройша-Пагана</span>
+<span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>) <span class="co"># манипуляции с данными</span></code></pre></div>
+<p>Условная гетероскедастичность — <span class="math inline">\(Var(\epsilon_i | x_i)\neq const\)</span>.</p>
+<p>Последствия</p>
+<ul>
+<li>Нарушены предпосылки теоремы Гаусса-Маркова. Получаемые <span class="math inline">\(\hat{\beta}_{ols}\)</span> не являются эффективными.</li>
+<li>Несмещенность оценок <span class="math inline">\(\hat{\beta}_{ols}\)</span> сохраняется</li>
+<li>Нарушены предпосылки для использования <span class="math inline">\(t\)</span>-статистик. При использовании стандартных формул <span class="math inline">\(t\)</span>-статистики не имеют <span class="math inline">\(t\)</span>-распределения. Доверительные интервалы и проверка гипотез по стандартным формулам даёт неверные результаты.</li>
+</ul>
+<p>Что делать?</p>
+<ul>
+<li>Если нужны несмещенные оценки — ничего</li>
+<li>Если нужно проверять гипотезы или строить доверительные интервалы, то нужно использовать правильную формулу для <span class="math inline">\(\widehat{Var}(\hat{\beta})\)</span>.</li>
+<li>Если нужны эффективные оценки и есть представление о том, какого вида может быть гетероскедастичность то можно взвесить наблюдения. Оценить регрессию:</li>
+</ul>
+<p><span class="math display">\[
+\frac{y_i}{\hat{\sigma}_i}=\beta_1 \frac{1}{\hat{\sigma}_i}+\beta_2 \frac{x_i}{\hat{\sigma}_i}+\frac{\epsilon_i}{\hat{\sigma}_i}
+\]</span></p>
+<ul>
+<li>Задать другой вопрос:
+<ul>
+<li>Вместо регрессии <span class="math inline">\(y_i=\beta_1+\beta_2 x_i+\epsilon_i\)</span> попробовать оценить регрессию <span class="math inline">\(\ln(y_i)=\beta_1+\beta_2 \ln(x_i)+\epsilon_i\)</span>.</li>
+<li>Оценить квантильную регрессию</li>
+</ul></li>
+</ul>
+<p>Файл с данными по стоимости квартир в Москве доступен по ссылке <a href="http://goo.gl/zL5JQ">goo.gl/zL5JQ</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">filename &lt;-<span class="st"> &quot;datasets/flats_moscow.txt&quot;</span>
+flats &lt;-<span class="st"> </span><span class="kw">read.table</span>(filename, <span class="dt">header =</span> <span class="ot">TRUE</span>)
+
+
+<span class="kw">ggplot</span>(flats) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> totsp, <span class="dt">y =</span> price)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Общая площадь квартиры, кв.м.&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Цена квартиры, тысяч у.е.&quot;</span>, 
+  <span class="dt">title =</span> <span class="st">&quot;Стоимость квартир в Москве&quot;</span>)</code></pre></div>
+<p><img src="r_manual_files/figure-html/read_table_plot_flats-1.png" width="672" /></p>
+<p>Строим регрессию стоимости на общую площадь.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m1 &lt;-<span class="st"> </span><span class="kw">lm</span>(price ~<span class="st"> </span>totsp, <span class="dt">data =</span> flats)
+<span class="kw">summary</span>(m1)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = price ~ totsp, data = flats)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -120.58  -17.44   -3.56   10.99  444.52 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -62.04484    3.71178  -16.72   &lt;2e-16 ***
+## totsp         2.59346    0.04973   52.15   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 33.96 on 2038 degrees of freedom
+## Multiple R-squared:  0.5716, Adjusted R-squared:  0.5714 
+## F-statistic:  2719 on 1 and 2038 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Покажем доверительные интервалы для коэффициентов из регрессии.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confint</span>(m1)</code></pre></div>
+<pre><code>##                  2.5 %     97.5 %
+## (Intercept) -69.324117 -54.765570
+## totsp         2.495927   2.690998</code></pre>
+<p>Посмотрим на <span class="math inline">\(\widehat{Var}(\hat{\beta}|X)\)</span>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">vcov</span>(m1)</code></pre></div>
+<pre><code>##             (Intercept)        totsp
+## (Intercept)  13.7772925 -0.180775186
+## totsp        -0.1807752  0.002473516</code></pre>
+<p>Если не хотим смотреть на всё summary, а только на то, что касается бет с крышкой.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">coeftest</span>(m1)</code></pre></div>
+<pre><code>## 
+## t test of coefficients:
+## 
+##               Estimate Std. Error t value  Pr(&gt;|t|)    
+## (Intercept) -62.044844   3.711778 -16.716 &lt; 2.2e-16 ***
+## totsp         2.593462   0.049734  52.146 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Как было сказано ранее: если в данных присутствует гетероскедастичность, но нужно проверить гипотезы и строить доверительные интервалы, то нужно использовать правильную оценку ковариационной матрицы, она выглядит так: <span class="math display">\[
+\widehat{Var}_{HC}(\hat{\beta}|X)=(X&#39;X)^{-1}X&#39;\hat{\Omega}X(X&#39;X)^{-1}
+\]</span></p>
+<p><span class="math display">\[
+\hat{\Omega}=diag(\hat{\sigma}^2_1,\ldots,\hat{\sigma}^2_n)
+\]</span></p>
+<p>Есть разные способы состоятельно оценить отдельные дисперсии <span class="math inline">\(\hat{\sigma}^2_i\)</span>, подробно можно почитать в описании пакета <a href="http://cran.r-project.org/web/packages/sandwich/vignettes/sandwich.pdf"><code>sandwich</code></a>. Наиболее популярный на сегодня — это так называемый “HC3”: <span class="math display">\[
+\hat{\sigma}^2_i=\frac{\hat{\epsilon}_i^2}{(1-h_{ii})^2}
+\]</span></p>
+<p>Здесь <span class="math inline">\(h_{ii}\)</span> — диагональный элемент матрицы-шляпницы (hat matrix), <span class="math inline">\(\hat{y}=Hy\)</span>, <span class="math inline">\(H=X(X&#39;X)^{-1}X&#39;\)</span>. Матрицу-шляпницу также называют проектором, т.к. она проецирует вектор <span class="math inline">\(y\)</span> на линейную оболочку регрессоров.</p>
+<p>Посмотрим на матрицу <span class="math inline">\(\widehat{Var}_{HC}(\hat{\beta}|X)\)</span> в R.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">vcovHC</span>(m1)</code></pre></div>
+<pre><code>##             (Intercept)       totsp
+## (Intercept)  61.7662920 -0.89503034
+## totsp        -0.8950303  0.01303563</code></pre>
+<p>Применяя правильную <span class="math inline">\(\widehat{Var}_{HC}(\hat{\beta}|X)\)</span>, проверим гипотезы.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">coeftest</span>(m1, <span class="dt">vcov =</span> <span class="kw">vcovHC</span>(m1))</code></pre></div>
+<pre><code>## 
+## t test of coefficients:
+## 
+##              Estimate Std. Error t value  Pr(&gt;|t|)    
+## (Intercept) -62.04484    7.85915 -7.8946 4.716e-15 ***
+## totsp         2.59346    0.11417 22.7151 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Доверительный интервал надо строить руками. За основу мы возьмем табличку с правильными стандартными ошибками и прибавим и вычтем их от оценок коэффициентов.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">conftable &lt;-<span class="st"> </span><span class="kw">coeftest</span>(m1, <span class="dt">vcov =</span> <span class="kw">vcovHC</span>(m1))
+ci &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">estimate =</span> conftable[, <span class="dv">1</span>], 
+                 <span class="dt">se_hc =</span> conftable[, <span class="dv">2</span>],
+                 <span class="dt">left_95 =</span> estimate -<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)*se_hc,
+                 <span class="dt">right_95 =</span> estimate +<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)*se_hc)
+ci</code></pre></div>
+<pre><code>## Source: local data frame [2 x 4]
+## 
+##     estimate     se_hc    left_95   right_95
+##        (dbl)     (dbl)      (dbl)      (dbl)
+## 1 -62.044844 7.8591534 -77.448501 -46.641186
+## 2   2.593462 0.1141737   2.369686   2.817239</code></pre>
+<p>Ещё есть малоизвестный пакет <code>Greg</code> Макса Гордона и в нём есть готовая функция:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Greg::<span class="kw">confint_robust</span>(m1)</code></pre></div>
+<pre><code>##                  2.5 %     97.5 %
+## (Intercept) -77.448501 -46.641186
+## totsp         2.369686   2.817239</code></pre>
+<p>Пакет <code>Greg</code> не доступен на официальном репозитории CRAN, ставится с <code>github</code> командой <code>devtools::install_github(&quot;gforge/Greg&quot;)</code>.</p>
+<p>В условиях гетероскедастичности обычная <span class="math inline">\(t\)</span>-статистика не имеет ни <span class="math inline">\(t\)</span>-распределения при нормальных <span class="math inline">\(\varepsilon_i\)</span>, ни даже асимптотически нормального. И такая же проблема возникает с <span class="math inline">\(F\)</span>-статистикой для сравнения вложенных моделей. Отныне привычная <span class="math inline">\(F\)</span>-статистика</p>
+<p><span class="math display">\[
+F=\frac{(RSS_R-RSS_{UR})/r}{RSS_{UR}/(n-k_{UR})}
+\]</span> не имеет ни <span class="math inline">\(F\)</span>-распределения при нормальных остатках, ни <span class="math inline">\(\chi^2\)</span>-распределения асимптотически. В частности, для проверки незначимости регрессии в целом некорректно использовать <span class="math inline">\(F\)</span>-статистику равную <span class="math inline">\(F=\frac{ESS/(k-1)}{RSS/(n-k)}\)</span>.</p>
+<p>Если для теста Вальда использовать корректную оценку ковариационной матрицы, то его можно применять в условиях гетероскедастичности. Допустим, мы хотим проверить гипотезу <span class="math inline">\(H_0\)</span>: <span class="math inline">\(A\beta=b\)</span>, состоящую из <span class="math inline">\(q\)</span> уравнений, против альтернативной о том, что хотя бы одно равенство нарушено. Тогда статистика Вальда имеет вид:</p>
+<p><span class="math display">\[
+W = (A\beta - b)&#39;(A\cdot \widehat{Var}_{HC}(\hat\beta)A&#39;)^{-1}(A\beta - b)
+\]</span> и имеет асимптотически <span class="math inline">\(\chi^2\)</span>-распределение с <span class="math inline">\(q\)</span> степенями свободы.</p>
+<p>В R реализуется с помощью опции для команды <code>waldtest</code>. Покажем на примере гипотезы о незначимости регрессии в целом:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m0 &lt;-<span class="st"> </span><span class="kw">lm</span>(price ~<span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> flats) <span class="co"># оцениваем ограниченную модель (регрессия на константу)</span>
+<span class="kw">waldtest</span>(m0, m1, <span class="dt">vcov =</span> <span class="kw">vcovHC</span>(m1))</code></pre></div>
+<pre><code>## Wald test
+## 
+## Model 1: price ~ 1
+## Model 2: price ~ totsp
+##   Res.Df Df      F    Pr(&gt;F)    
+## 1   2039                        
+## 2   2038  1 515.97 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Переходим ко взвешенному МНК. Взвешенный МНК требует знания структуры гетероскедастичности, что редко встречается на практике. Предположим, что в нашем случае <span class="math inline">\(Var(\epsilon_i | totsp_i) = const \cdot totsp_i\)</span>.</p>
+<p>В R вектор весов <code>weights</code> должен быть обратно пропорционален дисперсиям, т.е. <span class="math inline">\(w_i=1/\sigma^2_i\)</span>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m2 &lt;-<span class="st"> </span><span class="kw">lm</span>(price ~<span class="st"> </span>totsp, <span class="dt">weights =</span> <span class="kw">I</span>(<span class="dv">1</span> /<span class="st"> </span>totsp), <span class="dt">data =</span>flats)
+<span class="kw">summary</span>(m2)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = price ~ totsp, data = flats, weights = I(1/totsp))
+## 
+## Weighted Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -11.571  -1.994  -0.591   1.235  39.088 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -52.50302    3.53967  -14.83   &lt;2e-16 ***
+## totsp         2.46290    0.04931   49.95   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.58 on 2038 degrees of freedom
+## Multiple R-squared:  0.5504, Adjusted R-squared:  0.5501 
+## F-statistic:  2495 on 1 and 2038 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div id="hetero_testing" class="section level3">
+<h3><span class="header-section-number">3.6.1</span> Тесты на гетероскедастичность</h3>
+<p>Графическое обнаружение гетероскедастичности:</p>
+<ul>
+<li>Оценивается исходная регрессия и из неё получаются остатки <span class="math inline">\(\hat{\varepsilon}_i\)</span>.</li>
+<li>Если верить в гомоскедастичность, то дисперсия вектора остатков определяется по формуле <span class="math inline">\(Var(\hat{\varepsilon}|X)=\sigma^2 (I-X(X&#39;X)^{-1}X&#39;)\)</span>. Т.е. дисперсия у остатков разная (!) даже если <span class="math inline">\(Var(\varepsilon_i|X)=\sigma^2\)</span>. Поэтому остатки стандартизуют по формуле: <span class="math display">\[
+s_i = \frac{\varepsilon_i}{\sqrt{\hat{\sigma}^2(1-h_{ii})}}
+\]</span> Остатки полученные после такого преобразования называют стандартизированными или иногда стьюдентизированными.</li>
+<li>Можно построить график зависимости величины <span class="math inline">\(s_i^2\)</span> или <span class="math inline">\(|s_i|\)</span> от переменной, предположительно повинной в гетроскедастичности.</li>
+</ul>
+<p>В R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m1.st.resid &lt;-<span class="st"> </span><span class="kw">rstandard</span>(m1) <span class="co"># получаем стандартизированные остатки</span>
+<span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> totsp, <span class="dt">y =</span> <span class="kw">abs</span>(m1.st.resid)), <span class="dt">data =</span>flats) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Общая площадь квартиры, кв.м&quot;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;Стандартизированные остатки, &quot;</span>, s[i])),
+  <span class="dt">title =</span> <span class="st">&quot;Графическое обнаружение гетероскедастичности&quot;</span>)</code></pre></div>
+<p><img src="r_manual_files/figure-html/standartised_residuals_plot-1.png" width="672" /></p>
+<p>Иногда для простоты пропускают второй шаг со стандартизацией остатков и в результате могут ошибочно принять принять разную <span class="math inline">\(Var(\hat{\varepsilon}_i)\)</span> за гетероскедастичность, т.е. за разную <span class="math inline">\(Var(\varepsilon_i)\)</span>. Впрочем, если гетероскедастичность сильная, то её будет видно и на нестандартизированных остатках.</p>
+</div>
+<div id="hetero_bp_test" class="section level3">
+<h3><span class="header-section-number">3.6.2</span> Тест Бройша-Пагана, Breusch-Pagan:</h3>
+<p>Есть две версии теста Бройша-Пагана: авторская и современная модификация.</p>
+<p>Предпосылки авторской версии:</p>
+<ul>
+<li>нормальность остатков, <span class="math inline">\(\varepsilon_i \sim N(0,\sigma^2_i)\)</span></li>
+<li><span class="math inline">\(\sigma^2_i=h(\alpha_1+\alpha_2 z_{i2}+\ldots+\alpha_{p}z_{ip})\)</span></li>
+<li>у функции <span class="math inline">\(h\)</span> существуют первая и вторая производные</li>
+<li>тест асимптотический</li>
+</ul>
+<p>Суть теста: Используя метод максимального правдоподобия посчитаем LM-статистику. При верной <span class="math inline">\(H_0\)</span> она имеет хи-квадрат распределение с <span class="math inline">\(p-1\)</span> степенью свободы.</p>
+<p>Оказывается, что LM-статистику можно получить с помощью вспомогательной регрессии. Авторская процедура:</p>
+<ol style="list-style-type: decimal">
+<li>Оценивается регрессия <span class="math inline">\(y_i=\beta_1+\beta_2 x_i +\varepsilon_i\)</span></li>
+<li>Переходим к <span class="math inline">\(g_i=\frac{n}{SSR}\hat{\varepsilon_i}\)</span></li>
+<li>Строим регрессию <span class="math inline">\(g_i\)</span> на <span class="math inline">\(\alpha_1+\alpha_2 z_{i2}+\ldots+\alpha_{p}z_{ip}\)</span></li>
+<li><span class="math inline">\(LM=\frac{ESS}{2}\)</span></li>
+</ol>
+<p>Современная модификация выглядит (неизвестный рецензент Коэнкера) так:</p>
+<ol style="list-style-type: decimal">
+<li>Оценивается регрессия <span class="math inline">\(y_i=\beta_1+\beta_2 x_i +\varepsilon_i\)</span></li>
+<li>Оценивается регрессия <span class="math inline">\(\hat{\varepsilon_i^2}\)</span> на переменные вызывающие гетероскедастичность</li>
+<li>При верной <span class="math inline">\(H_0\)</span> асимптотически: <span class="math display">\[
+nR^2 \sim \chi^2_{p-1},
+\]</span> где <span class="math inline">\(p\)</span> — число оцениваемых коэффициентов во вспомогательной регрессии. По смыслу <span class="math inline">\((p-1)\)</span> — это количество факторов, от которых потенциально может зависеть дисперсия <span class="math inline">\(Var(\varepsilon_i)\)</span>.</li>
+</ol>
+<p>Тест Бройша-Пагана в R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bptest</span>(m1) <span class="co"># версия Коэнкера</span></code></pre></div>
+<pre><code>## 
+##  studentized Breusch-Pagan test
+## 
+## data:  m1
+## BP = 201.95, df = 1, p-value &lt; 2.2e-16</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bptest</span>(m1, <span class="dt">studentize =</span> <span class="ot">FALSE</span>) <span class="co"># классика Бройша-Пагана</span></code></pre></div>
+<pre><code>## 
+##  Breusch-Pagan test
+## 
+## data:  m1
+## BP = 2366, df = 1, p-value &lt; 2.2e-16</code></pre>
+<p>У современной модификации Бройша-Пагана более слабые предпосылки:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: <span class="math inline">\(Var(\varepsilon_i)=\sigma^2\)</span>, нормальность не требуется</li>
+<li><span class="math inline">\(E(\varepsilon_i^4)=const\)</span></li>
+<li>тест асимптотический</li>
+<li>(? Коэнкер в статье критикует что-то про мощность ?)</li>
+</ul>
+</div>
+<div id="white_test" class="section level3">
+<h3><span class="header-section-number">3.6.3</span> Тест Уайта. White test</h3>
+<p>Предпосылки:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: <span class="math inline">\(Var(\varepsilon_i)=\sigma^2\)</span>, нормальность не требуется</li>
+<li><span class="math inline">\(E(\varepsilon_i^4)=const\)</span></li>
+<li>тест асимптотический</li>
+</ul>
+<p>Процедура:</p>
+<ol style="list-style-type: decimal">
+<li>Оценивается регрессия <span class="math inline">\(y_i=\beta_1+\beta_2 x_i +\varepsilon_i\)</span></li>
+<li>Строим регрессию <span class="math inline">\(\hat{\varepsilon_i^2}\)</span> на исходные регрессоры и их квадраты</li>
+<li>Асимптотически <span class="math inline">\(nR^2\)</span> имеет хи-квадрат распределение</li>
+</ol>
+<p>Тест Уайта в R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bptest</span>(m1, <span class="dt">varformula =</span> ~<span class="st"> </span>totsp +<span class="st"> </span><span class="kw">I</span>(totsp^<span class="dv">2</span>), <span class="dt">data =</span> flats)</code></pre></div>
+<pre><code>## 
+##  studentized Breusch-Pagan test
+## 
+## data:  m1
+## BP = 247.35, df = 2, p-value &lt; 2.2e-16</code></pre>
+<p>Тест Уайта является частным случаем современной модификации теста Бройша-Пагана. В тесте Бройша-Пагана во вспомогательной регресии можно брать любые объясняющие переменные. В тесте Уайта берутся исходные регрессоры, их квадраты и попарные произведения. Если в R попросить сделать тест Бройша-Пагана и не указать спецификацию вспомогательной регрессии, то он возьмет только все регрессоры исходной.</p>
+</div>
+<div id="gq_test" class="section level3">
+<h3><span class="header-section-number">3.6.4</span> Тест Goldfeld-Quandt</h3>
+<p>Предпосылки:</p>
+<ul>
+<li>нормальность остатков, <span class="math inline">\(\varepsilon_i \sim N(0,\sigma^2_i)\)</span></li>
+<li>Наблюдения упорядочены по возростанию гетероскедастичности</li>
+<li>тест точный (неасимптотический)</li>
+</ul>
+<p>Процедура:</p>
+<ol style="list-style-type: decimal">
+<li>Упорядочить наблюдения в том порядке, в котором подозревается рост гетероскедастичности</li>
+<li>Выкинуть некий процент наблюдений по середине, чтобы подчеркнуть разницу в дисперсии между начальными и конечными наблюдениями.</li>
+<li>Оценить исходную модель по наблюдениям из начала выборки и по наблюдениям конца выборки</li>
+<li>Получить, соответственно, <span class="math inline">\(RSS_1\)</span> и <span class="math inline">\(RSS_2\)</span></li>
+</ol>
+<p>При верной <span class="math inline">\(H_0\)</span> <span class="math display">\[
+\frac{RSS_2}{RSS_1}\sim F_{r-k,r-k},
+\]</span> где <span class="math inline">\(r\)</span> — размер подвыборки в начале и в конце.</p>
+<p>Тест Голдфельда-Квандта в R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">flats2 &lt;-<span class="st"> </span>flats[<span class="kw">order</span>(flats$totsp), ] <span class="co"># сменим порядок строк в табличке h</span>
+m3 &lt;-<span class="st"> </span><span class="kw">lm</span>(price ~<span class="st"> </span>totsp, <span class="dt">data =</span> flats2) 
+<span class="kw">gqtest</span>(m3, <span class="dt">fraction =</span> <span class="fl">0.2</span>) <span class="co"># проведем GQ тест выкинув посередине 20% наблюдений</span></code></pre></div>
+<pre><code>## 
+##  Goldfeld-Quandt test
+## 
+## data:  m3
+## GQ = 8.2121, df1 = 814, df2 = 814, p-value &lt; 2.2e-16</code></pre>
+</div>
+<div id="hetero_fail" class="section level3">
+<h3><span class="header-section-number">3.6.5</span> Тестирование и борьба с гетероскедастичностью</h3>
+<p>Чайники часто используют такой <em>ошибочный</em> подход:</p>
+<p>Протестировать гетероскедастичность. Если тесты выявили гетероскедастичность, то бороться с ней (использовать устойчивые стандартные ошибки или применять взвешенный мнк). Если тесты не выявили гетероскедастичность, то не бороться с ней.</p>
+<p>Этот подход неверен!</p>
+<p>Правильно делать так:</p>
+<ul>
+<li>Если есть теоретические основания ожидать гетероскедастичность и наблюдений достаточно, то использовать устойчивые стандартные ошибки вне зависимости от результатов тестирования.</li>
+<li>Если есть теоретические основания ожидать гетероскедастичность и наблюдений мало, то отказаться от девичьих грёз об эффективности оценок и проверке гипотез. Довольствоваться возможной несмещенностью оценок.</li>
+</ul>
+<p>Тут обычно спрашивают: “А зачем же тогда тестировать на гетероскедастичность, если это решение ни на что не влияет?”. Ответ прост — чтобы узнать, есть ли гетероскедастичность. :) Впрочем, если есть теоретические основания её ожидать, то можно и не тестировать.</p>
+</div>
+<div id="hetero_forecasting" class="section level3">
+<h3><span class="header-section-number">3.6.6</span> Прогнозирование при гетероскедастичности</h3>
+<p>При прогнозировании строят доверительный интервал для среднего значения зависимой переменной и предиктивный интервал для конкретного будущего значения. С доверительным интервалом похоже надо код писать руками:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ...</span></code></pre></div>
+<p>С предиктивным интервалом чуть сложнее. Поскольку предиктивный интервал строиться для конкретного наблюдения, то нам надо знать дисперсию этого наблюдения. Идея робастных ошибок состоит в том, чтобы проверять гипотезы не делая точных предположений о структуре гетероскедастичности. Поэтому при использовании робастных стандартных ошибок традиционно предиктивные интервалы не строят.</p>
+<p>Хм. А если взять парадигму рандомных регрессоров и оценку безусловной дисперсии?</p>
+<p>Если же случилось чудо и структура гетероскедастичности доподлинно известна, то мы спокойно используем взвешенный МНК и указываем вес для новых наблюдений.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ...</span></code></pre></div>
+</div>
+<div id="hetero_links" class="section level3">
+<h3><span class="header-section-number">3.6.7</span> Дополнительно:</h3>
+<ul>
+<li><a href="http://cran.r-project.org/web/packages/sandwich/vignettes/sandwich.pdf">Описание пакета <code>sandwich</code></a> с очень правильным изложением современного взгляда на гетероскедастичность</li>
+<li>Breusch, Pagan, <a href="http://www.jstor.org/stable/1911963">Simple test for heteroskedasticity</a></li>
+<li>White, <a href="http://www.jstor.org/stable/1912934">A Heteroskedasticity-Consistent Covariance Matrix Estimator and a Direct Test for Heteroskedasticity</a></li>
+<li>Koenker, <a href="http://www.sciencedirect.com/science/article/pii/0304407681900622">A note on studentizing a test for heteroscedasticity</a></li>
+</ul>
+</div>
 </div>
 <div id="factor_variables" class="section level2">
 <h2><span class="header-section-number">3.7</span> Работа с качественными переменными</h2>

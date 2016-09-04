@@ -25,7 +25,7 @@
 
 <meta name="author" content="Борис Демешев">
 
-<meta name="date" content="2016-09-03">
+<meta name="date" content="2016-09-04">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -158,7 +158,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.3" data-path="statistics-and-more.html"><a href="statistics-and-more.html#classic_regression"><i class="fa fa-check"></i><b>3.3</b> Множественная регрессия</a></li>
 <li class="chapter" data-level="3.4" data-path="statistics-and-more.html"><a href="statistics-and-more.html#quantile_regression"><i class="fa fa-check"></i><b>3.4</b> Квантильная регрессия</a></li>
 <li class="chapter" data-level="3.5" data-path="statistics-and-more.html"><a href="statistics-and-more.html#instrumental_variables"><i class="fa fa-check"></i><b>3.5</b> Инструментальные переменные</a></li>
-<li class="chapter" data-level="3.6" data-path="statistics-and-more.html"><a href="statistics-and-more.html#heteroskedasticity"><i class="fa fa-check"></i><b>3.6</b> Гетероскедастичность</a></li>
+<li class="chapter" data-level="3.6" data-path="statistics-and-more.html"><a href="statistics-and-more.html#heteroskedasticity"><i class="fa fa-check"></i><b>3.6</b> Гетероскедастичность</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="statistics-and-more.html"><a href="statistics-and-more.html#hetero_testing"><i class="fa fa-check"></i><b>3.6.1</b> Тесты на гетероскедастичность</a></li>
+<li class="chapter" data-level="3.6.2" data-path="statistics-and-more.html"><a href="statistics-and-more.html#hetero_bp_test"><i class="fa fa-check"></i><b>3.6.2</b> Тест Бройша-Пагана, Breusch-Pagan:</a></li>
+<li class="chapter" data-level="3.6.3" data-path="statistics-and-more.html"><a href="statistics-and-more.html#white_test"><i class="fa fa-check"></i><b>3.6.3</b> Тест Уайта. White test</a></li>
+<li class="chapter" data-level="3.6.4" data-path="statistics-and-more.html"><a href="statistics-and-more.html#gq_test"><i class="fa fa-check"></i><b>3.6.4</b> Тест Goldfeld-Quandt</a></li>
+<li class="chapter" data-level="3.6.5" data-path="statistics-and-more.html"><a href="statistics-and-more.html#hetero_fail"><i class="fa fa-check"></i><b>3.6.5</b> Тестирование и борьба с гетероскедастичностью</a></li>
+<li class="chapter" data-level="3.6.6" data-path="statistics-and-more.html"><a href="statistics-and-more.html#hetero_forecasting"><i class="fa fa-check"></i><b>3.6.6</b> Прогнозирование при гетероскедастичности</a></li>
+<li class="chapter" data-level="3.6.7" data-path="statistics-and-more.html"><a href="statistics-and-more.html#hetero_links"><i class="fa fa-check"></i><b>3.6.7</b> Дополнительно:</a></li>
+</ul></li>
 <li class="chapter" data-level="3.7" data-path="statistics-and-more.html"><a href="statistics-and-more.html#factor_variables"><i class="fa fa-check"></i><b>3.7</b> Работа с качественными переменными</a></li>
 <li class="chapter" data-level="3.8" data-path="statistics-and-more.html"><a href="statistics-and-more.html#logit_probit"><i class="fa fa-check"></i><b>3.8</b> Логит и пробит с визуализацией</a></li>
 <li class="chapter" data-level="3.9" data-path="statistics-and-more.html"><a href="statistics-and-more.html#pca"><i class="fa fa-check"></i><b>3.9</b> Метод главных компонент</a></li>
@@ -201,7 +209,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">Учебник по языку R для начинающих</h1>
 <h4 class="author"><em>Борис Демешев</em></h4>
-<h4 class="date"><em>2016-09-03</em></h4>
+<h4 class="date"><em>2016-09-04</em></h4>
 </div>
 <div id="-" class="section level1 unnumbered">
 <h1>О книге</h1>
@@ -255,10 +263,13 @@ outputFormat &lt;-<span class="st"> </span>opts_knit$<span class="kw">get</span>
 
 if (outputFormat ==<span class="st"> &quot;latex&quot;</span>) {
   <span class="kw">activateTikz</span>()
+  <span class="co"># другую тему для ggplot2 выставить?</span>
 }</code></pre></div>
 <p>Данная версия книги скомпилирована для html.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>)
-<span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>) <span class="co"># графики</span>
+<span class="kw">library</span>(<span class="st">&quot;sandwich&quot;</span>) <span class="co"># оценка Var для гетероскедастичности</span>
+<span class="kw">library</span>(<span class="st">&quot;lmtest&quot;</span>) <span class="co"># тест Бройша-Пагана</span>
+<span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>) <span class="co"># манипуляции с данными</span></code></pre></div>
 
 </div>
             </section>
