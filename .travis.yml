@@ -19,7 +19,12 @@ r_binary_packages:
   - readxl
   - dplyr
   - tikzDevice
+  - sandwich
+  - lmtest
 
 r_packages:
   - devtools
   - rio
+
+r_github_packages:
+  - gforge/Greg
