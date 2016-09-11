@@ -137,6 +137,10 @@ IRkernel::installspec()  # to register the kernel in the current R installation
 jupyter notebook
 ```
 
+Для корректного сохранения блокнота в pdf на Ubuntu/Macos
+```{bash, "pip_nbb", eval=FALSE}
+pip install nbbrowserpdf
+```
 
 
 

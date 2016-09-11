@@ -84,6 +84,10 @@ knitr::write_bib(c(
 
 6. Для создания `MOBI` книг:
 
+Под macos:
+
+Поставить менеджер пакетов [Homebrewer](http://brew.sh/).
+
 ```{bash, "mobi_install", eval=FALSE}
 brew update
 brew cask install calibre
