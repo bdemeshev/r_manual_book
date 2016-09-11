@@ -25,7 +25,7 @@
 
 <meta name="author" content="Борис Демешев">
 
-<meta name="date" content="2016-09-04">
+<meta name="date" content="2016-09-11">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -290,6 +290,8 @@ devtools::<span class="kw">install_github</span>(<span class="st">&#39;IRkernel/
 IRkernel::<span class="kw">installspec</span>()  <span class="co"># to register the kernel in the current R installation</span></code></pre></div>
 <p>Из командной строки запускаем jupyter:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">jupyter</span> notebook</code></pre></div>
+<p>Для корректного сохранения блокнота в pdf на Ubuntu/Macos</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pip</span> install nbbrowserpdf</code></pre></div>
 </div>
 <div id="install_lyx" class="section level3">
 <h3><span class="header-section-number">1.1.8</span> LyX</h3>
@@ -387,17 +389,19 @@ vect</code></pre></div>
 s &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">40</span>, <span class="dt">min =</span> -<span class="dv">3</span>, <span class="dt">max =</span> <span class="dv">1</span>) 
 b &lt;-<span class="st"> </span>s[s &gt;<span class="st"> </span><span class="dv">0</span>] <span class="co"># отбираем те s, что больше нуля</span>
 b </code></pre></div>
-<pre><code>## [1] 0.3180785 0.6637807 0.4216854 0.7748601 0.8927709 0.3682694 0.6270624</code></pre>
+<pre><code>##  [1] 0.8970439 0.4385649 0.6755166 0.5100049 0.3637606 0.2130795 0.7318409
+##  [8] 0.1863325 0.6139130 0.1366112 0.7990794 0.1743289 0.9308348 0.8809760
+## [15] 0.5563412</code></pre>
 <p>Можно выбрать конкретные <span class="math inline">\(s\)</span>, например с 6-го по 20-ое: <code>{r} s[6:20]</code></p>
 <p>Хочу 5-ый, 7-ой и 13-ый элементы вектора!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s[<span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">13</span>)] </code></pre></div>
-<pre><code>## [1] -1.0019610  0.6637807 -0.4562511</code></pre>
+<pre><code>## [1] -1.5039811  0.6755166 -2.1351203</code></pre>
 <p>Можно узнать, сколько значений <code>s</code> больше нуля:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(s &gt;<span class="st"> </span><span class="dv">0</span>) </code></pre></div>
-<pre><code>## [1] 7</code></pre>
+<pre><code>## [1] 15</code></pre>
 <p>Еще полезная штучка — количество элементов в векторе:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(b) </code></pre></div>
-<pre><code>## [1] 7</code></pre>
+<pre><code>## [1] 15</code></pre>
 <p>Операции, похожие на те, что проделали с векторами, можно делать и с другими типами данных, например, с матрицами (<em>matrix</em>), таблицами (<em>table</em>) и др. Покажем на примере наборов данных (<em>data frame</em>).</p>
 <p>Будем использовать набор данных <code>diamonds</code> из пакета <code>ggplot2</code>. Множество других встроены во многие пакеты, а также в сам R, и список с кратким описанием последних можно вызвать командой <code>library(help = &quot;datasets&quot;)</code>.</p>
 <p>Наборы данных состоят из строк (<em>rows</em>) и столбцов (<em>columns</em>); в каждой строке хорошо построенного набора — характеристики одного объекта, а по столбцам — значения одной характеристики у разных объектов. Так, например, в <code>diamonds</code> объектами являются бриллианты, а их характеристиками — цена, вес, цвет и т. д. Это можно увидеть с помощью всё той же команды <code>str()</code>:</p>
