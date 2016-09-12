@@ -134,6 +134,10 @@ library("ggplot2") # графики
 library("sandwich") # оценка Var для гетероскедастичности
 library("lmtest") # тест Бройша-Пагана
 library("dplyr") # манипуляции с данными
+library("broom")
+library("data.table")
+library("reshape2")
+library("tidyr")
 ```
 
 
