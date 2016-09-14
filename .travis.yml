@@ -21,7 +21,6 @@ r_binary_packages:
   - tikzDevice
   - sandwich
   - lmtest
-  - broom
   - data.table
   - reshape2
   - tidyr
@@ -29,6 +28,7 @@ r_binary_packages:
 r_packages:
   - devtools
   - rio
+  - broom
 
 r_github_packages:
   - gforge/Greg
