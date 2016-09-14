@@ -25,7 +25,7 @@
 
 <meta name="author" content="Борис Демешев">
 
-<meta name="date" content="2016-09-11">
+<meta name="date" content="2016-09-14">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -134,7 +134,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.6" data-path="first-steps.html"><a href="first-steps.html#internet_sources"><i class="fa fa-check"></i><b>1.6</b> Интернет-источники данных</a></li>
 <li class="chapter" data-level="1.7" data-path="first-steps.html"><a href="first-steps.html#code_style"><i class="fa fa-check"></i><b>1.7</b> Стиль кода</a></li>
 <li class="chapter" data-level="1.8" data-path="first-steps.html"><a href="first-steps.html#two_traditions"><i class="fa fa-check"></i><b>1.8</b> Две записи функций</a></li>
-<li class="chapter" data-level="1.9" data-path="first-steps.html"><a href="first-steps.html#data_manipulations"><i class="fa fa-check"></i><b>1.9</b> Манипуляции с данными</a></li>
+<li class="chapter" data-level="1.9" data-path="first-steps.html"><a href="first-steps.html#data_manipulations"><i class="fa fa-check"></i><b>1.9</b> Манипуляции с данными</a><ul>
+<li class="chapter" data-level="1.9.1" data-path="first-steps.html"><a href="first-steps.html#glimpse"><i class="fa fa-check"></i><b>1.9.1</b> Быстрый взгляд на табличку</a></li>
+<li class="chapter" data-level="1.9.2" data-path="first-steps.html"><a href="first-steps.html#filter_observations"><i class="fa fa-check"></i><b>1.9.2</b> Отбор наблюдений</a></li>
+<li class="chapter" data-level="1.9.3" data-path="first-steps.html"><a href="first-steps.html#select_rename"><i class="fa fa-check"></i><b>1.9.3</b> Отбор и переименование переменных:</a></li>
+</ul></li>
 <li class="chapter" data-level="1.10" data-path="first-steps.html"><a href="first-steps.html#graphs"><i class="fa fa-check"></i><b>1.10</b> Графики</a><ul>
 <li class="chapter" data-level="1.10.1" data-path="first-steps.html"><a href="first-steps.html#two_simple_graphs"><i class="fa fa-check"></i><b>1.10.1</b> Два простеньких графика</a></li>
 </ul></li>
@@ -209,7 +213,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">Учебник по языку R для начинающих</h1>
 <h4 class="author"><em>Борис Демешев</em></h4>
-<h4 class="date"><em>2016-09-11</em></h4>
+<h4 class="date"><em>2016-09-14</em></h4>
 </div>
 <div id="-" class="section level1 unnumbered">
 <h1>О книге</h1>
@@ -269,7 +273,11 @@ if (outputFormat ==<span class="st"> &quot;latex&quot;</span>) {
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>) <span class="co"># графики</span>
 <span class="kw">library</span>(<span class="st">&quot;sandwich&quot;</span>) <span class="co"># оценка Var для гетероскедастичности</span>
 <span class="kw">library</span>(<span class="st">&quot;lmtest&quot;</span>) <span class="co"># тест Бройша-Пагана</span>
-<span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>) <span class="co"># манипуляции с данными</span></code></pre></div>
+<span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>) <span class="co"># манипуляции с данными</span>
+<span class="kw">library</span>(<span class="st">&quot;broom&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;data.table&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;reshape2&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;tidyr&quot;</span>)</code></pre></div>
 
 </div>
             </section>

@@ -25,7 +25,7 @@
 
 <meta name="author" content="Борис Демешев">
 
-<meta name="date" content="2016-09-11">
+<meta name="date" content="2016-09-14">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -134,7 +134,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.6" data-path="first-steps.html"><a href="first-steps.html#internet_sources"><i class="fa fa-check"></i><b>1.6</b> Интернет-источники данных</a></li>
 <li class="chapter" data-level="1.7" data-path="first-steps.html"><a href="first-steps.html#code_style"><i class="fa fa-check"></i><b>1.7</b> Стиль кода</a></li>
 <li class="chapter" data-level="1.8" data-path="first-steps.html"><a href="first-steps.html#two_traditions"><i class="fa fa-check"></i><b>1.8</b> Две записи функций</a></li>
-<li class="chapter" data-level="1.9" data-path="first-steps.html"><a href="first-steps.html#data_manipulations"><i class="fa fa-check"></i><b>1.9</b> Манипуляции с данными</a></li>
+<li class="chapter" data-level="1.9" data-path="first-steps.html"><a href="first-steps.html#data_manipulations"><i class="fa fa-check"></i><b>1.9</b> Манипуляции с данными</a><ul>
+<li class="chapter" data-level="1.9.1" data-path="first-steps.html"><a href="first-steps.html#glimpse"><i class="fa fa-check"></i><b>1.9.1</b> Быстрый взгляд на табличку</a></li>
+<li class="chapter" data-level="1.9.2" data-path="first-steps.html"><a href="first-steps.html#filter_observations"><i class="fa fa-check"></i><b>1.9.2</b> Отбор наблюдений</a></li>
+<li class="chapter" data-level="1.9.3" data-path="first-steps.html"><a href="first-steps.html#select_rename"><i class="fa fa-check"></i><b>1.9.3</b> Отбор и переименование переменных:</a></li>
+</ul></li>
 <li class="chapter" data-level="1.10" data-path="first-steps.html"><a href="first-steps.html#graphs"><i class="fa fa-check"></i><b>1.10</b> Графики</a><ul>
 <li class="chapter" data-level="1.10.1" data-path="first-steps.html"><a href="first-steps.html#two_simple_graphs"><i class="fa fa-check"></i><b>1.10.1</b> Два простеньких графика</a></li>
 </ul></li>
@@ -238,7 +242,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">gpg</span> -a --export E084DAB9 <span class="kw">|</span> <span class="kw">sudo</span> apt-key add -
 <span class="kw">sudo</span> apt-get update
 <span class="kw">sudo</span> apt-get install r-base r-base-dev</code></pre></div>
-<p>Вместо классического R можно поставить конкурирующий <a href="https://mran.microsoft.com/download/">дистрибутив R от Microsoft</a>, MRO. Он оптимизирован под 64-битные процессоры, и в отличие от R по умолчанию ставит не самые свежие пакеты, а версии пакетов выпущенные на заданную дату. Это удобная особенность позволяет легко воспроизвести результаты работы, даже если какой-нибудь пакет кардинально изменился.</p>
+<p>Вместо классического R можно поставить конкурирующий <a href="https://mran.microsoft.com/download/">дистрибутив R от Microsoft</a>, MRO. Отличия MRO от классического R: - работает только с 64-битным процессором - использует быструю библиотеку MKL для линейной алгебры - по умолчанию ставит не самые свежие пакеты, а версии пакетов выпущенные на заданную дату. Это удобная особенность позволяет легко воспроизвести результаты работы, даже если какой-нибудь пакет кардинально изменился.</p>
+<p>Опытные пользователи могут самостоятельно настроить R на использование более быстрых библиотек для линейной алгебры.</p>
+<p>Macos: настраиваем оптимизированную под мак библиотеку:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> /Library/Frameworks/R.framework/Resources/lib
+<span class="kw">ln</span> -sf /System/Library/Frameworks/Accelerate.framework/Frameworks/vecLib.framework/Versions/Current/libBLAS.dylib libRblas.dylib</code></pre></div>
+<p>Macos: восстанавливаем дефолтную библиотеку R:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> /Library/Frameworks/R.framework/Resources/lib
+<span class="kw">ln</span> -sf libRblas.0.dylib libRblas.dylib</code></pre></div>
+<p>На линуксе можно поэкспериментировать с <a href="http://edustatistics.org/nathanvan/2013/07/09/for-faster-r-use-openblas-instead-better-than-atlas-trivial-to-switch-to-on-ubuntu/">выбором разных BLAS</a></p>
 </div>
 <div id="install_Rstudio" class="section level3">
 <h3><span class="header-section-number">1.1.2</span> Rstudio</h3>
@@ -274,7 +286,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="install_editor" class="section level3">
 <h3><span class="header-section-number">1.1.5</span> Текстовый редактор</h3>
 <p>Самое важное: Word — это не текстовый редактор! Текстовый редактор — это программа с помощью которой редактируют файлы с простым текстовым содержимым, а Word сохраняет файлы в специальном формате, где кроме текста сохраняется ещё куча дополнительной информации. Расширение у текстового файла может быть довольно произвольным, <code>.txt</code>, <code>.md</code>, <code>.R</code>, <code>.tex</code> и так далее.</p>
-<p>Текстовых редакторов много. Я советую кросс-платформенный открытый и бесплатный Atom. Скачать его можн на <a href="https://atom.io/">atom.io</a>.</p>
+<p>Текстовых редакторов много. Я советую кросс-платформенный открытый и бесплатный Atom. Скачать его можно на <a href="https://atom.io/">atom.io</a>. Изнутри самого редактора Atom можно установить кучу плагинов. С помощью плагинов можно подсвечивать синтаксис различных языков или превратить Atom в приличную среду разработки :)</p>
 </div>
 <div id="install_STAN" class="section level3">
 <h3><span class="header-section-number">1.1.6</span> STAN</h3>
@@ -283,7 +295,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="install_jupyter" class="section level3">
 <h3><span class="header-section-number">1.1.7</span> jupyter</h3>
 <p>Скачиваем <a href="https://www.continuum.io/downloads">дистрибутив Anaconda</a>.</p>
-<p>Под Ubuntu и Macos запускаем R из командной строки. То есть не из под Rstudio, иначе <a href="http://stackoverflow.com/questions/38064177">чуда не произойдёт</a>.</p>
+<p>Под Ubuntu и Macos запускаем R из командной строки. Именно из командной строки, а не из под Rstudio, иначе <a href="http://stackoverflow.com/questions/38064177">чуда не произойдёт</a>.</p>
 <p>Далее инструкция с <a href="https://github.com/IRkernel/IRkernel">github.com/IRkernel/IRkernel</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&#39;repr&#39;</span>, <span class="st">&#39;IRdisplay&#39;</span>, <span class="st">&#39;crayon&#39;</span>, <span class="st">&#39;pbdZMQ&#39;</span>, <span class="st">&#39;devtools&#39;</span>))
 devtools::<span class="kw">install_github</span>(<span class="st">&#39;IRkernel/IRkernel&#39;</span>)
@@ -292,6 +304,7 @@ IRkernel::<span class="kw">installspec</span>()  <span class="co"># to register 
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">jupyter</span> notebook</code></pre></div>
 <p>Для корректного сохранения блокнота в pdf на Ubuntu/Macos</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pip</span> install nbbrowserpdf</code></pre></div>
+<p>Чтобы работало сохранение <code>pdf</code> с русскими буквами нужно руками подменить дефолтный шаблон.</p>
 </div>
 <div id="install_lyx" class="section level3">
 <h3><span class="header-section-number">1.1.8</span> LyX</h3>
@@ -389,19 +402,18 @@ vect</code></pre></div>
 s &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">40</span>, <span class="dt">min =</span> -<span class="dv">3</span>, <span class="dt">max =</span> <span class="dv">1</span>) 
 b &lt;-<span class="st"> </span>s[s &gt;<span class="st"> </span><span class="dv">0</span>] <span class="co"># отбираем те s, что больше нуля</span>
 b </code></pre></div>
-<pre><code>##  [1] 0.8970439 0.4385649 0.6755166 0.5100049 0.3637606 0.2130795 0.7318409
-##  [8] 0.1863325 0.6139130 0.1366112 0.7990794 0.1743289 0.9308348 0.8809760
-## [15] 0.5563412</code></pre>
+<pre><code>## [1] 0.19523450 0.09380192 0.92952041 0.37444326 0.87252518 0.77256744
+## [7] 0.48485711</code></pre>
 <p>Можно выбрать конкретные <span class="math inline">\(s\)</span>, например с 6-го по 20-ое: <code>{r} s[6:20]</code></p>
 <p>Хочу 5-ый, 7-ой и 13-ый элементы вектора!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s[<span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">13</span>)] </code></pre></div>
-<pre><code>## [1] -1.5039811  0.6755166 -2.1351203</code></pre>
+<pre><code>## [1] -1.5314144 -0.1788121 -1.5673883</code></pre>
 <p>Можно узнать, сколько значений <code>s</code> больше нуля:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(s &gt;<span class="st"> </span><span class="dv">0</span>) </code></pre></div>
-<pre><code>## [1] 15</code></pre>
+<pre><code>## [1] 7</code></pre>
 <p>Еще полезная штучка — количество элементов в векторе:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(b) </code></pre></div>
-<pre><code>## [1] 15</code></pre>
+<pre><code>## [1] 7</code></pre>
 <p>Операции, похожие на те, что проделали с векторами, можно делать и с другими типами данных, например, с матрицами (<em>matrix</em>), таблицами (<em>table</em>) и др. Покажем на примере наборов данных (<em>data frame</em>).</p>
 <p>Будем использовать набор данных <code>diamonds</code> из пакета <code>ggplot2</code>. Множество других встроены во многие пакеты, а также в сам R, и список с кратким описанием последних можно вызвать командой <code>library(help = &quot;datasets&quot;)</code>.</p>
 <p>Наборы данных состоят из строк (<em>rows</em>) и столбцов (<em>columns</em>); в каждой строке хорошо построенного набора — характеристики одного объекта, а по столбцам — значения одной характеристики у разных объектов. Так, например, в <code>diamonds</code> объектами являются бриллианты, а их характеристиками — цена, вес, цвет и т. д. Это можно увидеть с помощью всё той же команды <code>str()</code>:</p>
@@ -647,6 +659,128 @@ x -<span class="st"> </span>y </code></pre></div>
 <div id="data_manipulations" class="section level2">
 <h2><span class="header-section-number">1.9</span> Манипуляции с данными</h2>
 <p>(здесь про типы данных)</p>
+<p>Основной объект с которым приходится работать — это табличка с данными. Табличка с данными представляет собой простую двумерную таблицу. Переменные размещаются по столбцам. Каждый столбец может быть своего типа: скажем в одном — числа, а в другом — названия предприятий. Если значение в клетке неизвестно, то там стоит специальное значение <code>NA</code>.</p>
+<p>Отличие от матрицы от таблицы с данными состоит в том, что в матрице все клеточки одинакового типа (все — числовые или все — текстовые), а в таблице с данными каждый столбец может быть своего типа.</p>
+<p>При обработке данных нам помогут рабочие лошадки:</p>
+<ol style="list-style-type: decimal">
+<li><p>Быстрый взгляд на табличку</p></li>
+<li><p>Отбор наблюдений</p></li>
+<li><p>Отбор и переименование переменных</p></li>
+<li><p>Преобразование и создание новых переменных</p></li>
+<li><p>Агрегирование таблиц</p></li>
+<li><p>Преобразование широких и длинных таблиц</p></li>
+</ol>
+<p>Все эти действия можно сделать в базовом R, но это ужасно неудобно. Жизнь становится прекрасной с пакетами <code>data.table</code>, <code>dplyr</code>, <code>reshape2</code>, <code>broom</code> и <code>tidyr</code>.</p>
+<p>Седлаем наших верных коней:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;data.table&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;reshape2&quot;</span>)</code></pre></div>
+<p>Погнали!</p>
+<p>Пакет <code>data.table</code> работает быстрее <code>dplyr</code>, а у <code>dplyr</code> более приятный синтаксис.</p>
+<p>Перед работой с табличкой данных с помощью <code>data.table</code> требуется присвоить ей специальный класс:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars2 &lt;-<span class="st"> </span><span class="kw">data.table</span>(cars)</code></pre></div>
+<p>Содержимое таблиц <code>cars</code> и <code>cars2</code> абсолютно одинаково, просто они чуть по-разному хранятся и обрабатываются компьютером.</p>
+<div id="glimpse" class="section level3">
+<h3><span class="header-section-number">1.9.1</span> Быстрый взгляд на табличку</h3>
+<p>С помощью базового R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(mtcars)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    32 obs. of  11 variables:
+##  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+##  $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+##  $ disp: num  160 160 108 258 360 ...
+##  $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+##  $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+##  $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+##  $ qsec: num  16.5 17 18.6 19.4 17 ...
+##  $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+##  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+##  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+##  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...</code></pre>
+<p>С помощью <code>dplyr</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(mtcars)</code></pre></div>
+<pre><code>## Observations: 32
+## Variables: 11
+## $ mpg  (dbl) 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19....
+## $ cyl  (dbl) 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, ...
+## $ disp (dbl) 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 1...
+## $ hp   (dbl) 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, ...
+## $ drat (dbl) 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.9...
+## $ wt   (dbl) 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3...
+## $ qsec (dbl) 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 2...
+## $ vs   (dbl) 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, ...
+## $ am   (dbl) 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, ...
+## $ gear (dbl) 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, ...
+## $ carb (dbl) 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, ...</code></pre>
+<p>С помощью <code>broom</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glance</span>(mtcars)</code></pre></div>
+<pre><code>##   nrow ncol complete.obs na.fraction
+## 1   32   11           32           0</code></pre>
+<p>и короткие описательные статистики:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tidy</span>(mtcars)</code></pre></div>
+<pre><code>##    column  n       mean          sd  median     trimmed         mad    min
+## 1     mpg 32  20.090625   6.0269481  19.200  19.6961538   5.4114900 10.400
+## 2     cyl 32   6.187500   1.7859216   6.000   6.2307692   2.9652000  4.000
+## 3    disp 32 230.721875 123.9386938 196.300 222.5230769 140.4763500 71.100
+## 4      hp 32 146.687500  68.5628685 123.000 141.1923077  77.0952000 52.000
+## 5    drat 32   3.596563   0.5346787   3.695   3.5792308   0.7042350  2.760
+## 6      wt 32   3.217250   0.9784574   3.325   3.1526923   0.7672455  1.513
+## 7    qsec 32  17.848750   1.7869432  17.710  17.8276923   1.4158830 14.500
+## 8      vs 32   0.437500   0.5040161   0.000   0.4230769   0.0000000  0.000
+## 9      am 32   0.406250   0.4989909   0.000   0.3846154   0.0000000  0.000
+## 10   gear 32   3.687500   0.7378041   4.000   3.6153846   1.4826000  3.000
+## 11   carb 32   2.812500   1.6152000   2.000   2.6538462   1.4826000  1.000
+##        max   range       skew    kurtosis          se
+## 1   33.900  23.500  0.6106550 -0.37276603  1.06542396
+## 2    8.000   4.000 -0.1746119 -1.76211977  0.31570933
+## 3  472.000 400.900  0.3816570 -1.20721195 21.90947271
+## 4  335.000 283.000  0.7260237 -0.13555112 12.12031731
+## 5    4.930   2.170  0.2659039 -0.71470062  0.09451874
+## 6    5.424   3.911  0.4231465 -0.02271075  0.17296847
+## 7   22.900   8.400  0.3690453  0.33511422  0.31588992
+## 8    1.000   1.000  0.2402577 -2.00193762  0.08909831
+## 9    1.000   1.000  0.3640159 -1.92474143  0.08820997
+## 10   5.000   2.000  0.5288545 -1.06975068  0.13042656
+## 11   8.000   7.000  1.0508738  1.25704307  0.28552971</code></pre>
+</div>
+<div id="filter_observations" class="section level3">
+<h3><span class="header-section-number">1.9.2</span> Отбор наблюдений</h3>
+<p>С помощью <code>dplyr</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(cars)</code></pre></div>
+<pre><code>##   speed dist
+## 1     4    2
+## 2     4   10
+## 3     7    4
+## 4     7   22
+## 5     8   16
+## 6     9   10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars_filtered &lt;-<span class="st"> </span><span class="kw">filter</span>(cars, speed &gt;<span class="st"> </span><span class="dv">10</span>, dist &lt;<span class="st"> </span><span class="dv">20</span>)
+<span class="kw">head</span>(cars_filtered)</code></pre></div>
+<pre><code>##   speed dist
+## 1    11   17
+## 2    12   14</code></pre>
+<p>Не забывай про эквивалентный трубчатый синтаксис:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars_filtered &lt;-<span class="st"> </span>cars %&gt;%<span class="st"> </span><span class="kw">filter</span>(speed &gt;<span class="st"> </span><span class="dv">10</span>, dist &lt;<span class="st"> </span><span class="dv">20</span>)</code></pre></div>
+<div class="warning">
+<p>
+Некоторые другие пакеты помимо <code>dplyr</code> содержат функцию <code>filter</code>. Чтобы избежать конфликта имён можно явно написать <code>dplyr::filter</code> вместо просто <code>filter</code>.
+</p>
+</div>
+<p>С помощью <code>data.table</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars_filtered &lt;-<span class="st"> </span>cars2[speed &gt;<span class="st"> </span><span class="dv">10</span> &amp;<span class="st"> </span>dist &lt;<span class="st"> </span><span class="dv">20</span>]</code></pre></div>
+</div>
+<div id="select_rename" class="section level3">
+<h3><span class="header-section-number">1.9.3</span> Отбор и переименование переменных:</h3>
+<p>С помощью <code>dplyr</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars2 &lt;-<span class="st"> </span><span class="kw">select</span>(mtcars, <span class="dt">cylinder =</span> cyl, <span class="dt">mpg =</span> mpg, <span class="dt">carburator =</span> carb)</code></pre></div>
+<p>Помни о трубочках:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars2 &lt;-<span class="st"> </span>mtcars %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(<span class="dt">cylinder =</span> cyl, <span class="dt">mpg =</span> mpg, <span class="dt">carburator =</span> carb)</code></pre></div>
+<div class="warning">
+<p>
+Некоторые другие пакеты помимо <code>dplyr</code> содержат функцию <code>select</code>. Чтобы избежать конфликта имён можно явно написать <code>dplyr::select</code> вместо просто <code>select</code>.
+</p>
+</div>
+</div>
 </div>
 <div id="graphs" class="section level2">
 <h2><span class="header-section-number">1.10</span> Графики</h2>
@@ -741,6 +875,7 @@ y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">5
 </ul>
 <p>Он-лайн курсы и видеолекции с использованием R:</p>
 <ul>
+<li><p><a href="http://r-exercises.com/r-courses/">Поисковик он-лайн курсов по R</a></p></li>
 <li><p><a href="http://tryr.codeschool.com/">Try R</a> Путь к сокровищам R для самых начинающих пиRатов!</p></li>
 <li><p><a href="https://www.datacamp.com/">datacamp.com</a> Несколько платных и бесплатных интерактивных курсов по R</p></li>
 <li><p>Видео-лекции курса Computing for Data Analysis: <a href="http://www.youtube.com/playlist?list=PLjTlxb-wKvXNSDfcKPFH2gzHGyjpeCZmJ">неделя 1</a>, <a href="http://www.youtube.com/playlist?list=PLjTlxb-wKvXNnjUTX4C8IeIhPBjPkng6B">неделя 2</a>, <a href="http://www.youtube.com/playlist?list=PLjTlxb-wKvXOzI2h0F2_rYZHIXz8GWBop">неделя 3</a>, <a href="http://www.youtube.com/playlist?list=PLjTlxb-wKvXOdzysAE6qrEBN_aSBC0LZS">неделя 4</a>. Сам курс доступен на <a href="http://www.coursera.org">coursera.org</a></p></li>
