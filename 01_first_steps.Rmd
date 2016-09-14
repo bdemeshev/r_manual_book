@@ -45,7 +45,27 @@ sudo apt-get install r-base r-base-dev
 ```
 
 
-Вместо классического R можно поставить конкурирующий [дистрибутив R от Microsoft](https://mran.microsoft.com/download/), MRO. Он оптимизирован под 64-битные процессоры, и в отличие от R по умолчанию ставит не самые свежие пакеты, а версии пакетов выпущенные на заданную дату. Это удобная особенность позволяет легко воспроизвести результаты работы, даже если какой-нибудь пакет кардинально изменился.
+Вместо классического R можно поставить конкурирующий [дистрибутив R от Microsoft](https://mran.microsoft.com/download/), MRO. Отличия MRO от классического R:
+- работает только с 64-битным процессором
+- использует быструю библиотеку MKL для линейной алгебры
+- по умолчанию ставит не самые свежие пакеты, а версии пакетов выпущенные на заданную дату. Это удобная особенность позволяет легко воспроизвести результаты работы, даже если какой-нибудь пакет кардинально изменился.
+
+Опытные пользователи могут самостоятельно настроить R на использование более быстрых библиотек для линейной алгебры.
+
+Macos: настраиваем оптимизированную под мак библиотеку:
+```{bash, "macos_blas", eval=FALSE}
+cd /Library/Frameworks/R.framework/Resources/lib
+ln -sf /System/Library/Frameworks/Accelerate.framework/Frameworks/vecLib.framework/Versions/Current/libBLAS.dylib libRblas.dylib
+```
+
+Macos: восстанавливаем дефолтную библиотеку R:
+```{bash, "macos_default_blas", eval=FALSE}
+cd /Library/Frameworks/R.framework/Resources/lib
+ln -sf libRblas.0.dylib libRblas.dylib
+```
+
+На линуксе можно поэкспериментировать с [выбором разных BLAS](http://edustatistics.org/nathanvan/2013/07/09/for-faster-r-use-openblas-instead-better-than-atlas-trivial-to-switch-to-on-ubuntu/)
+
 
 ### Rstudio {#install_Rstudio}
 
@@ -1027,6 +1047,8 @@ R](http://bdemeshev.github.io/r_cycle/)
 
 
 Он-лайн курсы и видеолекции с использованием R:
+
+* [Поисковик он-лайн курсов по R](http://r-exercises.com/r-courses/)
 
 * [Try R](http://tryr.codeschool.com/) Путь к сокровищам R для самых начинающих
 пиRатов!

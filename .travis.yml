@@ -21,6 +21,10 @@ r_binary_packages:
   - tikzDevice
   - sandwich
   - lmtest
+  - broom
+  - data.table
+  - reshape2
+  - tidyr
 
 r_packages:
   - devtools
