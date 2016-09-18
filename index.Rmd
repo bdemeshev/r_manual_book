@@ -57,11 +57,11 @@ lang: ru-RU
 link-citations: yes
 mainfont: "Linux Libertine O"
 monofont: "Linux Libertine O"
+sansfont: "Linux Libertine O"
 otherlangs: en-GB
 bibliography:
 - book.bib
 - packages.bib
-sansfont: "Linux Libertine O"
 site: bookdown::bookdown_site
 biblio-style: alphabetic
 ---
@@ -134,10 +134,10 @@ library("ggplot2") # графики
 library("sandwich") # оценка Var для гетероскедастичности
 library("lmtest") # тест Бройша-Пагана
 library("dplyr") # манипуляции с данными
-library("broom")
-library("data.table")
-library("reshape2")
-library("tidyr")
+library("broom") # преобразование всего и вся в стандартные таблички
+library("data.table") # манипуляции с данными
+library("reshape2") # преобразование длинных таблиц в широкие
+library("tidyr") # причесывание данных
 ```
 
 
