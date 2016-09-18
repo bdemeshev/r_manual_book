@@ -312,15 +312,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="install_git" class="section level3">
 <h3><span class="header-section-number">1.1.4</span> git-клиент</h3>
-<p>ubuntu</p>
+<p>Git — это система контроля версий. Она позволяет разным авторам работать над одним проектом. Если что-то пошло не так, то можно вернуться на любой момент времени в прошлом — это бывает очень полезно :)</p>
+<p>Тру программеры работают с git из командной строки, а новичкам здорово облегчит жизнь git с графической оболочкой.</p>
+<p>Для windows и macos есть <a href="https://desktop.github.com/">Github Desktop</a>.</p>
+<p>В качестве альтернативы Github Desktop есть кросс-платформенный бесплатный для некоммерческих проектов <a href="http://www.syntevo.com/smartgit/">Smartgit</a>. Будьте осторожны при установке: надо вовремя поставить галочку на бесплатной версии. Иначе установится демка на 15 дней.</p>
+<p>Если ты хочешь освоить git как тру-программер, то можешь начать с бесплатного курса <a href="https://www.codeschool.com/courses/try-git">try-git на codeschool</a>.</p>
+<p>Немного настроек в командной строке macos/linux:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> config --global user.name <span class="st">&quot;Ivan Ivanov&quot;</span>
 <span class="kw">git</span> config --global user.email Ivan_Ivanov@ivanov_mail.com</code></pre></div>
-<p>В качестве графической оболочки можно выбрать, например, бесплатный для open-source проектов кросс-платформенный <a href="http://www.syntevo.com/smartgit/">Smartgit</a>. Есть также <a href="https://desktop.github.com/">Github Desktop для macos и windows</a>.</p>
+<p>В качестве графической оболочки можно выбрать, например, бесплатный для open-source проектов кросс-платформенный Есть также</p>
 </div>
 <div id="install_editor" class="section level3">
 <h3><span class="header-section-number">1.1.5</span> Текстовый редактор</h3>
 <p>Самое важное: Word — это не текстовый редактор! Текстовый редактор — это программа с помощью которой редактируют файлы с простым текстовым содержимым, а Word сохраняет файлы в специальном формате, где кроме текста сохраняется ещё куча дополнительной информации. Расширение у текстового файла может быть довольно произвольным, <code>.txt</code>, <code>.md</code>, <code>.R</code>, <code>.tex</code> и так далее.</p>
 <p>Текстовых редакторов много. Я советую кросс-платформенный открытый и бесплатный Atom. Скачать его можно на <a href="https://atom.io/">atom.io</a>. Изнутри самого редактора Atom можно установить кучу плагинов. С помощью плагинов можно подсвечивать синтаксис различных языков или превратить Atom в приличную среду разработки :)</p>
+<p>Дополнительные плагины для Atom ставятся через меню Atom - Preferences - Install. Для работы с R и Латехом советую поставить language-markdown, language-knitr, atom-beautify.</p>
 </div>
 <div id="install_STAN" class="section level3">
 <h3><span class="header-section-number">1.1.6</span> STAN</h3>
@@ -436,18 +442,18 @@ vect</code></pre></div>
 s &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">40</span>, <span class="dt">min =</span> -<span class="dv">3</span>, <span class="dt">max =</span> <span class="dv">1</span>) 
 b &lt;-<span class="st"> </span>s[s &gt;<span class="st"> </span><span class="dv">0</span>] <span class="co"># отбираем те s, что больше нуля</span>
 b </code></pre></div>
-<pre><code>## [1] 0.08421831 0.13988892 0.33393135 0.44526839 0.54082271 0.37312339
-## [7] 0.57440886</code></pre>
+<pre><code>## [1] 0.3348479 0.1428468 0.3636372 0.6930527 0.0970631 0.4834953 0.8412955
+## [8] 0.9583716</code></pre>
 <p>Можно выбрать конкретные <span class="math inline">\(s\)</span>, например с 6-го по 20-ое: <code>{r} s[6:20]</code></p>
 <p>Хочу 5-ый, 7-ой и 13-ый элементы вектора!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s[<span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">13</span>)] </code></pre></div>
-<pre><code>## [1] -1.2174273 -2.7770775 -0.2649529</code></pre>
+<pre><code>## [1] -0.6059680 -0.4142149 -1.8874397</code></pre>
 <p>Можно узнать, сколько значений <code>s</code> больше нуля:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(s &gt;<span class="st"> </span><span class="dv">0</span>) </code></pre></div>
-<pre><code>## [1] 7</code></pre>
+<pre><code>## [1] 8</code></pre>
 <p>Еще полезная штучка — количество элементов в векторе:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(b) </code></pre></div>
-<pre><code>## [1] 7</code></pre>
+<pre><code>## [1] 8</code></pre>
 <p>Операции, похожие на те, что проделали с векторами, можно делать и с другими типами данных, например, с матрицами (<em>matrix</em>), таблицами (<em>table</em>) и др. Покажем на примере наборов данных (<em>data frame</em>).</p>
 <p>Будем использовать набор данных <code>diamonds</code> из пакета <code>ggplot2</code>. Множество других встроены во многие пакеты, а также в сам R, и список с кратким описанием последних можно вызвать командой <code>library(help = &quot;datasets&quot;)</code>.</p>
 <p>Наборы данных состоят из строк (<em>rows</em>) и столбцов (<em>columns</em>); в каждой строке хорошо построенного набора — характеристики одного объекта, а по столбцам — значения одной характеристики у разных объектов. Так, например, в <code>diamonds</code> объектами являются бриллианты, а их характеристиками — цена, вес, цвет и т. д. Это можно увидеть с помощью всё той же команды <code>str()</code>:</p>
