@@ -25,7 +25,7 @@
 
 <meta name="author" content="Борис Демешев">
 
-<meta name="date" content="2016-09-14">
+<meta name="date" content="2016-09-18">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -243,11 +243,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">sudo</span> apt-get update
 <span class="kw">sudo</span> apt-get install r-base r-base-dev</code></pre></div>
 <p>Вместо классического R можно поставить конкурирующий <a href="https://mran.microsoft.com/download/">дистрибутив R от Microsoft</a>, MRO. Отличия MRO от классического R:</p>
-<ul>
-<li>работает только с 64-битным процессором</li>
-<li>использует быструю библиотеку MKL для линейной алгебры</li>
-<li>по умолчанию ставит не самые свежие пакеты, а версии пакетов выпущенные на заданную дату. Это удобная особенность позволяет легко воспроизвести результаты работы, даже если какой-нибудь пакет кардинально изменился.</li>
-</ul>
+<ol style="list-style-type: decimal">
+<li><p>Работает только с 64-битным процессором</p></li>
+<li><p>Использует быструю библиотеку MKL для линейной алгебры</p></li>
+<li><p>По умолчанию ставит не самые свежие пакеты, а версии пакетов выпущенные на заданную дату. Это удобная особенность позволяет легко воспроизвести результаты работы, даже если какой-нибудь пакет кардинально изменился.</p></li>
+</ol>
 <p>Опытные пользователи могут самостоятельно настроить R на использование более быстрых библиотек для линейной алгебры.</p>
 <p>Macos: настраиваем оптимизированную под мак библиотеку:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> /Library/Frameworks/R.framework/Resources/lib
@@ -263,6 +263,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Оболчка Rstudio открытая и бесплатная. Есть платная версия Rstudio, платной в ней является круглосуточная поддержка пользователей. И иногда оболочку Rstudio путают с программой для восстановления данных R-studio, которая полностью платная.</p>
 <p><a href="https://www.rstudio.com/products/rstudio/download/">Текущая версия Rstudio</a>.</p>
 <p>Любители заглянуть вперёд и опробовать новые фишки могут <a href="https://www.rstudio.com/products/rstudio/download/preview/">поставить preview-версию Rstudio</a>. Теоретически подобная бета-версия может быть менее устойчивой чем обычная. По моему опыту никаких проблем со стабильностью в preview-версии не было, а приятные плюшки, ещё не вошедшие в текущую версию, есть :)</p>
+<p>Настройка Rstudio:</p>
+<ol style="list-style-type: decimal">
+<li>Заходим в Tools - Global options - General:</li>
+</ol>
+<ul>
+<li><p>Убираем галочку Restore .Rdata into workspace at startup.</p></li>
+<li><p>В разделе Save workspace to .Rdata on exit выбираем Never</p></li>
+</ul>
+<p>Rstudio по умолчанию при выходе сохраняет все объекты в памяти в файл, который затем подгружается при старте. Это плохая привычка. Постепенно в нём будет накапливаться мусор. Рано или поздно мусора станет так много, что либо загрузка Rstudio будет занимать немеряно времени, либо при загрузке будет происходить ошибка.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Заходим в Tools - Global options - Sweawe:</li>
+</ol>
+<ul>
+<li>В разделе Weave .Rnw files using выбираем knitr.</li>
+</ul>
+<p>Для связи R с Латехом мы будем использовать более передовой knitr. Первопроходец Sweave сделал прекрасную работу и его подвиги мы будем помнить и чтить :)</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Заходим в Tools - Global options - Code - Diagnostics:</li>
+</ol>
+<ul>
+<li>Выставляем все галки!</li>
+</ul>
+<p>Настоящие леди и джентельмены, а также синьоры и синьориты, пишут стильный код!</p>
 </div>
 <div id="install_Latex" class="section level3">
 <h3><span class="header-section-number">1.1.3</span> LaTeX</h3>
@@ -276,18 +299,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">equivs-build</span> texlive-local
 <span class="kw">sudo</span> dpkg -i texlive-local_2016-2_all.deb</code></pre></div>
 <p>Под Macos основной дистрибутив латеха — это <a href="https://tug.org/mactex/">Mactex</a>.</p>
-<p>Под Windows существует два конкурирующих дистрибутива — TexLive и Miktex. Я лично <a href="https://www.tug.org/texlive/acquire-netinstall.html">рекомендую TexLive</a>, но <a href="http://miktex.org/download">Miktex тоже подойдёт</a>.</p>
-<p>Важно ставить полную версию латеха со всеми пакетами! Полная установка может занять больше часа, и занять несколько гигабайт жёсткого диска, но красивые документы того стоят.</p>
-<p>Для полной установки Miktex нужно выбрать Net Installer, а не Basic Miktex.</p>
+<p>Под Windows существует два конкурирующих дистрибутива — TexLive и Miktex. Я лично <a href="https://www.tug.org/texlive/acquire-netinstall.html">рекомендую TexLive</a>. Если выбирать <a href="http://miktex.org/download">Miktex</a>, то для установки полноценного теха надо скачать не Basic Miktex, а Net Installer!</p>
+<div class="warning">
+<p>
+Важно ставить полную версию латеха со всеми пакетами!
+</p>
+</div>
+<p>Полная установка может занять больше часа, и занять несколько гигабайт жёсткого диска, но красивые документы того стоят.</p>
 <p>Если нет необходимости делать красивые структурированные документы в <code>pdf</code> формате, то без Латеха можно обойтись.</p>
 <p>В данном учебнике не будет серьёзного введения в латех, мы только затронем вопрос взаимодействия R-латех.</p>
-<p>Хорошими введениями в тех будут: Воронцов, …<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p>Хорошими введениями в тех будут: Воронцов, <a href="http://www.ccas.ru/voron/download/voron05latex.pdf">LaTeX в примерах</a><a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
 </div>
 <div id="install_git" class="section level3">
 <h3><span class="header-section-number">1.1.4</span> git-клиент</h3>
 <p>ubuntu</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> config --global user.name <span class="st">&quot;Ivan Ivanov&quot;</span>
 <span class="kw">git</span> config --global user.email Ivan_Ivanov@ivanov_mail.com</code></pre></div>
+<p>В качестве графической оболочки можно выбрать, например, бесплатный для open-source проектов кросс-платформенный <a href="http://www.syntevo.com/smartgit/">Smartgit</a>. Есть также <a href="https://desktop.github.com/">Github Desktop для macos и windows</a>.</p>
 </div>
 <div id="install_editor" class="section level3">
 <h3><span class="header-section-number">1.1.5</span> Текстовый редактор</h3>
@@ -408,18 +436,18 @@ vect</code></pre></div>
 s &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">40</span>, <span class="dt">min =</span> -<span class="dv">3</span>, <span class="dt">max =</span> <span class="dv">1</span>) 
 b &lt;-<span class="st"> </span>s[s &gt;<span class="st"> </span><span class="dv">0</span>] <span class="co"># отбираем те s, что больше нуля</span>
 b </code></pre></div>
-<pre><code>##  [1] 0.2348091 0.6944054 0.7015152 0.2500906 0.1930225 0.3207003 0.6078876
-##  [8] 0.7341045 0.4710073 0.7844716 0.4645330 0.4069011 0.4778961</code></pre>
+<pre><code>## [1] 0.08421831 0.13988892 0.33393135 0.44526839 0.54082271 0.37312339
+## [7] 0.57440886</code></pre>
 <p>Можно выбрать конкретные <span class="math inline">\(s\)</span>, например с 6-го по 20-ое: <code>{r} s[6:20]</code></p>
 <p>Хочу 5-ый, 7-ой и 13-ый элементы вектора!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s[<span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">13</span>)] </code></pre></div>
-<pre><code>## [1] -1.7561076  0.2500906 -1.9704757</code></pre>
+<pre><code>## [1] -1.2174273 -2.7770775 -0.2649529</code></pre>
 <p>Можно узнать, сколько значений <code>s</code> больше нуля:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(s &gt;<span class="st"> </span><span class="dv">0</span>) </code></pre></div>
-<pre><code>## [1] 13</code></pre>
+<pre><code>## [1] 7</code></pre>
 <p>Еще полезная штучка — количество элементов в векторе:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(b) </code></pre></div>
-<pre><code>## [1] 13</code></pre>
+<pre><code>## [1] 7</code></pre>
 <p>Операции, похожие на те, что проделали с векторами, можно делать и с другими типами данных, например, с матрицами (<em>matrix</em>), таблицами (<em>table</em>) и др. Покажем на примере наборов данных (<em>data frame</em>).</p>
 <p>Будем использовать набор данных <code>diamonds</code> из пакета <code>ggplot2</code>. Множество других встроены во многие пакеты, а также в сам R, и список с кратким описанием последних можно вызвать командой <code>library(help = &quot;datasets&quot;)</code>.</p>
 <p>Наборы данных состоят из строк (<em>rows</em>) и столбцов (<em>columns</em>); в каждой строке хорошо построенного набора — характеристики одного объекта, а по столбцам — значения одной характеристики у разных объектов. Так, например, в <code>diamonds</code> объектами являются бриллианты, а их характеристиками — цена, вес, цвет и т. д. Это можно увидеть с помощью всё той же команды <code>str()</code>:</p>
@@ -877,7 +905,9 @@ y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">5
 </ul>
 <p>Вопросы и ответы:</p>
 <ul>
-<li><a href="http://stackoverflow.com/">stackoverflow</a> Если возникли проблемы с программированием в R (и не только в R), а документация уже прочитана… <em> <a href="http://stats.stackexchange.com/">stats.stackexchange</a> Можно спросить по статистическим методам и их реализации в R. </em> <a href="http://tex.stackexchange.com/">tex.stackexchange</a> Вопросы и ответы про LaTeX</li>
+<li><p><a href="http://stackoverflow.com/">stackoverflow</a> Если возникли проблемы с программированием в R (и не только в R), а документация уже прочитана…</p></li>
+<li><p><a href="http://stats.stackexchange.com/">stats.stackexchange</a> Можно спросить по статистическим методам и их реализации в R.</p></li>
+<li><p><a href="http://tex.stackexchange.com/">tex.stackexchange</a> Вопросы и ответы про LaTeX</p></li>
 </ul>
 <p>Он-лайн курсы и видеолекции с использованием R:</p>
 <ul>
@@ -907,7 +937,13 @@ y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">5
 </ul>
 <p>Великолепные виньетки к разным пакетам:</p>
 <ul>
-<li><a href="http://cran.r-project.org/web/packages/vars/vignettes/vars.pdf">vars</a>, векторные авторегрессии, есть вольный пересказ <a href="http://rpubs.com/rakhab/9941">по-русски</a> <em> <a href="http://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html">dplyr</a> манипуляции с данными </em> <a href="http://cran.r-project.org/web/packages/sandwich/vignettes/sandwich.pdf">sandwich</a> борьба с гетероскедастичностью и заклинания HC0, HC1, HC2, … <em> <a href="http://cran.r-project.org/web/packages/plm/vignettes/plm.pdf">plm</a> панельные модели в R </em> <a href="http://journal.r-project.org/archive/2013-1/kahle-wickham.pdf">ggmap</a> рисуем карты <em> <a href="http://cran.r-project.org/web/packages/vcd/vignettes/strucplot.pdf">vcd</a> полезные графики для качественных переменных </em> <a href="http://www.jstatsoft.org/v28/c01/paper">Beanplot</a>: A Boxplot Alternative for Visual Comparison of Distributions.</li>
+<li><p><a href="http://cran.r-project.org/web/packages/vars/vignettes/vars.pdf">vars</a>, векторные авторегрессии, есть вольный пересказ <a href="http://rpubs.com/rakhab/9941">по-русски</a></p></li>
+<li><p><a href="http://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html">dplyr</a> манипуляции с данными</p></li>
+<li><p><a href="http://cran.r-project.org/web/packages/sandwich/vignettes/sandwich.pdf">sandwich</a> борьба с гетероскедастичностью и заклинания HC0, HC1, HC2, …</p></li>
+<li><p><a href="http://cran.r-project.org/web/packages/plm/vignettes/plm.pdf">plm</a> панельные модели в R</p></li>
+<li><p><a href="http://journal.r-project.org/archive/2013-1/kahle-wickham.pdf">ggmap</a> рисуем карты</p></li>
+<li><p><a href="http://cran.r-project.org/web/packages/vcd/vignettes/strucplot.pdf">vcd</a> полезные графики для качественных переменных</p></li>
+<li><p><a href="http://www.jstatsoft.org/v28/c01/paper">Beanplot</a>: A Boxplot Alternative for Visual Comparison of Distributions.</p></li>
 </ul>
 <p>Ты ещё не заработал свой первый миллион и хочешь скачать научную статью или книжку бесплатно?</p>
 <ul>
