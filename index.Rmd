@@ -81,9 +81,9 @@ activateTikz <- function() {
   options(tikzDefaultEngine = "xetex")
   
   # cash font metrics for speed:
-  options(tikzMetricsDictionary = "./tikz_metrics") 
+  # options(tikzMetricsDictionary = "./tikz_metrics") 
   
-  add_xelatex <- c("\\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}",
+  add_xelatex <- c("\\defaultfontfeatures{Ligatures=TeX, Scale=MatchLowercase}",
                    "\\setmainfont{Linux Libertine O}",
                    "\\setmonofont{Linux Libertine O}",
                    "\\setsansfont{Linux Libertine O}",
