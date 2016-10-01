@@ -25,7 +25,7 @@
 
 <meta name="author" content="Борис Демешев">
 
-<meta name="date" content="2016-09-18">
+<meta name="date" content="2016-10-01">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -442,18 +442,18 @@ vect</code></pre></div>
 s &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">40</span>, <span class="dt">min =</span> -<span class="dv">3</span>, <span class="dt">max =</span> <span class="dv">1</span>) 
 b &lt;-<span class="st"> </span>s[s &gt;<span class="st"> </span><span class="dv">0</span>] <span class="co"># отбираем те s, что больше нуля</span>
 b </code></pre></div>
-<pre><code>## [1] 0.3348479 0.1428468 0.3636372 0.6930527 0.0970631 0.4834953 0.8412955
-## [8] 0.9583716</code></pre>
+<pre><code>## [1] 0.91055974 0.47819032 0.31313016 0.19402332 0.36231247 0.47738525
+## [7] 0.41565997 0.05095502 0.72129754</code></pre>
 <p>Можно выбрать конкретные <span class="math inline">\(s\)</span>, например с 6-го по 20-ое: <code>{r} s[6:20]</code></p>
 <p>Хочу 5-ый, 7-ой и 13-ый элементы вектора!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s[<span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">13</span>)] </code></pre></div>
-<pre><code>## [1] -0.6059680 -0.4142149 -1.8874397</code></pre>
+<pre><code>## [1]  0.4781903 -1.1877040 -0.9589381</code></pre>
 <p>Можно узнать, сколько значений <code>s</code> больше нуля:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(s &gt;<span class="st"> </span><span class="dv">0</span>) </code></pre></div>
-<pre><code>## [1] 8</code></pre>
+<pre><code>## [1] 9</code></pre>
 <p>Еще полезная штучка — количество элементов в векторе:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(b) </code></pre></div>
-<pre><code>## [1] 8</code></pre>
+<pre><code>## [1] 9</code></pre>
 <p>Операции, похожие на те, что проделали с векторами, можно делать и с другими типами данных, например, с матрицами (<em>matrix</em>), таблицами (<em>table</em>) и др. Покажем на примере наборов данных (<em>data frame</em>).</p>
 <p>Будем использовать набор данных <code>diamonds</code> из пакета <code>ggplot2</code>. Множество других встроены во многие пакеты, а также в сам R, и список с кратким описанием последних можно вызвать командой <code>library(help = &quot;datasets&quot;)</code>.</p>
 <p>Наборы данных состоят из строк (<em>rows</em>) и столбцов (<em>columns</em>); в каждой строке хорошо построенного набора — характеристики одного объекта, а по столбцам — значения одной характеристики у разных объектов. Так, например, в <code>diamonds</code> объектами являются бриллианты, а их характеристиками — цена, вес, цвет и т. д. Это можно увидеть с помощью всё той же команды <code>str()</code>:</p>
@@ -919,6 +919,8 @@ y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">5
 <ul>
 <li><p><a href="http://r-exercises.com/r-courses/">Поисковик он-лайн курсов по R</a></p></li>
 <li><p><a href="http://tryr.codeschool.com/">Try R</a> Путь к сокровищам R для самых начинающих пиRатов!</p></li>
+<li><p><a href="https://stepik.org/course/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%BD%D0%B0-R-497/">Основы программирования на R от stepik.org</a></p></li>
+<li><p><a href="https://stepik.org/course/%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-%D0%B2-R-129/">Анализ данных в R от stepik.org</a></p></li>
 <li><p><a href="https://www.datacamp.com/">datacamp.com</a> Несколько платных и бесплатных интерактивных курсов по R</p></li>
 <li><p>Видео-лекции курса Computing for Data Analysis: <a href="http://www.youtube.com/playlist?list=PLjTlxb-wKvXNSDfcKPFH2gzHGyjpeCZmJ">неделя 1</a>, <a href="http://www.youtube.com/playlist?list=PLjTlxb-wKvXNnjUTX4C8IeIhPBjPkng6B">неделя 2</a>, <a href="http://www.youtube.com/playlist?list=PLjTlxb-wKvXOzI2h0F2_rYZHIXz8GWBop">неделя 3</a>, <a href="http://www.youtube.com/playlist?list=PLjTlxb-wKvXOdzysAE6qrEBN_aSBC0LZS">неделя 4</a>. Сам курс доступен на <a href="http://www.coursera.org">coursera.org</a></p></li>
 </ul>

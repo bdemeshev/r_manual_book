@@ -25,7 +25,7 @@
 
 <meta name="author" content="Борис Демешев">
 
-<meta name="date" content="2016-09-18">
+<meta name="date" content="2016-10-01">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -218,17 +218,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Для решения задач по теории вероятностей или исследования свойств статистических алгоритмов может потребоваться сгененировать случайную выборку из заданного закона распределения.</p>
 <p>Генерируем 10 равномерных на отрезке <span class="math inline">\([4;10.5]\)</span> случайных величин:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="dv">4</span>, <span class="dt">max =</span> <span class="fl">10.5</span>)</code></pre></div>
-<pre><code>##  [1]  7.245271  9.372806  8.093752  8.719526  7.220439  8.114470 10.152025
-##  [8]  7.992820  8.101632  4.235709</code></pre>
+<pre><code>##  [1]  4.785086  7.915685  5.648353 10.112241  5.575892  6.633783  4.733967
+##  [8]  8.716802  6.347711  8.030410</code></pre>
 <p>Генерируем 10 нормальных <span class="math inline">\(N(2;9)\)</span> случайных величин с математическим ожиданием <span class="math inline">\(2\)</span> и дисперсией <span class="math inline">\(9=3^2\)</span>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">3</span>)</code></pre></div>
-<pre><code>##  [1]  0.9578634 -2.7230266  1.2183431 -1.1005840  4.1875459  3.5588300
-##  [7] -0.8957353  2.8082386  1.9474340  2.2634082</code></pre>
+<pre><code>##  [1]  4.379800  4.399378  2.851456  1.508382  1.838750  1.775901 -2.676486
+##  [8]  8.900803  4.719940  4.027848</code></pre>
 <p>Например, с помощью симуляций легко оценить математическое ожидание <span class="math inline">\(E(1/X)\)</span>, где <span class="math inline">\(X \sim N(2;9)\)</span>. Для этого мы вспомним Закон Больших Чисел. Он говорит, что арифметическое среднее по большой выборке стремится по вероятности и почти наверное к математическому ожиданию. Поэтому мы просто сгенерируем большую выборку в миллион наблюдений:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n_obs &lt;-<span class="st"> </span><span class="dv">10</span>^<span class="dv">6</span>
 x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n_obs, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">3</span>)
 <span class="kw">mean</span>(<span class="dv">1</span>/x)</code></pre></div>
-<pre><code>## [1] 1.985467</code></pre>
+<pre><code>## [1] -7.412001</code></pre>
 <p>Также легко оценить многие вероятности. Например, оценим вероятность <span class="math inline">\(P(X_1 + X_2 + X_3^2 &gt; 5)\)</span>, где величины <span class="math inline">\(X_i\)</span> независимы и одинаково распределены <span class="math inline">\(X_i \sim U[0;2]\)</span>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n_obs &lt;-<span class="st"> </span><span class="dv">10</span>^<span class="dv">6</span>
 x_1 &lt;-<span class="st"> </span><span class="kw">runif</span>(n_obs, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">2</span>)
@@ -236,7 +236,7 @@ x_2 &lt;-<span class="st"> </span><span class="kw">runif</span>(n_obs, <span cla
 x_3 &lt;-<span class="st"> </span><span class="kw">runif</span>(n_obs, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">2</span>)
 success &lt;-<span class="st"> </span>x_1 +<span class="st"> </span>x_2 +<span class="st"> </span>x_3^<span class="dv">2</span> &gt;<span class="st"> </span><span class="dv">5</span>
 <span class="kw">sum</span>(success) /<span class="st"> </span>n_obs</code></pre></div>
-<pre><code>## [1] 0.147597</code></pre>
+<pre><code>## [1] 0.147573</code></pre>
 <p>Здесь вектор <code>success</code> будет содержать значение TRUE там, где условие <code>x_1 + x_2 + x_3^2 &gt; 5</code> выполнено, и FALSE там, где условие не выполнено. При сложении командой <code>sum()</code> каждое TRUE будет посчитано как единица, а каждое FALSE как ноль. Поэтому <code>sum(success)</code> даст количество раз, когда условие <code>x_1 + x_2 + x_3^2 &gt; 5</code> выполнено.</p>
 <p>С любым распределением <code>[xxx]</code> в R связано четыре функции: <code>r[xxx]</code>, <code>d[xxx]</code>, <code>p[xxx]</code> и <code>q[xxx]</code>. Для примера возьмём нормальное распределение <span class="math inline">\(N(2;9)\)</span>:</p>
 <ul>
@@ -244,8 +244,8 @@ success &lt;-<span class="st"> </span>x_1 +<span class="st"> </span>x_2 +<span c
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">3</span>) <span class="co"># случайная выборка из 100 нормальных N(2; 9) величин</span>
 <span class="kw">head</span>(x, <span class="dv">10</span>) <span class="co"># первые 10 элементов вектора</span></code></pre></div>
-<pre><code>##  [1]  4.5851621  2.1296074  5.1460820  1.8927905 -1.7497727  0.8388427
-##  [7]  0.4198871  4.0360553  4.7657983  3.5111066</code></pre>
+<pre><code>##  [1] -3.9443830  2.0065003  0.4065573  2.7800074  4.3727965  0.9346105
+##  [7] -0.5311545 -6.5809603  5.6973499  2.4454490</code></pre>
 <ul>
 <li>Функция плотности — <code>dnorm</code>:</li>
 </ul>
@@ -272,15 +272,15 @@ y &lt;-<span class="st"> </span><span class="kw">pnorm</span>(x, <span class="dt
 <pre><code>## [1] -2.934561 -1.109300  5.844655</code></pre>
 <p>Иногда бывает полезно получить случайную выборку из заданного вектора без повторений:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">100</span>, <span class="dt">size =</span> <span class="dv">20</span>)</code></pre></div>
-<pre><code>##  [1]  9 71 79 70 48 98 34 78 90 77 81 93  4 19 74 52 24 39 94 29</code></pre>
+<pre><code>##  [1] 94 14 13 12 22  9 99 48 92 58 87 81 57 82  4 44 66 72  6 60</code></pre>
 <p>Или с повторениями:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;Орёл&quot;</span>, <span class="st">&quot;Решка&quot;</span>), <span class="dt">size =</span> <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>##  [1] &quot;Решка&quot; &quot;Решка&quot; &quot;Орёл&quot;  &quot;Орёл&quot;  &quot;Орёл&quot;  &quot;Решка&quot; &quot;Орёл&quot;  &quot;Орёл&quot; 
+<pre><code>##  [1] &quot;Решка&quot; &quot;Решка&quot; &quot;Решка&quot; &quot;Решка&quot; &quot;Орёл&quot;  &quot;Орёл&quot;  &quot;Орёл&quot;  &quot;Решка&quot;
 ##  [9] &quot;Орёл&quot;  &quot;Решка&quot;</code></pre>
 <p>Можно добавить неравные вероятности:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;Орёл&quot;</span>, <span class="st">&quot;Решка&quot;</span>), <span class="dt">size =</span> <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="fl">0.3</span>, <span class="fl">0.7</span>))</code></pre></div>
-<pre><code>##  [1] &quot;Решка&quot; &quot;Орёл&quot;  &quot;Решка&quot; &quot;Решка&quot; &quot;Решка&quot; &quot;Решка&quot; &quot;Решка&quot; &quot;Решка&quot;
-##  [9] &quot;Решка&quot; &quot;Решка&quot;</code></pre>
+<pre><code>##  [1] &quot;Решка&quot; &quot;Решка&quot; &quot;Решка&quot; &quot;Решка&quot; &quot;Орёл&quot;  &quot;Решка&quot; &quot;Орёл&quot;  &quot;Решка&quot;
+##  [9] &quot;Орёл&quot;  &quot;Решка&quot;</code></pre>
 <p>Если выполнить команду <code>rnorm(10, mean = 2, sd = 3)</code> на двух разных компьютерах или два раза на одном и том же, то результат будет разный. Не зря же они случайные :) Однако генерирование случайных величин никак не противоречит идее абсолютно точной воспроизводимости исследований. Для того, чтобы получились одинаковые результаты, необходимо синхронизировать генераторы случайных чисел на этих двух компьютерах. Делается это путём задания <strong>зерна</strong> генератора случайных чисел (seed). Зерно также называют <strong>стартовым значением</strong>. В качестве зерна подойдёт любое целое число.</p>
 <p>И в результате запуска кода</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
@@ -439,10 +439,7 @@ ci</code></pre></div>
 ## 2   2.593462 0.1141737   2.369686   2.817239</code></pre>
 <p>Ещё есть малоизвестный пакет <code>Greg</code> Макса Гордона и в нём есть готовая функция:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Greg::<span class="kw">confint_robust</span>(m1)</code></pre></div>
-<pre><code>##                  2.5 %     97.5 %
-## (Intercept) -77.448501 -46.641186
-## totsp         2.369686   2.817239</code></pre>
-<p>Пакет <code>Greg</code> не доступен на официальном репозитории CRAN, ставится с <code>github</code> командой <code>devtools::install_github(&quot;gforge/Greg&quot;)</code>.</p>
+<p>Пакет <code>Greg</code> не доступен на официальном репозитории CRAN, ставится с <code>github</code> командой <code>devtools::install_github(&quot;gforge/Greg&quot;)</code>. Пакет <code>Greg</code> тянет за собой такую кучу всего, что не хочется его ставить ради одной функции. Здесь уместно упражнение: сделайте функцию <code>confint_robust</code> самостоятельно :)</p>
 <p>В условиях гетероскедастичности обычная <span class="math inline">\(t\)</span>-статистика не имеет ни <span class="math inline">\(t\)</span>-распределения при нормальных <span class="math inline">\(\varepsilon_i\)</span>, ни даже асимптотически нормального. И такая же проблема возникает с <span class="math inline">\(F\)</span>-статистикой для сравнения вложенных моделей. Отныне привычная <span class="math inline">\(F\)</span>-статистика</p>
 <p><span class="math display">\[
 F=\frac{(RSS_R-RSS_{UR})/r}{RSS_{UR}/(n-k_{UR})}
@@ -650,7 +647,15 @@ m3 &lt;-<span class="st"> </span><span class="kw">lm</span>(price ~<span class="
 </div>
 <div id="lasso" class="section level2">
 <h2><span class="header-section-number">3.11</span> LASSO</h2>
-<p>…</p>
+<p>Оказывается, что оценки LASSO для всех значений параметра <span class="math inline">\(\lambda\)</span> можно получить очень быстро! Для этого нам потребуется алгоритм LARS (Least Angle Regresssion):</p>
+<ol style="list-style-type: decimal">
+<li><p>Положим стартовые значения всех <span class="math inline">\(\beta_j\)</span> равными нулю.</p></li>
+<li><p>Найдём регрессор <span class="math inline">\(x_j\)</span> сильнее всего коррелированный с <span class="math inline">\(y\)</span> по модулю</p></li>
+<li><p>Изменяем коэффициент <span class="math inline">\(\beta_j\)</span> в направлении знака корреляции <span class="math inline">\(x_j\)</span> и <span class="math inline">\(y_j\)</span>. Попутно считаем остатки <span class="math inline">\(\hat u = y - \hat y\)</span>. Прекращаем изменять коэффициент <span class="math inline">\(\beta_j\)</span>, как только некоторый регрессор <span class="math inline">\(x_k\)</span> будет настолько же сильно коррелирован с <span class="math inline">\(r\)</span> как <span class="math inline">\(x_j\)</span></p></li>
+<li><p>Увеличиваем пару <span class="math inline">\((\beta_j, \beta_k)\)</span> в направлении задаваемом линейной регрессией, до тех пор пока у некоторого <span class="math inline">\(x_m\)</span> не будет высокой корреляции с <span class="math inline">\(r\)</span></p></li>
+<li><p>Если ненулевой коэффициент уходит в ноль, то выкидываем его из множества активных регрессоров.</p></li>
+<li><p>Продолжаем до тех пор, пока все регрессоры не вошли в модель.</p></li>
+</ol>
 </div>
 <div id="maximum_likelihood" class="section level2">
 <h2><span class="header-section-number">3.12</span> Метод максимального правдоподобия</h2>
