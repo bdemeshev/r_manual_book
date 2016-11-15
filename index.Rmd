@@ -1,4 +1,4 @@
---- 
+---
 title: "Учебник по языку R для начинающих"
 author: "Борис Демешев"
 date: '`r Sys.Date()`'
@@ -48,7 +48,7 @@ output:
     latex_engine: xelatex
   bookdown::epub_book: default
   bookdown::kindlegen:
-    epub: _book/r_manual.epub
+    epub: docs/r_manual.epub
 description: Учебник по языку R и не только :)
 documentclass: book
 fontsize: 11pt
@@ -76,13 +76,13 @@ library("knitr")
 library("tikzDevice")
 
 activateTikz <- function() {
-  
+
   # tikz plots options
   options(tikzDefaultEngine = "xetex")
-  
+
   # cash font metrics for speed:
-  # options(tikzMetricsDictionary = "./tikz_metrics") 
-  
+  # options(tikzMetricsDictionary = "./tikz_metrics")
+
   add_xelatex <- c("\\defaultfontfeatures{Ligatures=TeX, Scale=MatchLowercase}",
                    "\\setmainfont{Linux Libertine O}",
                    "\\setmonofont{Linux Libertine O}",
@@ -90,16 +90,16 @@ activateTikz <- function() {
         "\\newfontfamily{\\cyrillicfonttt}{Linux Libertine O}",
         "\\newfontfamily{\\cyrillicfont}{Linux Libertine O}",
         "\\newfontfamily{\\cyrillicfontsf}{Linux Libertine O}")
-  
+
   options(tikzXelatexPackages = c(getOption("tikzXelatexPackages"),
                                   add_xelatex))
-  
+
   # does remove warnings:
   # it is important to remove fontenc package wich is loaded by default
-  options(tikzUnicodeMetricPackages = c("\\usetikzlibrary{calc}",    
-                                        "\\usepackage{fontspec, xunicode}", add_xelatex)) 
-  
-  
+  options(tikzUnicodeMetricPackages = c("\\usetikzlibrary{calc}",
+                                        "\\usepackage{fontspec, xunicode}", add_xelatex))
+
+
   opts_chunk$set(dev = "tikz", dev.args = list(pointsize = 11))
 }
 
@@ -139,6 +139,3 @@ library("data.table") # манипуляции с данными
 library("reshape2") # преобразование длинных таблиц в широкие
 library("tidyr") # причесывание данных
 ```
-
-
-

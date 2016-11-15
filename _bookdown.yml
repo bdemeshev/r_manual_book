@@ -1,2 +1,3 @@
 book_filename: "r_manual"
 chapter_name: "Глава "
+output_dir: docs

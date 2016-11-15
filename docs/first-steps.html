@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html  lang="ru-RU">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Учебник по языку R для начинающих</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Учебник по языку R и не только :)">
+  <meta name="generator" content="bookdown 0.1.14 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Учебник по языку R для начинающих" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Учебник по языку R и не только :)" />
+  <meta name="github-repo" content="bdemeshev/r_manual_book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Учебник по языку R для начинающих" />
+  
+  <meta name="twitter:description" content="Учебник по языку R и не только :)" />
+  
+
+<meta name="author" content="Борис Демешев">
+
+  
+<meta name="date" content="2016-11-15">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="friends-of-R.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Учебник по языку R для начинающих</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>О книге</a></li>
+<li class="chapter" data-level="1" data-path="first-steps.html"><a href="first-steps.html"><i class="fa fa-check"></i><b>1</b> Первые шаги</a><ul>
+<li class="chapter" data-level="1.1" data-path="first-steps.html"><a href="first-steps.html#installation"><i class="fa fa-check"></i><b>1.1</b> Установка софта</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="first-steps.html"><a href="first-steps.html#install_R"><i class="fa fa-check"></i><b>1.1.1</b> R</a></li>
+<li class="chapter" data-level="1.1.2" data-path="first-steps.html"><a href="first-steps.html#install_Rstudio"><i class="fa fa-check"></i><b>1.1.2</b> Rstudio</a></li>
+<li class="chapter" data-level="1.1.3" data-path="first-steps.html"><a href="first-steps.html#install_Latex"><i class="fa fa-check"></i><b>1.1.3</b> LaTeX</a></li>
+<li class="chapter" data-level="1.1.4" data-path="first-steps.html"><a href="first-steps.html#install_git"><i class="fa fa-check"></i><b>1.1.4</b> git-клиент</a></li>
+<li class="chapter" data-level="1.1.5" data-path="first-steps.html"><a href="first-steps.html#install_editor"><i class="fa fa-check"></i><b>1.1.5</b> Текстовый редактор</a></li>
+<li class="chapter" data-level="1.1.6" data-path="first-steps.html"><a href="first-steps.html#install_STAN"><i class="fa fa-check"></i><b>1.1.6</b> STAN</a></li>
+<li class="chapter" data-level="1.1.7" data-path="first-steps.html"><a href="first-steps.html#install_jupyter"><i class="fa fa-check"></i><b>1.1.7</b> jupyter</a></li>
+<li class="chapter" data-level="1.1.8" data-path="first-steps.html"><a href="first-steps.html#install_lyx"><i class="fa fa-check"></i><b>1.1.8</b> LyX</a></li>
+<li class="chapter" data-level="1.1.9" data-path="first-steps.html"><a href="first-steps.html#install_font"><i class="fa fa-check"></i><b>1.1.9</b> Шрифты</a></li>
+<li class="chapter" data-level="1.1.10" data-path="first-steps.html"><a href="first-steps.html#pandoc"><i class="fa fa-check"></i><b>1.1.10</b> Pandoc</a></li>
+<li class="chapter" data-level="1.1.11" data-path="first-steps.html"><a href="first-steps.html#install_gretl"><i class="fa fa-check"></i><b>1.1.11</b> gretl</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="first-steps.html"><a href="first-steps.html#funny_calc"><i class="fa fa-check"></i><b>1.2</b> Весёлый калькулятор</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="first-steps.html"><a href="first-steps.html#value_selection"><i class="fa fa-check"></i><b>1.2.1</b> Отбор значений</a></li>
+<li class="chapter" data-level="1.2.2" data-path="first-steps.html"><a href="first-steps.html#number_comparison"><i class="fa fa-check"></i><b>1.2.2</b> Сравнение чисел — штука тонкая</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="first-steps.html"><a href="first-steps.html#first_script"><i class="fa fa-check"></i><b>1.3</b> Первый скрипт</a></li>
+<li class="chapter" data-level="1.4" data-path="first-steps.html"><a href="first-steps.html#packages"><i class="fa fa-check"></i><b>1.4</b> Установка и подключение пакетов</a></li>
+<li class="chapter" data-level="1.5" data-path="first-steps.html"><a href="first-steps.html#io"><i class="fa fa-check"></i><b>1.5</b> Чтение и запись данных</a></li>
+<li class="chapter" data-level="1.6" data-path="first-steps.html"><a href="first-steps.html#popular_formats"><i class="fa fa-check"></i><b>1.6</b> Распространённые форматы</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="first-steps.html"><a href="first-steps.html#comma-separated-values-sv"><i class="fa fa-check"></i><b>1.6.1</b> Comma separated values: сsv</a></li>
+<li class="chapter" data-level="1.6.2" data-path="first-steps.html"><a href="first-steps.html#-excel-xls--xlsx"><i class="fa fa-check"></i><b>1.6.2</b> Форматы Excel: xls и xlsx</a></li>
+<li class="chapter" data-level="1.6.3" data-path="first-steps.html"><a href="first-steps.html#-spss-sav"><i class="fa fa-check"></i><b>1.6.3</b> Формат SPSS: sav</a></li>
+<li class="chapter" data-level="1.6.4" data-path="first-steps.html"><a href="first-steps.html#-eviews-wf1"><i class="fa fa-check"></i><b>1.6.4</b> Формат Eviews: wf1</a></li>
+<li class="chapter" data-level="1.6.5" data-path="first-steps.html"><a href="first-steps.html#-stata-dat"><i class="fa fa-check"></i><b>1.6.5</b> Формат Stata: dat</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="first-steps.html"><a href="first-steps.html#internet_sources"><i class="fa fa-check"></i><b>1.7</b> Интернет-источники данных</a></li>
+<li class="chapter" data-level="1.8" data-path="first-steps.html"><a href="first-steps.html#code_style"><i class="fa fa-check"></i><b>1.8</b> Стиль кода</a></li>
+<li class="chapter" data-level="1.9" data-path="first-steps.html"><a href="first-steps.html#two_traditions"><i class="fa fa-check"></i><b>1.9</b> Две записи функций</a></li>
+<li class="chapter" data-level="1.10" data-path="first-steps.html"><a href="first-steps.html#data_manipulations"><i class="fa fa-check"></i><b>1.10</b> Манипуляции с данными</a><ul>
+<li class="chapter" data-level="1.10.1" data-path="first-steps.html"><a href="first-steps.html#glimpse"><i class="fa fa-check"></i><b>1.10.1</b> Быстрый взгляд на табличку</a></li>
+<li class="chapter" data-level="1.10.2" data-path="first-steps.html"><a href="first-steps.html#filter_observations"><i class="fa fa-check"></i><b>1.10.2</b> Отбор наблюдений</a></li>
+<li class="chapter" data-level="1.10.3" data-path="first-steps.html"><a href="first-steps.html#select_rename"><i class="fa fa-check"></i><b>1.10.3</b> Отбор и переименование переменных:</a></li>
+</ul></li>
+<li class="chapter" data-level="1.11" data-path="first-steps.html"><a href="first-steps.html#graphs"><i class="fa fa-check"></i><b>1.11</b> Графики</a><ul>
+<li class="chapter" data-level="1.11.1" data-path="first-steps.html"><a href="first-steps.html#two_simple_graphs"><i class="fa fa-check"></i><b>1.11.1</b> Два простеньких графика</a></li>
+</ul></li>
+<li class="chapter" data-level="1.12" data-path="first-steps.html"><a href="first-steps.html#error"><i class="fa fa-check"></i><b>1.12</b> У меня ошибка!</a></li>
+<li class="chapter" data-level="1.13" data-path="first-steps.html"><a href="first-steps.html#R_links"><i class="fa fa-check"></i><b>1.13</b> Ресурсы по R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="friends-of-R.html"><a href="friends-of-R.html"><i class="fa fa-check"></i><b>2</b> Друзья R</a><ul>
+<li class="chapter" data-level="2.1" data-path="friends-of-R.html"><a href="friends-of-R.html#workflow"><i class="fa fa-check"></i><b>2.1</b> Рабочий процесс</a></li>
+<li class="chapter" data-level="2.2" data-path="friends-of-R.html"><a href="friends-of-R.html#version_control"><i class="fa fa-check"></i><b>2.2</b> Контроль версий</a></li>
+<li class="chapter" data-level="2.3" data-path="friends-of-R.html"><a href="friends-of-R.html#latex"><i class="fa fa-check"></i><b>2.3</b> Латех</a></li>
+<li class="chapter" data-level="2.4" data-path="friends-of-R.html"><a href="friends-of-R.html#markdown"><i class="fa fa-check"></i><b>2.4</b> Маркдаун</a></li>
+<li class="chapter" data-level="2.5" data-path="friends-of-R.html"><a href="friends-of-R.html#reproducible_research"><i class="fa fa-check"></i><b>2.5</b> Воспроизводимые исследования</a></li>
+<li class="chapter" data-level="2.6" data-path="friends-of-R.html"><a href="friends-of-R.html#own_package"><i class="fa fa-check"></i><b>2.6</b> Написание своего пакета</a></li>
+<li class="chapter" data-level="2.7" data-path="friends-of-R.html"><a href="friends-of-R.html#cloud_computing"><i class="fa fa-check"></i><b>2.7</b> Вычисления в облаке</a></li>
+<li class="chapter" data-level="2.8" data-path="friends-of-R.html"><a href="friends-of-R.html#presentations"><i class="fa fa-check"></i><b>2.8</b> Презентации</a></li>
+<li class="chapter" data-level="2.9" data-path="friends-of-R.html"><a href="friends-of-R.html#this_book"><i class="fa fa-check"></i><b>2.9</b> Про эту книжку</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="statistics-and-more.html"><a href="statistics-and-more.html"><i class="fa fa-check"></i><b>3</b> Статистика и не только</a><ul>
+<li class="chapter" data-level="3.1" data-path="statistics-and-more.html"><a href="statistics-and-more.html#random_variables"><i class="fa fa-check"></i><b>3.1</b> Генерирование случайных величин</a></li>
+<li class="chapter" data-level="3.2" data-path="statistics-and-more.html"><a href="statistics-and-more.html#statistical_tests"><i class="fa fa-check"></i><b>3.2</b> Базовые статистические тесты</a></li>
+<li class="chapter" data-level="3.3" data-path="statistics-and-more.html"><a href="statistics-and-more.html#classic_regression"><i class="fa fa-check"></i><b>3.3</b> Множественная регрессия</a></li>
+<li class="chapter" data-level="3.4" data-path="statistics-and-more.html"><a href="statistics-and-more.html#quantile_regression"><i class="fa fa-check"></i><b>3.4</b> Квантильная регрессия</a></li>
+<li class="chapter" data-level="3.5" data-path="statistics-and-more.html"><a href="statistics-and-more.html#instrumental_variables"><i class="fa fa-check"></i><b>3.5</b> Инструментальные переменные</a></li>
+<li class="chapter" data-level="3.6" data-path="statistics-and-more.html"><a href="statistics-and-more.html#heteroskedasticity"><i class="fa fa-check"></i><b>3.6</b> Гетероскедастичность</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="statistics-and-more.html"><a href="statistics-and-more.html#hetero_testing"><i class="fa fa-check"></i><b>3.6.1</b> Тесты на гетероскедастичность</a></li>
+<li class="chapter" data-level="3.6.2" data-path="statistics-and-more.html"><a href="statistics-and-more.html#hetero_bp_test"><i class="fa fa-check"></i><b>3.6.2</b> Тест Бройша-Пагана, Breusch-Pagan:</a></li>
+<li class="chapter" data-level="3.6.3" data-path="statistics-and-more.html"><a href="statistics-and-more.html#white_test"><i class="fa fa-check"></i><b>3.6.3</b> Тест Уайта. White test</a></li>
+<li class="chapter" data-level="3.6.4" data-path="statistics-and-more.html"><a href="statistics-and-more.html#gq_test"><i class="fa fa-check"></i><b>3.6.4</b> Тест Goldfeld-Quandt</a></li>
+<li class="chapter" data-level="3.6.5" data-path="statistics-and-more.html"><a href="statistics-and-more.html#hetero_fail"><i class="fa fa-check"></i><b>3.6.5</b> Тестирование и борьба с гетероскедастичностью</a></li>
+<li class="chapter" data-level="3.6.6" data-path="statistics-and-more.html"><a href="statistics-and-more.html#hetero_forecasting"><i class="fa fa-check"></i><b>3.6.6</b> Прогнозирование при гетероскедастичности</a></li>
+<li class="chapter" data-level="3.6.7" data-path="statistics-and-more.html"><a href="statistics-and-more.html#hetero_links"><i class="fa fa-check"></i><b>3.6.7</b> Дополнительно:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="statistics-and-more.html"><a href="statistics-and-more.html#factor_variables"><i class="fa fa-check"></i><b>3.7</b> Работа с качественными переменными</a></li>
+<li class="chapter" data-level="3.8" data-path="statistics-and-more.html"><a href="statistics-and-more.html#logit_probit"><i class="fa fa-check"></i><b>3.8</b> Логит и пробит с визуализацией</a></li>
+<li class="chapter" data-level="3.9" data-path="statistics-and-more.html"><a href="statistics-and-more.html#pca"><i class="fa fa-check"></i><b>3.9</b> Метод главных компонент</a></li>
+<li class="chapter" data-level="3.10" data-path="statistics-and-more.html"><a href="statistics-and-more.html#multicollinearity"><i class="fa fa-check"></i><b>3.10</b> Мультиколлинеарность</a></li>
+<li class="chapter" data-level="3.11" data-path="statistics-and-more.html"><a href="statistics-and-more.html#lasso"><i class="fa fa-check"></i><b>3.11</b> LASSO</a></li>
+<li class="chapter" data-level="3.12" data-path="statistics-and-more.html"><a href="statistics-and-more.html#maximum_likelihood"><i class="fa fa-check"></i><b>3.12</b> Метод максимального правдоподобия</a></li>
+<li class="chapter" data-level="3.13" data-path="statistics-and-more.html"><a href="statistics-and-more.html#svm"><i class="fa fa-check"></i><b>3.13</b> Метод опорных векторов</a></li>
+<li class="chapter" data-level="3.14" data-path="statistics-and-more.html"><a href="statistics-and-more.html#random_forest"><i class="fa fa-check"></i><b>3.14</b> Случайный лес</a></li>
+<li class="chapter" data-level="3.15" data-path="statistics-and-more.html"><a href="statistics-and-more.html#exponential_smoothing"><i class="fa fa-check"></i><b>3.15</b> Экспоненциальное сглаживание</a></li>
+<li class="chapter" data-level="3.16" data-path="statistics-and-more.html"><a href="statistics-and-more.html#arma"><i class="fa fa-check"></i><b>3.16</b> ARMA модели</a></li>
+<li class="chapter" data-level="3.17" data-path="statistics-and-more.html"><a href="statistics-and-more.html#garch"><i class="fa fa-check"></i><b>3.17</b> GARCH</a></li>
+<li class="chapter" data-level="3.18" data-path="statistics-and-more.html"><a href="statistics-and-more.html#var_bvar"><i class="fa fa-check"></i><b>3.18</b> VAR и BVAR</a></li>
+<li class="chapter" data-level="3.19" data-path="statistics-and-more.html"><a href="statistics-and-more.html#panel_data"><i class="fa fa-check"></i><b>3.19</b> Панельные данные</a></li>
+<li class="chapter" data-level="3.20" data-path="statistics-and-more.html"><a href="statistics-and-more.html#bayesian_first_steps"><i class="fa fa-check"></i><b>3.20</b> Байесовский подход: первые шаги</a></li>
+<li class="chapter" data-level="3.21" data-path="statistics-and-more.html"><a href="statistics-and-more.html#stan"><i class="fa fa-check"></i><b>3.21</b> Байесовский подход: STAN</a></li>
+<li class="chapter" data-level="3.22" data-path="statistics-and-more.html"><a href="statistics-and-more.html#maps"><i class="fa fa-check"></i><b>3.22</b> Карты</a></li>
+<li class="chapter" data-level="3.23" data-path="statistics-and-more.html"><a href="statistics-and-more.html#differential_equations"><i class="fa fa-check"></i><b>3.23</b> Дифференциальные уравнения</a></li>
+<li class="chapter" data-level="3.24" data-path="statistics-and-more.html"><a href="statistics-and-more.html#optimisation"><i class="fa fa-check"></i><b>3.24</b> Задачи оптимизации</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown"   target="blank">Создано с использованием пакета bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Учебник по языку R для начинающих</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="first_steps" class="section level1">
+<h1><span class="header-section-number">Глава 1</span> Первые шаги</h1>
+<blockquote>
+<p>Поехали!</p>
+<p>Алексей Гагарин</p>
+</blockquote>
+<div id="installation" class="section level2">
+<h2><span class="header-section-number">1.1</span> Установка софта</h2>
+<p>Казалось бы, чего проще — поставить программу?! Однако не всегда всё идёт гладко.</p>
+<p>Самая распространённая проблема, с которой мне доводилось бороться на разных компьютерах, — это русские буквы и пробелы в названиях файлов и папок под Windows.</p>
+<div class="warning">
+<p>
+Если ты используешь Windows, то никогда при серьёзной работе не используй русские буквы и пробелы в названиях файлов и папок.
+</p>
+</div>
+<p>Папку с котиками можно оставить под названием <code>мои котики</code> :)</p>
+<p>Заповедь о русских буквых легко нарушить даже не осознавая этого. Если имя пользователя Windows написано русскими буквами, например, <code>Машенька</code>, то все документы этого пользователя будут находиться в папке <code>C:/Users/Машенька/Documents/</code>.</p>
+<div class="warning">
+<p>
+Для серьёзной работы под Windows нужно создать нового пользователя с английским именем, например, <code>Mashenka</code>, залогиниться и работать из-под него.
+</p>
+</div>
+<p>Переименование старого пользователя не помогает.</p>
+<div id="install_R" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> R</h3>
+<p>Windows и Macos: заходим на <a href="https://cran.r-project.org/">официальный сайт</a> и скачиваем.</p>
+<p>Linux на примере Ubuntu 16.04 Xenial:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> echo <span class="st">&quot;deb http://cran.rstudio.com/bin/linux/ubuntu xenial/&quot;</span> <span class="kw">|</span> <span class="kw">sudo</span> tee -a /etc/apt/sources.list
+<span class="kw">gpg</span> --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+<span class="kw">gpg</span> -a --export E084DAB9 <span class="kw">|</span> <span class="kw">sudo</span> apt-key add -
+<span class="kw">sudo</span> apt-get update
+<span class="kw">sudo</span> apt-get install r-base r-base-dev</code></pre></div>
+<p>Вместо классического R можно поставить конкурирующий <a href="https://mran.microsoft.com/download/">дистрибутив R от Microsoft</a>, MRO. Отличия MRO от классического R:</p>
+<ol style="list-style-type: decimal">
+<li><p>Работает только с 64-битным процессором</p></li>
+<li><p>Использует быструю библиотеку MKL для линейной алгебры</p></li>
+<li><p>По умолчанию ставит не самые свежие пакеты, а версии пакетов выпущенные на заданную дату. Это удобная особенность позволяет легко воспроизвести результаты работы, даже если какой-нибудь пакет кардинально изменился.</p></li>
+</ol>
+<p>Опытные пользователи могут самостоятельно настроить R на использование более быстрых библиотек для линейной алгебры.</p>
+<p>Macos: настраиваем оптимизированную под мак библиотеку:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> /Library/Frameworks/R.framework/Resources/lib
+<span class="kw">ln</span> -sf /System/Library/Frameworks/Accelerate.framework/Frameworks/vecLib.framework/Versions/Current/libBLAS.dylib libRblas.dylib</code></pre></div>
+<p>Macos: восстанавливаем дефолтную библиотеку R:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> /Library/Frameworks/R.framework/Resources/lib
+<span class="kw">ln</span> -sf libRblas.0.dylib libRblas.dylib</code></pre></div>
+<p>На линуксе можно поэкспериментировать с <a href="http://edustatistics.org/nathanvan/2013/07/09/for-faster-r-use-openblas-instead-better-than-atlas-trivial-to-switch-to-on-ubuntu/">выбором разных BLAS</a></p>
+</div>
+<div id="install_Rstudio" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> Rstudio</h3>
+<p>Rstudio — это гламурная оболочка, позволяющая удобно работать с R. Никаких новых возможностей к R не добавляет, но делает многие вещи гораздо более удобными, особенно для новичка.</p>
+<p>Оболчка Rstudio открытая и бесплатная. Есть платная версия Rstudio, платной в ней является круглосуточная поддержка пользователей. И иногда оболочку Rstudio путают с программой для восстановления данных R-studio, которая полностью платная.</p>
+<p><a href="https://www.rstudio.com/products/rstudio/download/">Текущая версия Rstudio</a>.</p>
+<p>Любители заглянуть вперёд и опробовать новые фишки могут <a href="https://www.rstudio.com/products/rstudio/download/preview/">поставить preview-версию Rstudio</a>. Теоретически подобная бета-версия может быть менее устойчивой чем обычная. По моему опыту никаких проблем со стабильностью в preview-версии не было, а приятные плюшки, ещё не вошедшие в текущую версию, есть :)</p>
+<p>Настройка Rstudio:</p>
+<ol style="list-style-type: decimal">
+<li>Заходим в Tools - Global options - General:</li>
+</ol>
+<ul>
+<li><p>Убираем галочку Restore .Rdata into workspace at startup.</p></li>
+<li><p>В разделе Save workspace to .Rdata on exit выбираем Never</p></li>
+</ul>
+<p>Rstudio по умолчанию при выходе сохраняет все объекты в памяти в файл, который затем подгружается при старте. Это плохая привычка. Постепенно в нём будет накапливаться мусор. Рано или поздно мусора станет так много, что либо загрузка Rstudio будет занимать немеряно времени, либо при загрузке будет происходить ошибка.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Заходим в Tools - Global options - Sweawe:</li>
+</ol>
+<ul>
+<li>В разделе Weave .Rnw files using выбираем knitr.</li>
+</ul>
+<p>Для связи R с Латехом мы будем использовать более передовой knitr. Первопроходец Sweave сделал прекрасную работу и его подвиги мы будем помнить и чтить :)</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Заходим в Tools - Global options - Code - Diagnostics:</li>
+</ol>
+<ul>
+<li>Выставляем все галки!</li>
+</ul>
+<p>Настоящие леди и джентельмены, а также синьоры и синьориты, пишут стильный код!</p>
+</div>
+<div id="install_Latex" class="section level3">
+<h3><span class="header-section-number">1.1.3</span> LaTeX</h3>
+<p>Латех — это система для создания красивых структурированных текстов. Пользоваться Вордом для написания курсовых или научных статей — это дурной вкус. Латех дарит возможность писать красивые математические формулы. В силу простоты текстового формата для хранения документов Латех идеально подходит для взаимодействия с другими программами. Связав R и Латех с помощью грамотного программирования, можно в один клик обновлять сложные отчёты при получении новых данных или избегать ошибок, связанных с копированием результатов вычислений в презентацию.</p>
+<p>Под Linux основной дистрибутив латеха — это TeXLive. Лучше всего поставить <a href="https://www.tug.org/texlive/acquire-netinstall.html">свежую версию TeXLive руками</a>.</p>
+<p>После ручной инсталляции нам надо убедить Ubuntu, что ей не надо ставить латех из своего репозитория:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> apt-get install equivs freeglut3
+<span class="kw">mkdir</span> -p /tmp/tl-equivs <span class="kw">&amp;&amp;</span> <span class="kw">cd</span> /tmp/tl-equivs
+<span class="kw">wget</span> http://www.tug.org/texlive/files/debian-equivs-2016-ex.txt
+<span class="kw">cp</span> -f debian-equivs-2016-ex.txt texlive-local
+<span class="kw">equivs-build</span> texlive-local
+<span class="kw">sudo</span> dpkg -i texlive-local_2016-2_all.deb</code></pre></div>
+<p>Под Macos основной дистрибутив латеха — это <a href="https://tug.org/mactex/">Mactex</a>.</p>
+<p>Под Windows существует два конкурирующих дистрибутива — TexLive и Miktex. Я лично <a href="https://www.tug.org/texlive/acquire-netinstall.html">рекомендую TexLive</a>. Если выбирать <a href="http://miktex.org/download">Miktex</a>, то для установки полноценного теха надо скачать не Basic Miktex, а Net Installer!</p>
+<div class="warning">
+<p>
+Важно ставить полную версию латеха со всеми пакетами!
+</p>
+</div>
+<p>Полная установка может занять больше часа, и занять несколько гигабайт жёсткого диска, но красивые документы того стоят.</p>
+<p>Если нет необходимости делать красивые структурированные документы в <code>pdf</code> формате, то без Латеха можно обойтись.</p>
+<p>В данном учебнике не будет серьёзного введения в латех, мы только затронем вопрос взаимодействия R-латех.</p>
+<p>Хорошими введениями в тех будут: Воронцов, <a href="http://www.ccas.ru/voron/download/voron05latex.pdf">LaTeX в примерах</a><a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+</div>
+<div id="install_git" class="section level3">
+<h3><span class="header-section-number">1.1.4</span> git-клиент</h3>
+<p>Git — это система контроля версий. Она позволяет разным авторам работать над одним проектом. Если что-то пошло не так, то можно вернуться на любой момент времени в прошлом — это бывает очень полезно :)</p>
+<p>Тру программеры работают с git из командной строки, а новичкам здорово облегчит жизнь git с графической оболочкой.</p>
+<p>Для windows и macos есть <a href="https://desktop.github.com/">Github Desktop</a>.</p>
+<p>В качестве альтернативы Github Desktop есть кросс-платформенный бесплатный для некоммерческих проектов <a href="http://www.syntevo.com/smartgit/">Smartgit</a>. Будьте осторожны при установке: надо вовремя поставить галочку на бесплатной версии. Иначе установится демка на 15 дней.</p>
+<p>Если ты хочешь освоить git как тру-программер, то можешь начать с бесплатного курса <a href="https://www.codeschool.com/courses/try-git">try-git на codeschool</a>.</p>
+<p>Немного настроек в командной строке macos/linux:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> config --global user.name <span class="st">&quot;Ivan Ivanov&quot;</span>
+<span class="kw">git</span> config --global user.email Ivan_Ivanov@ivanov_mail.com</code></pre></div>
+<p>В качестве графической оболочки можно выбрать, например, бесплатный для open-source проектов кросс-платформенный Есть также</p>
+</div>
+<div id="install_editor" class="section level3">
+<h3><span class="header-section-number">1.1.5</span> Текстовый редактор</h3>
+<p>Самое важное: Word — это не текстовый редактор! Текстовый редактор — это программа с помощью которой редактируют файлы с простым текстовым содержимым, а Word сохраняет файлы в специальном формате, где кроме текста сохраняется ещё куча дополнительной информации. Расширение у текстового файла может быть довольно произвольным, <code>.txt</code>, <code>.md</code>, <code>.R</code>, <code>.tex</code> и так далее.</p>
+<p>Текстовых редакторов много. Я советую кросс-платформенный открытый и бесплатный Atom. Скачать его можно на <a href="https://atom.io/">atom.io</a>. Изнутри самого редактора Atom можно установить кучу плагинов. С помощью плагинов можно подсвечивать синтаксис различных языков или превратить Atom в приличную среду разработки :)</p>
+<p>Дополнительные плагины для Atom ставятся через меню Atom - Preferences - Install. Для работы с R и Латехом советую поставить language-markdown, language-knitr, atom-beautify.</p>
+</div>
+<div id="install_STAN" class="section level3">
+<h3><span class="header-section-number">1.1.6</span> STAN</h3>
+<p>…</p>
+</div>
+<div id="install_jupyter" class="section level3">
+<h3><span class="header-section-number">1.1.7</span> jupyter</h3>
+<p>Скачиваем <a href="https://www.continuum.io/downloads">дистрибутив Anaconda</a>.</p>
+<p>Под Ubuntu и Macos запускаем R из командной строки. Именно из командной строки, а не из под Rstudio, иначе <a href="http://stackoverflow.com/questions/38064177">чуда не произойдёт</a>.</p>
+<p>Далее инструкция с <a href="https://github.com/IRkernel/IRkernel">github.com/IRkernel/IRkernel</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&#39;repr&#39;</span>, <span class="st">&#39;IRdisplay&#39;</span>, <span class="st">&#39;crayon&#39;</span>, <span class="st">&#39;pbdZMQ&#39;</span>, <span class="st">&#39;devtools&#39;</span>))
+devtools::<span class="kw">install_github</span>(<span class="st">&#39;IRkernel/IRkernel&#39;</span>)
+IRkernel::<span class="kw">installspec</span>()  <span class="co"># to register the kernel in the current R installation</span></code></pre></div>
+<p>Из командной строки запускаем jupyter:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">jupyter</span> notebook</code></pre></div>
+<p>Для корректного сохранения блокнота в pdf на Ubuntu/Macos</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pip</span> install nbbrowserpdf</code></pre></div>
+<p>Чтобы работало сохранение <code>pdf</code> с русскими буквами нужно руками подменить дефолтный шаблон.</p>
+</div>
+<div id="install_lyx" class="section level3">
+<h3><span class="header-section-number">1.1.8</span> LyX</h3>
+<p>Многие пользователи привыкшие к Ворду тяжело переходят на латех. Ведь в текстовом редакторе не видно формулу в привычном виде, а виден только её код. Редактор LyX заполняет эту нишу: используя за кадром тех, он показывает пользователю формулы, таблицы и рисунке в естественном виде. При этом LyX отлично взаимодействует с R.</p>
+<p>Недостатком LyX, пожалуй, является его невысокая популярность. Пользователи, боящиеся латеха, сидят в Ворде, а те, кто понял прелести латеха, уже не хотят ничего вспомогательного :)</p>
+<p>Windows и Macos: скачиваем с <a href="https://www.lyx.org">официального сайта</a>.</p>
+<p>Ubuntu:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> add-apt-repository ppa:lyx-devel/release
+<span class="kw">sudo</span> apt-get update
+<span class="kw">sudo</span> apt-get install lyx</code></pre></div>
+</div>
+<div id="install_font" class="section level3">
+<h3><span class="header-section-number">1.1.9</span> Шрифты</h3>
+<p>Просмотрщик шрифтов Ubuntu (16.04)</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> add-apt-repository ppa:font-manager/staging
+<span class="kw">sudo</span> apt-get update
+<span class="kw">sudo</span> apt-get install font-manager</code></pre></div>
+<p>В pdf-версии данного учебника используется шрифт Linux Libertine. Он открытый и бесплатный и содержит буквы как русского, так и многих других алфавитов. Скачать его можно здесь: …</p>
+<p>Шрифты могут быть записаны в разных форматах. Основные — это TTF, OTF и Post-script. Рядовой пользователь может смело выбирать TTF или OTF, а Post-script нужен скорее дизайнерам и типографам.</p>
+</div>
+<div id="pandoc" class="section level3">
+<h3><span class="header-section-number">1.1.10</span> Pandoc</h3>
+<p>Pandoc — это конвертер текстовых форматов. Он умеет превращать файлы в формате маркдаун во всё, что движется: <code>tex</code>, <code>pdf</code>, <code>docx</code>, <code>epub</code>, <code>html</code>…</p>
+<p>Ubuntu (16.04):</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> apt-get install pandoc pandoc-citeproc</code></pre></div>
+</div>
+<div id="install_gretl" class="section level3">
+<h3><span class="header-section-number">1.1.11</span> gretl</h3>
+<p>Тебе страшно? Тебя пугает даже список того, что нужно установить? Ты боишься R, а регрессию надо построить через 5 минут? Тогда разумное спасение — это gretl. Для gretl не обязательно учиться программировать: статистические тесты, графики и эконометрические модели доступны через меню. Кроме того, gretl даёт возможность пользователю взаимодействовать с R, что спасает в тех случаях, когда возможностей gretl не хватает.</p>
+<p>Естественно, gretl кросс-платформенный открытый и бесплатный, <a href="http://gretl.sourceforge.net/">gretl</a>.</p>
+</div>
+</div>
+<div id="funny_calc" class="section level2">
+<h2><span class="header-section-number">1.2</span> Весёлый калькулятор</h2>
+<p>R можно использовать как весёлый калькулятор:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span> +<span class="st"> </span><span class="dv">9</span></code></pre></div>
+<pre><code>## [1] 14</code></pre>
+<p>Что-нибудь более интересное:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">factorial</span>(<span class="dv">4</span>)
+b &lt;-<span class="st"> </span><span class="dv">2</span>^<span class="dv">3</span>
+a +<span class="st"> </span>b</code></pre></div>
+<pre><code>## [1] 32</code></pre>
+<p>Признайся, ты всегда мечтал пошалить? Давай пока никто не видит поделим на ноль?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="dv">1</span> /<span class="st"> </span><span class="dv">0</span>
+a</code></pre></div>
+<pre><code>## [1] Inf</code></pre>
+<p>Что можно делать с бесконечностью, <code>Inf</code>?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> /<span class="st"> </span>(<span class="ot">Inf</span> -<span class="st"> </span><span class="dv">9</span>)</code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<p>Возьмём арктангенс!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">atan</span>(<span class="ot">Inf</span>)</code></pre></div>
+<pre><code>## [1] 1.570796</code></pre>
+<p>Ба! Да это же <span class="math inline">\(\pi/2\)</span>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pi /<span class="st"> </span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 1.570796</code></pre>
+<p>Но с неопределенностью ничего не поделаешь:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">0</span> /<span class="st"> </span><span class="dv">0</span></code></pre></div>
+<pre><code>## [1] NaN</code></pre>
+<p>Сокращение NaN означает «Not a Number», такой объект возникает в результате запрещённых арифметических операций.</p>
+<p>Также в дебрях R живёт другой интересный зверь — NA, «Not Available», пропущенное наблюдение. Наблюдение может быть пропущенным по разным причинам: может быть его не было изначально, а может оно родилось в результате запрещённых арифметических операций. Поэтому всякое NaN является NA, но не всякое NA является NaN. Проверять, является ли что-либо NA или NaN, можно так:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.na</span>(<span class="dv">0</span> /<span class="st"> </span><span class="dv">0</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.nan</span>(<span class="dv">0</span> /<span class="st"> </span><span class="dv">0</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="ot">NA</span>
+<span class="kw">is.na</span>(a)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.nan</span>(a)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div id="simple_vector_ops" class="section level4">
+<h4><span class="header-section-number">1.2.0.1</span> Простые операции с векторами</h4>
+<p>Вектор из чисел по порядку:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="dv">3</span>:<span class="dv">10</span>
+a</code></pre></div>
+<pre><code>## [1]  3  4  5  6  7  8  9 10</code></pre>
+<p>Вектор из одинаковых чисел:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">777</span>, <span class="dt">times =</span> <span class="dv">5</span>)
+b</code></pre></div>
+<pre><code>## [1] 777 777 777 777 777</code></pre>
+<p>Вектор из конкретных чисел:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vect &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, -<span class="dv">4</span>, <span class="dv">1</span>)
+vect</code></pre></div>
+<pre><code>## [1]  5 -4  1</code></pre>
+<p>Что можно делать с вектором?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(vect)</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Хотите среднее арифметическое?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(vect)</code></pre></div>
+<pre><code>## [1] 0.6666667</code></pre>
+</div>
+<div id="value_selection" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Отбор значений</h3>
+<p>Выберем из вектора <span class="math inline">\(s\)</span> значения больше <span class="math inline">\(0\)</span>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># случайная выборка из 40 равномерно распределённых на [-3;1] чисел:</span>
+s &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">40</span>, <span class="dt">min =</span> -<span class="dv">3</span>, <span class="dt">max =</span> <span class="dv">1</span>)
+b &lt;-<span class="st"> </span>s[s &gt;<span class="st"> </span><span class="dv">0</span>] <span class="co"># отбираем те s, что больше нуля</span>
+b</code></pre></div>
+<pre><code>## [1] 0.6899387 0.7994359 0.6861674 0.5441720 0.7868757 0.3939321 0.7683485
+## [8] 0.7855841 0.3427107</code></pre>
+<p>Можно выбрать конкретные <span class="math inline">\(s\)</span>, например с 6-го по 20-ое:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s[<span class="dv">6</span>:<span class="dv">20</span>]</code></pre></div>
+<pre><code>##  [1] -1.3112145 -2.4044164  0.6899387 -0.6940551 -0.3466832 -1.2767996
+##  [7]  0.7994359 -0.1299958 -2.7988407 -1.9950965 -2.6203430 -2.3922608
+## [13] -2.6019039 -2.6484976  0.6861674</code></pre>
+<p>Хочу 5-ый, 7-ой и 13-ый элементы вектора!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s[<span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">13</span>)]</code></pre></div>
+<pre><code>## [1] -0.3930771 -2.4044164 -0.1299958</code></pre>
+<p>Можно узнать, сколько значений <code>s</code> больше нуля:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(s &gt;<span class="st"> </span><span class="dv">0</span>)</code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<p>Еще полезная штучка — количество элементов в векторе:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(b)</code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<p>Операции, похожие на те, что проделали с векторами, можно делать и с другими типами данных, например, с матрицами (<em>matrix</em>), таблицами (<em>table</em>) и др. Покажем на примере наборов данных (<em>data frame</em>).</p>
+<p>Будем использовать набор данных <code>diamonds</code> из пакета <code>ggplot2</code>. Множество других встроены во многие пакеты, а также в сам R, и список с кратким описанием последних можно вызвать командой <code>library(help = &quot;datasets&quot;)</code>.</p>
+<p>Наборы данных состоят из строк (<em>rows</em>) и столбцов (<em>columns</em>); в каждой строке хорошо построенного набора — характеристики одного объекта, а по столбцам — значения одной характеристики у разных объектов. Так, например, в <code>diamonds</code> объектами являются бриллианты, а их характеристиками — цена, вес, цвет и т. д. Это можно увидеть с помощью всё той же команды <code>str()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(diamonds)</code></pre></div>
+<pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    53940 obs. of  10 variables:
+##  $ carat  : num  0.23 0.21 0.23 0.29 0.31 0.24 0.24 0.26 0.22 0.23 ...
+##  $ cut    : Ord.factor w/ 5 levels &quot;Fair&quot;&lt;&quot;Good&quot;&lt;..: 5 4 2 4 2 3 3 3 1 3 ...
+##  $ color  : Ord.factor w/ 7 levels &quot;D&quot;&lt;&quot;E&quot;&lt;&quot;F&quot;&lt;&quot;G&quot;&lt;..: 2 2 2 6 7 7 6 5 2 5 ...
+##  $ clarity: Ord.factor w/ 8 levels &quot;I1&quot;&lt;&quot;SI2&quot;&lt;&quot;SI1&quot;&lt;..: 2 3 5 4 2 6 7 3 4 5 ...
+##  $ depth  : num  61.5 59.8 56.9 62.4 63.3 62.8 62.3 61.9 65.1 59.4 ...
+##  $ table  : num  55 61 65 58 58 57 57 55 61 61 ...
+##  $ price  : int  326 326 327 334 335 336 336 337 337 338 ...
+##  $ x      : num  3.95 3.89 4.05 4.2 4.34 3.94 3.95 4.07 3.87 4 ...
+##  $ y      : num  3.98 3.84 4.07 4.23 4.35 3.96 3.98 4.11 3.78 4.05 ...
+##  $ z      : num  2.43 2.31 2.31 2.63 2.75 2.48 2.47 2.53 2.49 2.39 ...</code></pre>
+<p>Отобразим наблюдения с 5-го по 7-е:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diamonds[<span class="kw">c</span>(<span class="dv">5</span>:<span class="dv">7</span>), ]</code></pre></div>
+<pre><code>## # A tibble: 3 × 10
+##   carat       cut color clarity depth table price     x     y     z
+##   &lt;dbl&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;ord&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1  0.31      Good     J     SI2  63.3    58   335  4.34  4.35  2.75
+## 2  0.24 Very Good     J    VVS2  62.8    57   336  3.94  3.96  2.48
+## 3  0.24 Very Good     I    VVS1  62.3    57   336  3.95  3.98  2.47</code></pre>
+<p>Первые 4 значения параметров цены (<em>price</em>) и веса (<em>carat</em>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(diamonds[, <span class="kw">c</span>(<span class="st">&quot;price&quot;</span>, <span class="st">&quot;carat&quot;</span>)], <span class="dt">n =</span> <span class="dv">4</span>)</code></pre></div>
+<pre><code>## # A tibble: 4 × 2
+##   price carat
+##   &lt;int&gt; &lt;dbl&gt;
+## 1   326  0.23
+## 2   326  0.21
+## 3   327  0.23
+## 4   334  0.29</code></pre>
+<p>Можно отобразить и все названия характеристик:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(diamonds)</code></pre></div>
+<pre><code>##  [1] &quot;carat&quot;   &quot;cut&quot;     &quot;color&quot;   &quot;clarity&quot; &quot;depth&quot;   &quot;table&quot;   &quot;price&quot;  
+##  [8] &quot;x&quot;       &quot;y&quot;       &quot;z&quot;</code></pre>
+<p>Найдём, сколько камней имеют чистоту не меньшую, чем VS2 (характеристика <em>clarity</em> — упорядоченный фактор).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nrow</span>(diamonds[diamonds$clarity &gt;=<span class="st"> &quot;VS2&quot;</span>, ])</code></pre></div>
+<pre><code>## [1] 30940</code></pre>
+</div>
+<div id="number_comparison" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Сравнение чисел — штука тонкая</h3>
+<p>Правда ли, что 0.4 + 0.1 равно 0.5?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">0.4</span> +<span class="st"> </span><span class="fl">0.1</span> ==<span class="st"> </span><span class="fl">0.5</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>А правда ли, что 0.4 - 0.1 равно 0.3?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">0.4</span> -<span class="st"> </span><span class="fl">0.1</span> ==<span class="st"> </span><span class="fl">0.3</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Хм, что-то Марь Иванна в школе другое говорила…</p>
+<p>Почему так случилось? Компьютер хранит числа в памяти в двоичной системе счисления. В двоичной системе обычное число 0.1 будет записываться в виде бесконечной периодической дроби. Следовательно, без дополнительных ухищрений храниться в памяти абсолютно точно оно не может. Поэтому де-факто компьютер хранит в памяти округленную версию от 0.4, 0.1 и 0.3. В данном случае при вычитании ошибки округления не компенсируют друг друга.</p>
+Мораль из этого примера проста:
+<div class="warning">
+<p>
+При операциях с дробными числами помни: компьютер считает примерно!
+</p>
+</div>
+<p>Скорее всего, проверка точного равенства потенциально дробных чисел не нужна. Вместо неё бывает осмысленна проверка примерного равенства:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">all.equal</span>(<span class="fl">0.4</span> -<span class="st"> </span><span class="fl">0.1</span>, <span class="fl">0.3</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Единственный нюанс. Оператор <code>==</code> выдаёт результат типа <code>TRUE</code>/<code>FALSE</code>, а функция <code>all.equal</code> может выдать развёрнутый ответ текстом. Поэтому, если нужно использовать функцию <code>all.equal</code> после проверки условия <code>if</code>, то её нужно обрамить в <code>isTRUE</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (<span class="kw">isTRUE</span>(<span class="kw">all.equal</span>(a, b))) {
+  ...
+}</code></pre></div>
+</div>
+</div>
+<div id="first_script" class="section level2">
+<h2><span class="header-section-number">1.3</span> Первый скрипт</h2>
+<p>….</p>
+<p>Если текст программы содержит русские или другие неанглийские буквы, например, в комментариях, то при сохранении файла Rstudio предложит выбрать кодировку.</p>
+<p>картинка</p>
+<p>Кодировка определяет какой конкретно числовой код будет сопоставлен в записанном файле каждой букве. Например, букве <code>ё</code> в кодировке UTF-8 сопоставлен десятичный<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> код 1105.</p>
+<p>Для русского языка есть несколько распространённых кодировок: UTF-8 и CP1251. Linux и Macos используют по умолчанию кодировку UTF-8, а вот Windows<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> сохраняет простые текстовые файлы в кодировке CP1251.</p>
+<p>Если русскоязычный файл записать в одной кодировке, а пытаться открыть с помощью другой, то мы увидим на экране “кракозябры”. Поэтому хорошо, когда все используют одну кодировку. Кодировка UTF-8 более универсальна, чем CP1251. Например, с помощью кодировки UTF-8 в одном тексте можно использовать и русские буквы и французские акценты и китайские иероглифы.</p>
+<div class="warning">
+<p>
+Мы всегда будем использовать кодировку UTF-8.
+</p>
+</div>
+</div>
+<div id="packages" class="section level2">
+<h2><span class="header-section-number">1.4</span> Установка и подключение пакетов</h2>
+<p>Одна из сильных сторон R — это открытость: каждая домохозяйка может написать свой пакет для R и выложить его в публичное пользование. Основные операции, например, сложение и умножение чисел или построение множественной регрессии, реализованы в базовом R и не требуют подключения пакетов. Более сложные операции, например, работа с панельными данными или построение сложных графиков, требуют подключения дополнительных пакетов.</p>
+<p>Каждый пакет содержив в себе набор функций, расширяющих возможности R. Для R написано более 10 тысяч пакетов. Среди них есть и откровенный мусор, и бриллианты, например, <code>ggplot2</code>, настолько ценные, что их копируют в другие языки программирования.</p>
+<p>Скорее всего нужный тебе пакет можно найти:</p>
+<ol style="list-style-type: decimal">
+<li>В официальном хранилище пакетов R, CRAN.</li>
+</ol>
+<p>Здесь пакеты прошли минимальное тестирование. Это отнюдь не гарантия качества пакета, но всё же серьезный давно функционирующий пакет наверняка будет выложен на CRAN.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>В системе репозиториев github.com.</li>
+</ol>
+<p>Здесь, как правило, разработчики публикуют более свежие версии пакетов, ещё не выложенные на CRAN, или молодые пакеты в процессе разработки.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>В хранилище пакетов для биологов <code>bioconductor</code>.</li>
+</ol>
+<p>Это своя отдельная экосистема пакетов R со специальным инсталлятором, блэкджеком и поэтэссами.</p>
+<p>Есть и другие хранилища пакетов, например, R-forge и …, но они гораздо менее популярны.</p>
+<p>Сначала надо определиться, какой пакет тебе нужен. Можно погуглить, можно воспользоваться официальным классификатором пакетов R ….</p>
+<p>Чтобы начать использовать какой-нибудь пакет R нужно сделать две вещи:</p>
+<ol style="list-style-type: decimal">
+<li>Установить пакет (install package)</li>
+</ol>
+<p>Установка означает, что пакет будет скачан из Интернета и сохранён в специальной папке на жёстком диске. Установка пакета выполняется <strong>один раз</strong>. Каждый раз при использовании пакета устанавливать его <strong>не нужно</strong>. Переустанавливать пакет имеет смысл только если вышла новая его версия.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Подключить пакет (attach package)</li>
+</ol>
+<p>Подключение пакета выполняется <strong>каждый раз</strong> перед его использованием. Пакеты подключаются командой <code>library</code>.</p>
+<p>С репозитория CRAN пакет ставится командой R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;имя пакета&quot;</span>)</code></pre></div>
+<p>В Rstudio установить пакет с репозитория CRAN можно через меню: Tools - Install packages. Далее нужно набрать название пакета, можно указать сразу несколько названий через пробел, и нажать <code>Install</code>.</p>
+<div class="warning">
+<p>
+Главное при установке пакета — не бояться сообщений красным цветом!
+</p>
+</div>
+<p>Любые <strong>сообщения</strong> (messages) R выводит красным цветом и по неопытности их можно принять за ошибку, что скорее всего не так. Ошибка всегда сопровождается словом <font color='red'>Error</font>. Если слова <font color='red'>Error</font> нет, то всё идёт по плану!</p>
+<p>Почему R использует красный цвет? Потому, что установка пакета — это потенциально опасное действие, как и установка любой программы. Пакеты на официальном репозитории CRAN проходят определённую проверку, но если ты используешь R для многомиллионных сделок каждый день, то неплохо бы точно знать, что ты ставишь :)</p>
+<p>Установить пакет с github.com немногим сложнее. Здесь надо знать не только название пакета, но и название репозитория, где он хранится. Часто название репозитория — это фамилия автора пакета. Официальной классификации всех пакетов R на github нет, поэтому чтобы понять, какой нужен, остаётся только гуглить.</p>
+<p>Кроме того, для установки пакетов с github.com потребуется установить с официального репозитория пакет <code>devtools</code>.</p>
+<p>Джентельменский набор пакетов R зависит от сферы деятельности, но практически всем сталкивающимся с анализом данных пригодится коллекция пакетов <code>tidyverse</code>.</p>
+<p>Очень часто пакеты R ошибочно называют библиотеками. Библиотека — это папка на жёстком диске компьютера, где хранятся пакеты.</p>
+<p>Если пакет установлен, то можно воспользоваться его командами. Если из пакета нужна всего одна команда и один раз, то быстрее указать и нужный пакет, и нужную команду. Например, вызовем команду <code>qplot</code> из пакета <code>ggplot2</code> и построим гистограмму для случайной выборки из 100 нормальных стандартных случайных величин:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="co"># генерируем случайную выборку из 100 нормальных N(0;1) случайных величин</span>
+ggplot2::<span class="kw">qplot</span>(x)</code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="r_manual_files/figure-html/fast_qplot-1.png" width="672" /></p>
+<p>Если же ты хочешь использовать команды некоторого пакета много раз, то проще <strong>подключить</strong> пакет командой <code>library()</code>. При этом не надо будет каждый раз набирать название пакета и двойное двоеточие. Можно просто использовать команды из этого пакеты:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>) <span class="co"># подключаем пакет `ggplot2`</span>
+
+x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="co"># генерируем случайную выборку из 100 нормальных N(0;1) случайных величин</span>
+y &lt;-<span class="st"> </span>x^<span class="dv">2</span> +<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)
+
+<span class="co"># строим гистограмму величины x:</span>
+<span class="kw">qplot</span>(x) +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Величина X&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Количество значений&quot;</span>)</code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="r_manual_files/figure-html/attaching_package-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># строим диагрраму рассеяния величин x и y:</span>
+<span class="kw">qplot</span>(x, y) +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Величина X&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Величина Y&quot;</span>)</code></pre></div>
+<p><img src="r_manual_files/figure-html/attaching_package-2.png" width="672" /></p>
+<p>При подключении пакета, как и при его установке, не стоит пугаться сообщений красным шрифтом. Только явное слово <code>Error</code> говорит об ошибке. Кроме того, часто можно столкнуться с <strong>предупреждением</strong> (warning) о том, что пакет был создан для более новой версии R.</p>
+<p><font color='red'>Warning message: package ‘xxx’ was built under R version 3.3.1</font></p>
+<p>Это не страшно. Это означает лишь, что у разработчика пакета <code>xxx</code> установлена более свежая версия R, чем у тебя. Обновлять R на своём компьютере при каждом его мелком обновлении, пожалуй, неразумно, но раз в полгода стоит.</p>
+<div class="warning">
+<p>
+Правила хорошего тона советуют подключать все нужные пакеты в начале скрипта.
+</p>
+</div>
+<p>Чтобы узнать в каком пакете живет заданная функция, например <code>lm</code>, можно прямо спросить у R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(<span class="st">&quot;lm&quot;</span>)</code></pre></div>
+<p>На самом верху справа документации будет написано <code>lm {stats}</code>. Это означает, что функция <code>lm</code> живёт в пакете <code>stats</code>. Пакет <code>stats</code> входит в ядро R, поэтому подключать его явно командой <code>library(&quot;stats&quot;)</code> не требуется.</p>
+<p>Для установки различных пакетов, работающих с Интернетом под Linux может потребоваться установка дополнительных библиотек:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> apt-get install libssl-dev libcurl4-openssl-dev libxml2-dev</code></pre></div>
+<p>Мы будем часто использовать пакеты <code>ggplot2</code>, <code>dplyr</code>, <code>forcats</code>, <code>lubridate</code>. Все эти пакеты входят в коллекцию пакетов <code>tidyverse</code>. Поэтому вместо:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;forcats&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;lubridate&quot;</span>)</code></pre></div>
+<p>Мы будем выполнять в R одну команду:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
+</div>
+<div id="io" class="section level2">
+<h2><span class="header-section-number">1.5</span> Чтение и запись данных</h2>
+<p>Прежде всего неплохо бы знать, где лежит на жёстком диске файл с нужными данными. Напомню, что названия файлов и папок не должны содержать русским букв и пробелов!</p>
+<p>У R есть понятие <strong>рабочей папки</strong> (working folder). В рабочей папке R ищет все требуемые файлы. Одно из простых решений — указать в качестве рабочей папки ту папку, где лежит нужный файл и далее прочитать его.</p>
+<p>Допустим, нужный нам файл лежит в папке <code>C:/project_A/data/</code>. Тогда для установки рабочей папки достаточно выполнить команду:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setwd</span>(<span class="st">&quot;C:/project_A/data/&quot;</span>)</code></pre></div>
+<p>Вместо этой команды можно воспользоваться меню Rstudio: Session - Set working directory - Choose directory. Далее выбрать нужную папку и нажать <code>Open</code>.</p>
+<p>После этого можно прочитать нужный нам файл. Начнём с пакета <code>rio</code> позволяющего импортировать данные практически любого типа. На самом деле авторы пакета <code>rio</code> просто объединили усилия многих разработчиков в единую команду. И получилось хорошо :)</p>
+<p>Хочешь загрузить данные в формате <code>.csv</code>? Пожалуйста!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span>rio::<span class="kw">import</span>(<span class="st">&quot;имя_файла.csv&quot;</span>)</code></pre></div>
+<p>Хочешь загрузить данные в формате <code>.xlsx</code>? Пожалуйста!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span>rio::<span class="kw">import</span>(<span class="st">&quot;имя_файла.xlsx&quot;</span>)</code></pre></div>
+<p>Однако не всегда всё идёт гладко, поэтому остановимся подробнее на разных форматах данных.</p>
+</div>
+<div id="popular_formats" class="section level2">
+<h2><span class="header-section-number">1.6</span> Распространённые форматы</h2>
+<blockquote>
+
+</blockquote>
+<p>Форматов данных много, опишем некоторые из них</p>
+<div id="comma-separated-values-sv" class="section level3">
+<h3><span class="header-section-number">1.6.1</span> Comma separated values: сsv</h3>
+<blockquote>
+<ul>
+<li>Иван, ты знаешь у нас в Чили есть нестандартные обозначения. Мы используем десятичную запятую вместо точки, умножение пишем точкой, а не крестиком, деление - двумя точками, а при измерении температуры пользуемся градусами Цельсия. Я уверен, что ты сможешь поправить все по-своему, как привыкли дети в России.</li>
+<li>Разумеется, Раймундо, сделаем. Это не составит труда. Со стены Ивана Высоцкого вконтакте</li>
+</ul>
+</blockquote>
+</div>
+<div id="-excel-xls--xlsx" class="section level3">
+<h3><span class="header-section-number">1.6.2</span> Форматы Excel: xls и xlsx</h3>
+</div>
+<div id="-spss-sav" class="section level3">
+<h3><span class="header-section-number">1.6.3</span> Формат SPSS: sav</h3>
+</div>
+<div id="-eviews-wf1" class="section level3">
+<h3><span class="header-section-number">1.6.4</span> Формат Eviews: wf1</h3>
+</div>
+<div id="-stata-dat" class="section level3">
+<h3><span class="header-section-number">1.6.5</span> Формат Stata: dat</h3>
+</div>
+</div>
+<div id="internet_sources" class="section level2">
+<h2><span class="header-section-number">1.7</span> Интернет-источники данных</h2>
+<p>Зачастую данные не обязательно даже сохранять. В R есть пакеты, дающие доступ к некоторым источникам данных в Интернете:</p>
+<ol style="list-style-type: decimal">
+<li><p><code>quandl</code></p></li>
+<li><p><code>quantmod</code></p></li>
+<li><p><code>WDI</code></p></li>
+</ol>
+<blockquote>
+<p>СССР — родина слонов!</p>
+</blockquote>
+<p>Пакеты, дающие доступ к данным по России:</p>
+<ol style="list-style-type: decimal">
+<li><p><code>sophisthse</code> sophist.hse.ru</p></li>
+<li><p><code>cbr</code> Центральный Банк России</p></li>
+<li><p><code>datamos</code> datamos.ru</p></li>
+<li><p>finam.ru.</p></li>
+</ol>
+<p>А эти источники ещё ждут желающих написать пакет для R:</p>
+<ol style="list-style-type: decimal">
+<li><p>gks.ru</p></li>
+<li><p>open data gov ???</p></li>
+</ol>
+</div>
+<div id="code_style" class="section level2">
+<h2><span class="header-section-number">1.8</span> Стиль кода</h2>
+<p>R одинаково выполнит и команды</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="dv">6-7</span>
+y&lt;--<span class="dv">6+9</span>
+x -<span class="st">     </span>y</code></pre></div>
+<p>и команды</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">6</span> -<span class="st"> </span><span class="dv">7</span>
+y &lt;-<span class="st"> </span>-<span class="dv">6</span> +<span class="st"> </span><span class="dv">9</span>
+x -<span class="st"> </span>y</code></pre></div>
+<p>Однако второй вариант гораздо приятнее для чтения. С тем, кто пишет код как в первом примере, Английская королева рядом не сядет! Чтобы иметь возможность войти в палату Лордов и Общин, тебе следует писать стильный код!</p>
+<p>Если ты работаешь в команде, то руководствуйся тем стилем кода, который в ней принят. А для новичков я советую использовать стиль кода, которого придерживается Hadley Wickham, автор очень популярных пакетов R <code>ggplot2</code> и <code>dplyr</code>:</p>
+<ol style="list-style-type: decimal">
+<li>После запятой всегда пиши пробел. Перед запятой — никогда:</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste0</span>(<span class="st">&quot;Hi &quot;</span>, <span class="st">&quot;guys!&quot;</span>)</code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Знак присваивания <code>&lt;-</code>, знаки арифметических действий (<code>+</code>, <code>-</code>, <code>*</code>), логические проверки (<code>&gt;</code>, <code>&lt;</code>, <code>==</code> и прочие) с двух сторон окружай одинарными пробелами.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span>(<span class="fl">3.5</span> +<span class="st"> </span><span class="dv">7</span>) *<span class="st"> </span>(<span class="fl">2.8</span> -<span class="st"> </span><span class="dv">9</span>)</code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Открывающую фигурную скобку оставляй на старой строке, а закрывающую — ставь на новую:</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (x ==<span class="st"> </span>y) {
+  <span class="kw">message</span>(<span class="st">&quot;Variables x and y are equal.&quot;</span>)
+}</code></pre></div>
+<p>В Rstudio можно включить автоматическую проверку стиля кода в Tools - Global options - Code - Diagnostics. Настоящие сэры и истинные леди в разделе Diagnostics могут проставить все галочки.</p>
+</div>
+<div id="two_traditions" class="section level2">
+<h2><span class="header-section-number">1.9</span> Две записи функций</h2>
+<p>Мы все привыкли к тому, что домохозяйки пишут рецепт в естественном порядке, а математики функции — в обратном. Сравни:</p>
+<blockquote>
+<p>Возьмите пепел перьев чёрного петуха</p>
+</blockquote>
+<blockquote>
+<p>Добавьте печень дракона</p>
+</blockquote>
+<blockquote>
+<p>Варите на медленном огне 2 дня</p>
+</blockquote>
+<p>и</p>
+<p><span class="math display">\[ 
+\cos(\sin(|x|)) 
+\]</span></p>
+<p>У домохозяек порядок изложения совпадает с порядком действий. У математиков сначала написано про косинус, но считается он в самом конце.</p>
+<p>Похоже Лёнька Эйлер и Алёшка Клеро</p>
+<p>фото</p>
+<p>введя обозначение <span class="math inline">\(f(x)\)</span> отделили математиков от домохозяек и, вероятно, пустили математику по ложному пути. Было бы гораздо удобнее, если бы в математике функции также записывали в естественном порядке! Но обозначение <span class="math inline">\(f(x)\)</span> мы впитали с молоком матери, уже вряд ли что исправишь.</p>
+<p>R позволяет использовать обе традиции обозначени.</p>
+<p>Традиция Эйлера-Клеро:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cos</span>(<span class="kw">sin</span>(<span class="kw">abs</span>(<span class="dv">10</span>)))</code></pre></div>
+<pre><code>## [1] 0.8556344</code></pre>
+<p>Для того, чтобы иметь возможность писать операции в естественном порядке, подключаем пакет <code>dplyr</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>) <span class="co"># подключит dplyr, ggplot2 и прочие приятности</span></code></pre></div>
+<p>И теперь, в традициях лучших кулинарных рецептов, можно написать</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">10</span> %&gt;%<span class="st"> </span><span class="kw">abs</span>() %&gt;%<span class="st"> </span><span class="kw">sin</span>() %&gt;%<span class="st"> </span><span class="kw">cos</span>()</code></pre></div>
+<pre><code>## [1] 0.8556344</code></pre>
+<p>Оператор <code>%&gt;%</code> называется трубочкой (pipe). (? канал) По первому впечатлению кажется, что эти трубочки долго писать. Но стоит к ним привыкнуть и ощущаешь, что они безумно удобны для сложных операций!</p>
+</div>
+<div id="data_manipulations" class="section level2">
+<h2><span class="header-section-number">1.10</span> Манипуляции с данными</h2>
+<p>(здесь про типы данных)</p>
+<p>Основной объект с которым приходится работать — это табличка с данными. Табличка с данными представляет собой простую двумерную таблицу. Переменные размещаются по столбцам. Каждый столбец может быть своего типа: скажем в одном — числа, а в другом — названия предприятий. Если значение в клетке неизвестно, то там стоит специальное значение <code>NA</code>.</p>
+<p>Отличие от матрицы от таблицы с данными состоит в том, что в матрице все клеточки одинакового типа (все — числовые или все — текстовые), а в таблице с данными каждый столбец может быть своего типа.</p>
+<p>При обработке данных нам помогут рабочие лошадки:</p>
+<ol style="list-style-type: decimal">
+<li><p>Быстрый взгляд на табличку</p></li>
+<li><p>Отбор наблюдений</p></li>
+<li><p>Отбор и переименование переменных</p></li>
+<li><p>Преобразование и создание новых переменных</p></li>
+<li><p>Агрегирование таблиц</p></li>
+<li><p>Преобразование широких и длинных таблиц</p></li>
+</ol>
+<p>Все эти действия можно сделать в базовом R, но это ужасно неудобно. Жизнь становится прекрасной с пакетами <code>data.table</code>, <code>dplyr</code>, <code>reshape2</code>, <code>broom</code> и <code>tidyr</code>.</p>
+<p>Седлаем наших верных коней:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>) <span class="co"># подключит пакеты dplyr, ggplot2 и прочие</span>
+<span class="kw">library</span>(<span class="st">&quot;data.table&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;reshape2&quot;</span>)</code></pre></div>
+<p>Погнали!</p>
+<p>Пакет <code>data.table</code> работает быстрее <code>dplyr</code>, а у <code>dplyr</code> более приятный синтаксис.</p>
+<p>Перед работой с табличкой данных с помощью <code>data.table</code> требуется присвоить ей специальный класс:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars2 &lt;-<span class="st"> </span><span class="kw">data.table</span>(cars)</code></pre></div>
+<p>Содержимое таблиц <code>cars</code> и <code>cars2</code> абсолютно одинаково, просто они чуть по-разному хранятся и обрабатываются компьютером.</p>
+<div id="glimpse" class="section level3">
+<h3><span class="header-section-number">1.10.1</span> Быстрый взгляд на табличку</h3>
+<p>С помощью базового R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(mtcars)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    32 obs. of  11 variables:
+##  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+##  $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+##  $ disp: num  160 160 108 258 360 ...
+##  $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+##  $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+##  $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+##  $ qsec: num  16.5 17 18.6 19.4 17 ...
+##  $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+##  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+##  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+##  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...</code></pre>
+<p>С помощью <code>dplyr</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(mtcars)</code></pre></div>
+<pre><code>## Observations: 32
+## Variables: 11
+## $ mpg  &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19....
+## $ cyl  &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, ...
+## $ disp &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 1...
+## $ hp   &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, ...
+## $ drat &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.9...
+## $ wt   &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3...
+## $ qsec &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 2...
+## $ vs   &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, ...
+## $ am   &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, ...
+## $ gear &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, ...
+## $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, ...</code></pre>
+<p>С помощью <code>broom</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glance</span>(mtcars)</code></pre></div>
+<pre><code>##   nrow ncol complete.obs na.fraction
+## 1   32   11           32           0</code></pre>
+<p>и короткие описательные статистики:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tidy</span>(mtcars)</code></pre></div>
+<pre><code>##    column  n       mean          sd  median     trimmed         mad    min
+## 1     mpg 32  20.090625   6.0269481  19.200  19.6961538   5.4114900 10.400
+## 2     cyl 32   6.187500   1.7859216   6.000   6.2307692   2.9652000  4.000
+## 3    disp 32 230.721875 123.9386938 196.300 222.5230769 140.4763500 71.100
+## 4      hp 32 146.687500  68.5628685 123.000 141.1923077  77.0952000 52.000
+## 5    drat 32   3.596563   0.5346787   3.695   3.5792308   0.7042350  2.760
+## 6      wt 32   3.217250   0.9784574   3.325   3.1526923   0.7672455  1.513
+## 7    qsec 32  17.848750   1.7869432  17.710  17.8276923   1.4158830 14.500
+## 8      vs 32   0.437500   0.5040161   0.000   0.4230769   0.0000000  0.000
+## 9      am 32   0.406250   0.4989909   0.000   0.3846154   0.0000000  0.000
+## 10   gear 32   3.687500   0.7378041   4.000   3.6153846   1.4826000  3.000
+## 11   carb 32   2.812500   1.6152000   2.000   2.6538462   1.4826000  1.000
+##        max   range       skew    kurtosis          se
+## 1   33.900  23.500  0.6106550 -0.37276603  1.06542396
+## 2    8.000   4.000 -0.1746119 -1.76211977  0.31570933
+## 3  472.000 400.900  0.3816570 -1.20721195 21.90947271
+## 4  335.000 283.000  0.7260237 -0.13555112 12.12031731
+## 5    4.930   2.170  0.2659039 -0.71470062  0.09451874
+## 6    5.424   3.911  0.4231465 -0.02271075  0.17296847
+## 7   22.900   8.400  0.3690453  0.33511422  0.31588992
+## 8    1.000   1.000  0.2402577 -2.00193762  0.08909831
+## 9    1.000   1.000  0.3640159 -1.92474143  0.08820997
+## 10   5.000   2.000  0.5288545 -1.06975068  0.13042656
+## 11   8.000   7.000  1.0508738  1.25704307  0.28552971</code></pre>
+<p>Пока что в пакете <code>broom</code> содержится ошибка, <a href="https://github.com/dgrtwo/broom/issues/154">команды glance() и tidy() не срабатывают</a> с некоторыми табличками данных. Тогда описательные статистики можно получить с помощью пакета <code>psych</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;psych&quot;</span>)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;psych&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:ggplot2&#39;:
+## 
+##     %+%, alpha</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">describe</span>(mtcars)</code></pre></div>
+<pre><code>##      vars  n   mean     sd median trimmed    mad   min    max  range  skew
+## mpg     1 32  20.09   6.03  19.20   19.70   5.41 10.40  33.90  23.50  0.61
+## cyl     2 32   6.19   1.79   6.00    6.23   2.97  4.00   8.00   4.00 -0.17
+## disp    3 32 230.72 123.94 196.30  222.52 140.48 71.10 472.00 400.90  0.38
+## hp      4 32 146.69  68.56 123.00  141.19  77.10 52.00 335.00 283.00  0.73
+## drat    5 32   3.60   0.53   3.70    3.58   0.70  2.76   4.93   2.17  0.27
+## wt      6 32   3.22   0.98   3.33    3.15   0.77  1.51   5.42   3.91  0.42
+## qsec    7 32  17.85   1.79  17.71   17.83   1.42 14.50  22.90   8.40  0.37
+## vs      8 32   0.44   0.50   0.00    0.42   0.00  0.00   1.00   1.00  0.24
+## am      9 32   0.41   0.50   0.00    0.38   0.00  0.00   1.00   1.00  0.36
+## gear   10 32   3.69   0.74   4.00    3.62   1.48  3.00   5.00   2.00  0.53
+## carb   11 32   2.81   1.62   2.00    2.65   1.48  1.00   8.00   7.00  1.05
+##      kurtosis    se
+## mpg     -0.37  1.07
+## cyl     -1.76  0.32
+## disp    -1.21 21.91
+## hp      -0.14 12.12
+## drat    -0.71  0.09
+## wt      -0.02  0.17
+## qsec     0.34  0.32
+## vs      -2.00  0.09
+## am      -1.92  0.09
+## gear    -1.07  0.13
+## carb     1.26  0.29</code></pre>
+</div>
+<div id="filter_observations" class="section level3">
+<h3><span class="header-section-number">1.10.2</span> Отбор наблюдений</h3>
+<p>С помощью <code>dplyr</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(cars)</code></pre></div>
+<pre><code>##   speed dist
+## 1     4    2
+## 2     4   10
+## 3     7    4
+## 4     7   22
+## 5     8   16
+## 6     9   10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars_filtered &lt;-<span class="st"> </span><span class="kw">filter</span>(cars, speed &gt;<span class="st"> </span><span class="dv">10</span>, dist &lt;<span class="st"> </span><span class="dv">20</span>)
+<span class="kw">head</span>(cars_filtered)</code></pre></div>
+<pre><code>##   speed dist
+## 1    11   17
+## 2    12   14</code></pre>
+<p>Не забывай про эквивалентный трубчатый синтаксис:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars_filtered &lt;-<span class="st"> </span>cars %&gt;%<span class="st"> </span><span class="kw">filter</span>(speed &gt;<span class="st"> </span><span class="dv">10</span>, dist &lt;<span class="st"> </span><span class="dv">20</span>)</code></pre></div>
+<div class="warning">
+<p>
+Некоторые другие пакеты помимо <code>dplyr</code> содержат функцию <code>filter</code>. Чтобы избежать конфликта имён можно явно написать <code>dplyr::filter</code> вместо просто <code>filter</code>.
+</p>
+</div>
+<p>С помощью <code>data.table</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars_filtered &lt;-<span class="st"> </span>cars2[speed &gt;<span class="st"> </span><span class="dv">10</span> &amp;<span class="st"> </span>dist &lt;<span class="st"> </span><span class="dv">20</span>]</code></pre></div>
+</div>
+<div id="select_rename" class="section level3">
+<h3><span class="header-section-number">1.10.3</span> Отбор и переименование переменных:</h3>
+<p>С помощью <code>dplyr</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars2 &lt;-<span class="st"> </span><span class="kw">select</span>(mtcars, <span class="dt">cylinder =</span> cyl, <span class="dt">mpg =</span> mpg, <span class="dt">carburator =</span> carb)</code></pre></div>
+<p>Помни о трубочках:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars2 &lt;-<span class="st"> </span>mtcars %&gt;%
+<span class="st">  </span><span class="kw">select</span>(<span class="dt">cylinder =</span> cyl, <span class="dt">mpg =</span> mpg, <span class="dt">carburator =</span> carb)</code></pre></div>
+<div class="warning">
+<p>
+Некоторые другие пакеты помимо <code>dplyr</code> содержат функцию <code>select</code>. Чтобы избежать конфликта имён можно явно написать <code>dplyr::select</code> вместо просто <code>select</code>.
+</p>
+</div>
+</div>
+</div>
+<div id="graphs" class="section level2">
+<h2><span class="header-section-number">1.11</span> Графики</h2>
+<p>График можно строить либо чтобы: - самому по-быстрому взглянуть на некий результат и сразу забыть график - показать график кому-нибудь</p>
+<p>В первом случае нет никаких требований к графику — лишь бы самому было понятно, что там изображено. Если же график показывать кому-то ещё, то:</p>
+<div class="warning">
+<p>
+Идеальный график должен быстро и верно восприниматься смотрящим.
+</p>
+</div>
+<p>Из этого простого принципа следует ряд выводов:</p>
+<ol style="list-style-type: decimal">
+<li>Идеальный график должен быть самодостаточным.</li>
+</ol>
+<p>Если для понимания графика смотрящему требуется прочитать кучу текста вокруг или прослушать получасовое объяснение, то это нехорошо :) Вырежи свой график из статьи/книги/курсовой и подумай, понятен ли он?</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Подписывай оси.</li>
+</ol>
+<p>[ссылка на xkcd]</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Выбирай единицы измерения так, чтобы читатель не мучился, считая нули у каждой цифры.</p></li>
+<li><p>Указывай единицы измерения.</p></li>
+<li><p>Хорошо бы указать источник данных.</p></li>
+<li><p>Лучше расшифровать сокращения, хотя иногда это бывает нелегко.</p></li>
+<li><p>Никаких круговых диаграмм.</p></li>
+</ol>
+<p>Круговые диаграммы — это табу. Да, R умеет их строить. Процитирую документацию к функции <code>pie</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(pie)</code></pre></div>
+<blockquote>
+<p>Pie charts are a very bad way of displaying information. The eye is good at judging linear measures and bad at judging relative areas. A bar chart or dot chart is a preferable way of displaying this type of data.</p>
+<p>Cleveland (1985), page 264: “Data that can be shown by pie charts always can be shown by a dot chart. This means that judgements of position along a common scale can be made instead of the less accurate angle judgements.” This statement is based on the empirical investigations of Cleveland and McGill as well as investigations by perceptual psychologists.</p>
+</blockquote>
+<ol start="8" style="list-style-type: decimal">
+<li>Никаких псевдо-3D эффектов и прочих «рюшечек».</li>
+</ol>
+<p>Посмотрите пару анимаций от DarkHorse.</p>
+<ol start="9" style="list-style-type: decimal">
+<li><p>Ось должна начинаться от нуля.</p></li>
+<li><p>Полезно немного ознакомиться с творениями мэтров :)</p></li>
+</ol>
+<p>Tufte, link</p>
+<p>Очень часто к графикам относятся как к чему-то вспомогательному. На самом деле график очень часто является основным результатом, гораздо более важным, чем несколько страниц текста. Именно поэтому полезно отказаться от мысли «я тут за пять минут график вставлю» и потратить на график часок-другой!</p>
+<div id="two_simple_graphs" class="section level3">
+<h3><span class="header-section-number">1.11.1</span> Два простеньких графика</h3>
+<p>Простенькую гистограмму можно построить, например, с помощью функции <code>qplot()</code> из пакета <code>ggplot2</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)
+<span class="kw">qplot</span>(<span class="kw">factor</span>(s), <span class="dt">xlab =</span> <span class="st">&quot;Значение&quot;</span>,
+<span class="dt">ylab =</span> <span class="st">&quot;Количество&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Гистограмма&quot;</span>)</code></pre></div>
+<p><img src="r_manual_files/figure-html/simple_histo-1.png" width="672" /></p>
+<p>Ту же гистограммку можно построить с помощью функции <code>ggplot()</code> из того же пакета, предварительно преобразовав s в необходимый для <code>ggplot()</code> формат data frame:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(s)
+<span class="kw">ggplot</span>(s_df) +<span class="st"> </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="kw">factor</span>(s))) +
+<span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Значение&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Количество&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Гистограмма&quot;</span>)</code></pre></div>
+<p><img src="r_manual_files/figure-html/simple_histo_ggplot2-1.png" width="672" /></p>
+<p>И еще простенький график:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">500</span>) <span class="co"># 500 нормальных величин со средним 0 и дисперсией 1</span>
+y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">500</span>) <span class="co"># 500 нормальных величин со средним 0 и дисперсией 1</span>
+<span class="kw">qplot</span>(x, y, <span class="dt">main =</span> <span class="st">&quot;Точечки&quot;</span>)</code></pre></div>
+<p><img src="r_manual_files/figure-html/scatter_qplot-1.png" width="672" /></p>
+<p>Или:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xy_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)
+<span class="kw">ggplot</span>(xy_df) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(x, y)) +<span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Точечки&quot;</span>)</code></pre></div>
+<p><img src="r_manual_files/figure-html/scatter_ggplot2-1.png" width="672" /></p>
+<p>В зависимости от формата данных часто бывает удобно использовать и <code>qplot()</code>, и <code>ggplot()</code>.</p>
+</div>
+</div>
+<div id="error" class="section level2">
+<h2><span class="header-section-number">1.12</span> У меня ошибка!</h2>
+<blockquote>
+<p>Шеф! Всё пропало! Гипс снимают, клиент уезжает!</p>
+</blockquote>
+<p>поговори с уточкой, посиди у озера</p>
+</div>
+<div id="R_links" class="section level2">
+<h2><span class="header-section-number">1.13</span> Ресурсы по R</h2>
+<p>Начнём с русскоязычных крупных книжек:</p>
+<ul>
+<li>Шипунов А.Б., Балдин Е.М. и др. <a href="http://ashipunov.info/shipunov/school/books/rbook.pdf">Наглядная статистика. Используем R!</a> * Мастицкий С.Э., Шитиков В.К., <a href="http://www.ievbras.ru/ecostat/Kiril/R/Mastitsky%20and%20Shitikov%202014.pdf">Статистический анализ и визуализация с помощью R</a></li>
+<li>Василенко Є.С, <a href="https://www.dropbox.com/sh/gaxtktwbxyuu1ss/AAAb2XW0kquoxfLryf2aYeQZa?dl=0">Обробка геологiчної iнформацiї з використанням програмного середовища R</a> * Кабаков Р.И. R в действии. <a href="http://dmkpress.com/catalog/computer/statistics/978-5-94074-912-7/">Анализ и визуализация данных на языке R</a></li>
+</ul>
+<p>На русском также могут быть полезны:</p>
+<ul>
+<li>Стилевое руководство гугла: <a href="https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml">english</a>, <a href="https://9ccb6b88-a-cba0391b-s-sites.googlegroups.com/a/kiber-guu.ru/r-practice/links/R_style_from_Google.pdf?attachauth=ANoY7crkge5FhA5LZtMwj6Ilur-WbnkKLijkDkoB01VZZAlsFoRjEo7YwgqvW-Gid6ffwBmz3TMT51kMnw8JljZeQlDPRXMKZctirezqTziipn5TOaB9D1IaQ7qzTSusjkIyYV2jMchrhAsXOHTo_G0VRztBxYeecm4HYS19M1VTxn-UluL_9tYpsOEpDvhV1ghlRvk57pCxDO3C4wSV63SQIy0p7cjo6r-HB6Dj0CG7iNKM_RTjaAw%3D&amp;attredirects=0">русский</a></li>
+<li><a href="http://r-analytics.blogspot.ru">Блог r-analytics</a>. На нём есть несколько других подборок русскоязычных ресурсов по R: <a href="http://r-analytics.blogspot.ru/p/blog-page_20.html">раз</a> и <a href="http://r-analytics.blogspot.ru/p/blog-page_80.html">два</a>. * <a href="https://vk.com/rstatistics">Группа вконтакте rstatistics</a> * <a href="https://vk.com/spbrug">Группа вконтакте spbrug</a> * <a href="https://vk.com/introstats">Группа вконтакте introstats</a> * Венэбльз, Смит <a href="http://www.ievbras.ru/ecostat/Kiril/R/Biblio/R_rus/Venables%20%c2%e2%e5%e4%e5%ed%e8%e5%20%e2%20R.pdf">Введение в R</a></li>
+<li>Зарядов И.С. <a href="http://www.ievbras.ru/ecostat/Kiril/R/Biblio/R_rus/%c7%e0%f0%ff%e4%ee%e2%20%f7%e0%f1%f2%fc_1.pdf">Введение в R: часть 1</a></li>
+<li>Зарядов И.С. <a href="http://www.ievbras.ru/ecostat/Kiril/R/Biblio/R_rus/%c7%e0%f0%ff%e4%ee%e2%20%f7%e0%f1%f2%fc_2.pdf">Введение в R: часть 2</a></li>
+<li>Борис Демешев <a href="http://bdemeshev.github.io/r_cycle/">Цикл маленьких заметок по R</a></li>
+</ul>
+<p>Вопросы и ответы:</p>
+<ul>
+<li><p><a href="http://stackoverflow.com/">stackoverflow</a> Если возникли проблемы с программированием в R (и не только в R), а документация уже прочитана…</p></li>
+<li><p><a href="http://stats.stackexchange.com/">stats.stackexchange</a> Можно спросить по статистическим методам и их реализации в R.</p></li>
+<li><p><a href="http://tex.stackexchange.com/">tex.stackexchange</a> Вопросы и ответы про LaTeX</p></li>
+</ul>
+<p>Он-лайн курсы и видеолекции с использованием R:</p>
+<ul>
+<li><p><a href="http://r-exercises.com/r-courses/">Поисковик он-лайн курсов по R</a></p></li>
+<li><p><a href="http://tryr.codeschool.com/">Try R</a> Путь к сокровищам R для самых начинающих пиRатов!</p></li>
+<li><p><a href="https://stepik.org/course/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%BD%D0%B0-R-497/">Основы программирования на R от stepik.org</a></p></li>
+<li><p><a href="https://stepik.org/course/%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-%D0%B2-R-129/">Анализ данных в R от stepik.org</a></p></li>
+<li><p><a href="https://www.datacamp.com/">datacamp.com</a> Несколько платных и бесплатных интерактивных курсов по R</p></li>
+<li><p>Видео-лекции курса Computing for Data Analysis: <a href="http://www.youtube.com/playlist?list=PLjTlxb-wKvXNSDfcKPFH2gzHGyjpeCZmJ">неделя 1</a>, <a href="http://www.youtube.com/playlist?list=PLjTlxb-wKvXNnjUTX4C8IeIhPBjPkng6B">неделя 2</a>, <a href="http://www.youtube.com/playlist?list=PLjTlxb-wKvXOzI2h0F2_rYZHIXz8GWBop">неделя 3</a>, <a href="http://www.youtube.com/playlist?list=PLjTlxb-wKvXOdzysAE6qrEBN_aSBC0LZS">неделя 4</a>. Сам курс доступен на <a href="http://www.coursera.org">coursera.org</a></p></li>
+</ul>
+<p>Открытые крупные источники на английском:</p>
+<ul>
+<li><p>Trevor Hastie, Robert Tibshirani, <a href="http://www-bcf.usc.edu/~gareth/ISL/">An Introduction to Statistical Learning</a>. По книжке есть <a href="https://class.stanford.edu/courses/HumanitiesandScience/StatLearning/Winter2015/about">курс на платформе class.standford.edu</a></p></li>
+<li><p>Rob Hyndman, <a href="https://www.otexts.org/book/fpp">Forecasting: principles and practice</a> Книжка по временным рядам от автора пакета forecast</p></li>
+<li><p>Garrett Grolemund, Hadley Wickham, <a href="http://r4ds.had.co.nz/">R for Data Science</a></p></li>
+<li><p>Colin Gillespie, Robin Lovelace, <a href="https://bookdown.org/csgillespie/efficientR">Efficient R programming</a>, он-лайн книга для более продвинутых пользователей R. Написана на R и markdown :)</p></li>
+<li><p>Rob Kabacoff, <a href="http://www.statmethods.net/">Quick R</a></p></li>
+<li><p>Farnsworth, <a href="http://cran.r-project.org/doc/contrib/Farnsworth-EconometricsInR.pdf">Econometrics in R</a></p></li>
+<li><p><a href="http://wiki.stdout.org/rcookbook/">Cookbook for R</a></p></li>
+<li><p><a href="http://www.burns-stat.com/pages/Tutor/R_inferno.pdf">R-inferno</a> Адский учебник по R с картинками Ботичелли, “Even if it doesn’t help you with your problem, it might amuse you”</p></li>
+<li><p>Roger Peng, <a href="https://leanpub.com/rprogramming/">R programming for data science</a> и на <a href="https://bookdown.org/rdpeng/rprogdatascience/">bookdown</a></p></li>
+<li><p><a href="http://cran.r-project.org/doc/manuals/R-intro.pdf">Introduction to R</a>, Введение с официального сайта</p></li>
+<li><p>документация <a href="http://docs.ggplot2.org/current/index.html">по графикам ggplot2</a></p></li>
+<li><p>документация к <a href="http://stackoverflow.com/documentation/r/topics">R от stats.stackexchange</a></p></li>
+<li><p><strong>Шикарные</strong> <a href="https://www.rstudio.com/resources/cheatsheets/"><strong>шпаргалки от Rstudio</strong></a></p></li>
+<li><p><a href="https://pairach.com/2012/02/26/r-tutorials-from-universities-around-the-world/">100 курсов и книг по R</a> от разных университетов</p></li>
+<li><p>Агрегатор блогов <a href="http://r-bloggers.com/">r-bloggers</a></p></li>
+<li><p>Поисковик <a href="http://rseek.org/">rseek.org</a></p></li>
+</ul>
+<p>Великолепные виньетки к разным пакетам:</p>
+<ul>
+<li><p><a href="http://cran.r-project.org/web/packages/vars/vignettes/vars.pdf">vars</a>, векторные авторегрессии, есть вольный пересказ <a href="http://rpubs.com/rakhab/9941">по-русски</a></p></li>
+<li><p><a href="http://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html">dplyr</a> манипуляции с данными</p></li>
+<li><p><a href="http://cran.r-project.org/web/packages/sandwich/vignettes/sandwich.pdf">sandwich</a> борьба с гетероскедастичностью и заклинания HC0, HC1, HC2, …</p></li>
+<li><p><a href="http://cran.r-project.org/web/packages/plm/vignettes/plm.pdf">plm</a> панельные модели в R</p></li>
+<li><p><a href="http://journal.r-project.org/archive/2013-1/kahle-wickham.pdf">ggmap</a> рисуем карты</p></li>
+<li><p><a href="http://cran.r-project.org/web/packages/vcd/vignettes/strucplot.pdf">vcd</a> полезные графики для качественных переменных</p></li>
+<li><p><a href="http://www.jstatsoft.org/v28/c01/paper">Beanplot</a>: A Boxplot Alternative for Visual Comparison of Distributions.</p></li>
+</ul>
+<p>Ты ещё не заработал свой первый миллион и хочешь скачать научную статью или книжку бесплатно?</p>
+<ul>
+<li><p>Научные книги можно найти на <a href="http://gen.lib.rus.ec/">gen.lib.rus.ec</a>.</p></li>
+<li><p>Научные статьи можно скачать на <a href="http://sci-hub.cc/">sci-hub.cc</a>. Есть даже бот <code>@scihubot</code> для <a href="https://telegram.org/">Telegram</a>, которые вышлет в ответ на запрос полный текст статьи.</p></li>
+</ul>
+<p>Если какая-нибудь ссылка не работает или хочешь предложить свою, <a href="https://github.com/bdemeshev/r_manual_book/issues">смело открывай issue на github</a>!</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Единственным неудачным советом в книжке Воронцова, пожалуй, является выбор кодировки СP1251, правильнее выбирать UTF-8.<a href="first-steps.html#fnref1">↩</a></p></li>
+<li id="fn2"><p>Если шестнадцатиричный, то 0451. Ради интереса можно посмотреть сопоставление букв и их кодов в UTF-8, например, на <a href="http://unicode-table.com/ru/">unicode-table.com</a><a href="first-steps.html#fnref2">↩</a></p></li>
+<li id="fn3"><p>На самом деле всё немного хитрее и сама Windows технически использует UTF-16, а вот многие приложения под ней — CP1251.<a href="first-steps.html#fnref3">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="friends-of-R.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": false,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": true,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper", "vk"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/bdemeshev/r_manual_book/issues",
+"text": null
+},
+"download": [["r_manual.pdf", "PDF"], ["r_manual.epub", "EPUB"], ["r_manual.mobi", "MOBI"]],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"search": true,
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

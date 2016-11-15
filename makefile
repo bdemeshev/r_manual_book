@@ -1,3 +1,7 @@
+book_folder = docs
+
+fast: clean preclean html
+
 all: preclean pdf_noclean html epub mobi
 
 preclean:
@@ -9,25 +13,21 @@ preclean:
 
 html:
 	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook")'
-	cp -fvr images _book/
-	cp -fvr css/style.css _book/
+	cp -fvr images $(book_folder)/
+	cp -fvr css/style.css $(book_folder)/
 
 epub:
 	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::epub_book")'
-	cp -fvr _book/r_manual.epub prebuilt_book/
 
 mobi: _book/r_manual.epub
-	Rscript -e 'bookdown::kindlegen("_book/r_manual.epub")'
-	cp -fvr _book/r_manual.mobi prebuilt_book/
+	Rscript -e 'bookdown::kindlegen("$(book_folder)/r_manual.epub")'
 
 
 pdf:
 	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book")'
-	cp -fvr _book/r_manual.pdf prebuilt_book/
 
 pdf_noclean:
 	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book", clean=FALSE)'
-	cp -fvr _book/r_manual.pdf prebuilt_book/
 
 site:
 	Rscript -e 'rmarkdown::render_site(encoding = "UTF-8")'
