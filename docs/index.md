@@ -1,13 +1,12 @@
 ---
 title: "Учебник по языку R для начинающих"
 author: "Борис Демешев"
-date: '2017-08-25'
+date: '2017-11-19'
 output:
   bookdown::gitbook:
     config:
       download: [["r_manual.pdf", "PDF"], ["r_manual.epub", "EPUB"], ["r_manual.mobi", "MOBI"]]
-      edit:
-        link: https://github.com/bdemeshev/r_manual_book/issues
+      edit: null
       fontsettings:
         family: sans
         size: 2
@@ -68,7 +67,7 @@ biblio-style: alphabetic
 
 # О книге {-}
 
-Сейчас живут три кита анализа данных и научных вычислений --- Julia, Python и R. Эта книга про одного из китов!
+Сейчас живут три кита анализа данных и научных вычислений — Julia, Python и R. Эта книга про одного из китов!
 
 
 
