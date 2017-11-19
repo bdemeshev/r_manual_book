@@ -1,72 +1,7 @@
-```{r "knitr options", include=FALSE}
-library(knitr)
-library(tikzDevice)
-
-activate_tikz <- function() {
-
-  # tikz plots options
-  options(tikzDefaultEngine = "xetex")
-
-  # cash font metrics for speed:
-  # options(tikzMetricsDictionary = "./tikz_metrics")
-
-  add_xelatex <- c("\\defaultfontfeatures{Ligatures=TeX, Scale=MatchLowercase}",
-                   "\\setmainfont{Linux Libertine O}",
-                   "\\setmonofont{Linux Libertine O}",
-                   "\\setsansfont{Linux Libertine O}",
-        "\\newfontfamily{\\cyrillicfonttt}{Linux Libertine O}",
-        "\\newfontfamily{\\cyrillicfont}{Linux Libertine O}",
-        "\\newfontfamily{\\cyrillicfontsf}{Linux Libertine O}")
-
-  options(tikzXelatexPackages = c(getOption("tikzXelatexPackages"),
-                                  add_xelatex))
-
-  # does remove warnings:
-  # it is important to remove fontenc package wich is loaded by default
-  options(tikzUnicodeMetricPackages = c("\\usetikzlibrary{calc}",
-                                        "\\usepackage{fontspec, xunicode}", add_xelatex))
 
 
-  opts_chunk$set(dev = "tikz", dev.args = list(pointsize = 11))
-}
-
-activate_png <- function() {
-  opts_chunk$set(dev = "png", dpi = 300)
-}
 
 
-colFmt <- function(x, color) {
-  outputFormat <- opts_knit$get("rmarkdown.pandoc.to")
-  if (outputFormat == "latex") {
-    result <- paste0("\\textcolor{", color, "}{", x, "}")
-  } else if (outputFormat %in% c("html", "epub")) {
-    result <- paste0("<font color='", color, "'>", x, "</font>")
-  } else {
-    result <- x
-  }
-  return(result)
-}
-
-outputFormat <- opts_knit$get("rmarkdown.pandoc.to")
-
-
-if (outputFormat == "latex") {
-  # activateTikz()
-  activate_png()
-  # другую тему для ggplot2 выставить?
-}
-
-```
-
-
-```{r, include=FALSE}
-library(tidyverse) # рабочие кони
-library(sandwich) # оценка Var для гетероскедастичности
-library(lmtest) # тест Бройша-Пагана
-library(data.table) # манипуляции с данными
-library(reshape2) # преобразование длинных таблиц в широкие
-library(broom)
-```
 
 # Друзья R {#friends_of_R}
 
@@ -140,12 +75,7 @@ library(broom)
 
 6. Автодобавление пакетов
 
-```{r, "bib_from_packages", include=FALSE, eval=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
+
 
 глючит на `"M"uller`
 
@@ -155,14 +85,16 @@ knitr::write_bib(c(
 
 Поставить менеджер пакетов [Homebrewer](http://brew.sh/).
 
-```{bash, "mobi_install", eval=FALSE}
+
+```bash
 brew update
 brew cask install calibre
 brew cask install kindlegen
 ```
 
 В предисловии
-```{bash, "kindlegen_setup", eval=FALSE}
+
+```bash
 bookdown::kindlegen:
   epub: _book/r_manual.epub
 ```
@@ -171,7 +103,8 @@ bookdown::kindlegen:
 
 
 или
-```{bash, "calibre_setup", eval=FALSE}
+
+```bash
 bookdown::calibre:
   input: _book/r_manual.epub
   output: _book/r_manual.mobi 
@@ -186,13 +119,15 @@ bookdown::calibre:
 
 Создаём новый токен на [github](https://github.com/settings/tokens): кликнуть по иконке пользователя, далее settings - token - generate new token.
 
-```{bash, "github_token", eval=FALSE}
+
+```bash
 sudo gem install travis
 travis encrypt GITHUB_TOKEN=[token from githum]
 ```
 
 Именно переменная `GITHUB_TOKEN` должна использоваться для того, чтобы обращаться к гитхабу, т.е. клонируется ветка gh-pages командой
-```{bash, "token_use", eval=FALSE}
+
+```bash
 git clone -b gh-pages https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git book-output
 ```
 Переменная `TRAVIS_REPO_SLUG` будет сама определена сервисом Travis и будет равна названию репозитория.
@@ -207,7 +142,8 @@ git clone -b gh-pages https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
 
 
 Для быстрой компиляции добавляем в `.travis.yml` указание, что мы будем использовать готовые бинарные пакеты R:
-```{bash, "binary_packages", eval=FALSE}
+
+```bash
 r_binary_packages:
   - ggplot2
   - dplyr
@@ -217,7 +153,8 @@ r_binary_packages:
 
 Если бинарный пакет слишком старый или вообще отсутствует, можно проинсталлировать его обычным образом, для этого добавляем строки
 
-```{bash, "non_binary_packages", eval=FALSE}
+
+```bash
 r_packages:
   - devtools
   - rio
@@ -227,7 +164,8 @@ r_packages:
 
 по мотивам [http://stackoverflow.com/questions/29067541](http://stackoverflow.com/questions/29067541)
 
-```{r, "red_function", eval=FALSE}
+
+```r
 colFmt <- function(x, color) {
   outputFormat <- opts_knit$get("rmarkdown.pandoc.to")
   if (outputFormat == "latex") {
@@ -243,7 +181,7 @@ colFmt <- function(x, color) {
 
 
 
-Then you can use it inline like this: `r colFmt("MY RED TEXT", "red")`
+Then you can use it inline like this: <font color='red'>MY RED TEXT</font>
 
 9. Файл `_output.yaml` это просто `output:` кусок из `yaml`-части файла `index.Rmd`. Поэтому можно внести `_output.yaml` обратно в `index.Rmd`, чтобы все настройки были в одном месте. 
 

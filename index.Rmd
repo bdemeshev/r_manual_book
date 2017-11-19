@@ -6,8 +6,7 @@ output:
   bookdown::gitbook:
     config:
       download: [["r_manual.pdf", "PDF"], ["r_manual.epub", "EPUB"], ["r_manual.mobi", "MOBI"]]
-      edit:
-        link: https://github.com/bdemeshev/r_manual_book/issues
+      edit: null
       fontsettings:
         family: sans
         size: 2
@@ -71,11 +70,11 @@ biblio-style: alphabetic
 Сейчас живут три кита анализа данных и научных вычислений --- Julia, Python и R. Эта книга про одного из китов!
 
 
-```{r "knitr options"}
-library("knitr")
-library("tikzDevice")
+```{r "knitr options", include=FALSE}
+library(knitr)
+library(tikzDevice)
 
-activateTikz <- function() {
+activate_tikz <- function() {
 
   # tikz plots options
   options(tikzDefaultEngine = "xetex")
@@ -103,6 +102,10 @@ activateTikz <- function() {
   opts_chunk$set(dev = "tikz", dev.args = list(pointsize = 11))
 }
 
+activate_png <- function() {
+  opts_chunk$set(dev = "png", dpi = 300)
+}
+
 
 colFmt <- function(x, color) {
   outputFormat <- opts_knit$get("rmarkdown.pandoc.to")
@@ -120,7 +123,8 @@ outputFormat <- opts_knit$get("rmarkdown.pandoc.to")
 
 
 if (outputFormat == "latex") {
-  activateTikz()
+  # activateTikz()
+  activate_png()
   # другую тему для ggplot2 выставить?
 }
 
@@ -129,13 +133,11 @@ if (outputFormat == "latex") {
 Данная версия книги скомпилирована для `r outputFormat`.
 
 
-```{r, warning=FALSE, message=FALSE}
-library("ggplot2") # графики
-library("sandwich") # оценка Var для гетероскедастичности
-library("lmtest") # тест Бройша-Пагана
-library("dplyr") # манипуляции с данными
-library("broom") # преобразование всего и вся в стандартные таблички
-library("data.table") # манипуляции с данными
-library("reshape2") # преобразование длинных таблиц в широкие
-library("tidyr") # причесывание данных
+```{r, include=FALSE}
+library(tidyverse) # рабочие кони
+library(sandwich) # оценка Var для гетероскедастичности
+library(lmtest) # тест Бройша-Пагана
+library(data.table) # манипуляции с данными
+library(reshape2) # преобразование длинных таблиц в широкие
 ```
+
